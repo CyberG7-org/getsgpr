@@ -123,4 +123,69 @@ export const ALLOW: Record<string, string[]> = {
     // identical text; both collapse to one deduplicated sentence and are covered here.
     "last reviewed: [date] · primary source:",
   ],
+
+  packages: [
+    // Trust strip — same fixed-component substitution as above.
+    "[Tradehub 21, full address]",
+
+    // Fixed-component substitution: the shared `Packages` block (built in an earlier
+    // task) renders `showNotFor` from `content/packages.ts`'s `notFor` array (3 bullets
+    // per package, sourced from home.html's package cards in Task 7), not the single
+    // "Not included: ..." / "Family: ... Appeal drafting: ..." paragraph that
+    // packages.html's own `.pkg` cards carry. Per the task brief, the data file wins
+    // and this is the documented difference.
+    "Not included: consultations, document review, form completion, submission or appeal support.",
+    "Not included: form completion, document collection, submission on your behalf, appeal drafting.",
+    "Family: [S$x] per additional member.",
+    "Appeal drafting: [included / add-on — confirm].",
+  ],
+
+  "pkg-lite": [
+    // Trust strip — same fixed-component substitution as above.
+    "[Tradehub 21, full address]",
+
+    // Hero block's `aside` union (kind: "checker" | "image", fixed by an earlier task,
+    // not in this task's file list) has no package-summary-card variant, so the
+    // prototype's redundant sidebar `.pkg` card (a duplicate mini preview of the same
+    // package shown beside the hero copy) cannot be reproduced as a whole component.
+    // Its name, price, tagline and CTA are already present via the hero's own
+    // title/sub/badge/buttons, and its "For: ..." line is carried through verbatim via
+    // `hero.under` (= PACKAGES.lite.bestFor). Only the card's compact 4-item bullet
+    // list — itself a shorthand restatement of the six items spelled out in full in
+    // the "Everything included" section below — has no field to render into.
+    "Self-guided application toolkit",
+    "ICA-linked document checklists and organiser",
+    "Editable letter templates and consistency checklist",
+    "Process resources, updated for 90 days",
+  ],
+
+  "pkg-partnered": [
+    // Trust strip — same fixed-component substitution as above.
+    "[Tradehub 21, full address]",
+
+    // Redundant sidebar `.pkg` card — same Hero-aside type limitation as pkg-lite above.
+    // Name/price/tagline/CTA are covered by the hero fields; "For: ..." is carried via
+    // `hero.under` (= PACKAGES.partnered.bestFor). Only the card's compact bullet list
+    // (a shorthand restatement of the six items in "Everything included" below) has no
+    // field to render into.
+    "Everything in Lite",
+    "Full Readiness Report and 60-minute strategy consultation",
+    "Feedback via secure shared Drive, two review rounds",
+    "Samples, forms and cover letter reviewed by a consultant",
+  ],
+
+  "pkg-concierge": [
+    // Trust strip — same fixed-component substitution as above.
+    "[Tradehub 21, full address]",
+
+    // Redundant sidebar `.pkg` card — same Hero-aside type limitation as pkg-lite above.
+    // Name/price/tagline/CTA are covered by the hero fields; "For: ..." is carried via
+    // `hero.under` (= PACKAGES.concierge.bestFor). Only the card's compact bullet list
+    // (a shorthand restatement of the six items in "Everything included" below) has no
+    // field to render into.
+    "End-to-end white-glove service with a named case manager",
+    "Full profile strategy, evidence matrix and writing",
+    "Document handling and translation coordination",
+    "ICA submission, live updates and a post-outcome strategy review",
+  ],
 };

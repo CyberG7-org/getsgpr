@@ -13,6 +13,10 @@ export const ROUTE_KEYS: Record<string, string> = {
   "/singapore-citizen": "citizenship",
   "/ltvp": "ltvp",
   "/pr-appeal": "appeal",
+  "/packages": "packages",
+  "/sgpr-lite-diy-tier": "pkg-lite",
+  "/sgpr-partnered-do-with-you": "pkg-partnered",
+  "/sgpr-premium-concierge": "pkg-concierge",
 };
 
 for (const [route, key] of Object.entries(ROUTE_KEYS)) {
