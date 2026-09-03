@@ -273,4 +273,48 @@ export const ALLOW: Record<string, string[]> = {
     // and the Kv rows for "At a glance" (see content/case-studies/*.md and
     // app/case-studies/[slug]/page.tsx).
   ],
+
+  guides: [
+    // Trust strip — same fixed-component substitution as above.
+    "[Tradehub 21, full address]",
+
+    // guides.html's "Start here." and "All guides." sections mock four and nine
+    // cards respectively with hand-written titles. The live page builds both
+    // sections from getGuides() at render time (see the task brief and
+    // app/guides/page.tsx) — with only four real guide files on the site today,
+    // that's four cards in each section, not four-plus-nine hand-written ones. The
+    // four real guides' own titles do appear (should-i-apply-now-or-wait,
+    // pr-document-checklist, appeal-or-reapply, what-ica-considers all match text
+    // already on the page); the five other mocked "All guides" titles that have no
+    // corresponding real guide file cannot be reproduced and are allowlisted here:
+    "Singapore PR consultant fees compared",
+    "What does a PR consultant actually do?",
+    "PR for EP and S Pass holders",
+    "PR for self-employed founders",
+    "Singapore PR processing time and fees",
+    "Appeals and reapplications",
+
+    // guides.html's trailing "Article page layout" section (eyebrow "Article page
+    // layout", <h2>, the two-card left column, the .prose body and its .source
+    // block) is the template for the guide detail page, not index-page content —
+    // per the task brief it is NOT ported to /guides. The template itself lives at
+    // /guides/[slug] (see app/guides/[slug]/page.tsx and content/guides/*.md, whose
+    // markdown body reproduces the placeholder paragraphs verbatim). These lines
+    // belong to that unported sample-article section:
+    "[Title as a question or plain statement]",
+    '[Body in H2 sections, short paragraphs, with ICA citations inline as "Source: ICA, page, checked date".]',
+    "Reviewed against official ICA information",
+    "Last reviewed: [date] · Primary source: Immigration & Checkpoints Authority (ica.gov.sg) · Reviewed by: [name, role]",
+    "GetSGPR is an independent consultancy and is not affiliated with or endorsed by ICA.",
+    "Immigration policies and individual circumstances can change; ICA makes all final decisions.",
+  ],
+
+  faq: [
+    // SourceBlock (components/ui/SourceBlock.tsx, shared fixed component): always
+    // renders the placeholder label SITE.placeholders.checkedOn ("date checked") for
+    // the last-reviewed date, not faq.html's bare "[date]" placeholder — same
+    // "[date]" vs "[date checked]" mismatch as the other pages' SourceBlock entries
+    // above (e.g. the "pr" key). No trust strip appears on this page.
+    "last reviewed: [date] · primary source:",
+  ],
 };

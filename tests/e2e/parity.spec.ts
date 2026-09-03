@@ -22,6 +22,8 @@ export const ROUTE_KEYS: Record<string, string> = {
   "/contact": "contact",
   "/case-studies": "cases",
   "/case-studies/sample-reapplication": "case",
+  "/guides": "guides",
+  "/guides/singapore-pr-faq": "faq",
 };
 
 for (const [route, key] of Object.entries(ROUTE_KEYS)) {

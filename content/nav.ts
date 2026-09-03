@@ -49,5 +49,7 @@ export const NAV = {
     "/sgpr-partnered-do-with-you", "/sgpr-premium-concierge", "/case-studies", "/about",
     "/privacy-data-security", "/guides", "/guides/singapore-pr-faq", "/contact",
     "/case-studies/sample-reapplication", "/case-studies/sample-family", "/case-studies/sample-first-time",
+    "/guides/should-i-apply-now-or-wait", "/guides/pr-document-checklist",
+    "/guides/appeal-or-reapply", "/guides/what-ica-considers",
   ],
 } as const;
