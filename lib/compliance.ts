@@ -5,7 +5,7 @@ export const FORBIDDEN: RegExp[] = [
   /ICA[- ]approved/i,
   /ICA[- ]partner/i,
   /ICA[- ]endorsed/i,
-  /(?<!\d)(?<!not guarantee )\d{1,3}% (?:approval|success)/i,
+  /(?<!\d)(?<!not guarantee )(?<!you guarantee )\d{1,3}% (?:approval|success)/i,
 ];
 
 export function stripPlaceholders(html: string): string {

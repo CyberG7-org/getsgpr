@@ -1,7 +1,9 @@
-export default function Home() {
-  return (
-    <main className="container-x py-20">
-      <h1>GetSGPR</h1>
-    </main>
-  );
+import { Page } from "@/components/Page";
+import { pageMetadata } from "@/lib/metadata";
+import { home } from "@/content/pages/home";
+
+export const metadata = pageMetadata(home.meta);
+
+export default function HomePage() {
+  return <Page content={home} />;
 }
