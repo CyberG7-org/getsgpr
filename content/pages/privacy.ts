@@ -65,7 +65,6 @@ export const privacy: PageContent = {
         { p: "Under Singapore's Personal Data Protection Act you may ask us what personal data we hold about you, how it has been used, and to correct it. You may withdraw consent to our use of your data, subject to the consequences we will explain, such as being unable to continue your case. Write to [[DPO name]] at [[email]] and we will respond within [[x]] days." },
         { h3: "Data protection contact" },
         { p: `[[DPO name]] · [[Email]] · +65 8934 0818 · ${SITE.address}` },
-        { p: "Read the full Privacy Policy → (to be rewritten after the audit so that it matches this page)" },
         { p: "We do not transfer personal data outside Singapore." },
         { p: "We retain personal data only as long as necessary for service delivery, legal, or business purposes." },
       ],

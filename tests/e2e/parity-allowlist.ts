@@ -322,14 +322,25 @@ export const ALLOW: Record<string, string[]> = {
     // Trust strip — same fixed-component substitution as above.
     "[Tradehub 21, full address]",
 
-    // Prose "Data protection contact" line (content/pages/privacy.ts): renders the
-    // real phone number (+65 8934 0818) and the real address (SITE.address) in place
-    // of the prototype's `[Phone]` and `[Postal address]` placeholders, per
-    // transcription rule 4 ("[Phone] → +65 8934 0818"; "[Postal address] → the full
-    // address"). Same substitution family as the about-page kv Contact row allowlist
-    // entry above — the DPO name/email placeholders are unaffected and still render
+    // Prose "Data protection contact" line (content/pages/privacy.ts): rule-4
+    // phone/address substitution inside page prose — renders the real phone number
+    // (+65 8934 0818) and the real address (SITE.address) in place of the
+    // prototype's `[Phone]` and `[Postal address]` placeholders, per transcription
+    // rule 4 ("[Phone] → +65 8934 0818"; "[Postal address] → the full address").
+    // Same substitution family as the about-page kv Contact row allowlist entry
+    // above — the DPO name/email placeholders are unaffected and still render
     // literally, so the original four-placeholder combined sentence no longer forms
     // verbatim.
     "[dpo name] · [email] · [phone] · [postal address]",
+
+    // Dropped builder note (dead # link + instruction to the builder), not customer
+    // copy — same category as the home entry's "Requires substantiation..." line
+    // above. The prototype's closing line under "Your rights." reads "Read the full
+    // Privacy Policy →" (an href="#" link that goes nowhere) followed by "(to be
+    // rewritten after the audit so that it matches this page)", which is an
+    // instruction to whoever builds this page, not visitor-facing content. Neither
+    // half is reproduced on the live page.
+    "read the full privacy policy →",
+    "(to be rewritten after the audit so that it matches this page)",
   ],
 };
