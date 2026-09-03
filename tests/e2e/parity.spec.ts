@@ -6,6 +6,10 @@ export const ROUTE_KEYS: Record<string, string> = {
   "/": "home",
   "/services": "services",
   "/permanent-resident-sg": "pr",
+  "/permanent-resident-sg/first-time-application": "pr-first-time",
+  "/permanent-resident-sg/family-spouse": "pr-family",
+  "/permanent-resident-sg/ep-s-pass-holders": "pr-ep",
+  "/permanent-resident-sg/founders-self-employed": "pr-founders",
 };
 
 for (const [route, key] of Object.entries(ROUTE_KEYS)) {

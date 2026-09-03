@@ -59,4 +59,38 @@ export const ALLOW: Record<string, string[]> = {
     // one deduplicated sentence in prototypeSentences() and are covered by this line.
     "last reviewed: [date] · primary source:",
   ],
+
+  "pr-first-time": [
+    // Trust strip — same fixed-component substitution as above.
+    "[Tradehub 21, full address]",
+
+    // SourceBlock — same "[date]" vs "[date checked]" placeholder mismatch as above.
+    // This page's source block also repeats twice (inline + tight section); both
+    // collapse to one deduplicated sentence, covered by this line.
+    "last reviewed: [date] · primary source:",
+  ],
+
+  "pr-family": [
+    // Trust strip — same fixed-component substitution as above.
+    "[Tradehub 21, full address]",
+
+    // SourceBlock — same "[date]" vs "[date checked]" placeholder mismatch as above.
+    "last reviewed: [date] · primary source:",
+  ],
+
+  "pr-ep": [
+    // Trust strip — same fixed-component substitution as above.
+    "[Tradehub 21, full address]",
+
+    // SourceBlock — same "[date]" vs "[date checked]" placeholder mismatch as above.
+    "last reviewed: [date] · primary source:",
+  ],
+
+  "pr-founders": [
+    // Trust strip — same fixed-component substitution as above.
+    "[Tradehub 21, full address]",
+
+    // SourceBlock — same "[date]" vs "[date checked]" placeholder mismatch as above.
+    "last reviewed: [date] · primary source:",
+  ],
 };
