@@ -30,14 +30,41 @@ export type Guide = {
 const CASE_STUDIES_DIR = path.join(process.cwd(), "content", "case-studies");
 const GUIDES_DIR = path.join(process.cwd(), "content", "guides");
 
-/** Converts Markdown to HTML (remark + remark-html), then restores `[[X]]` placeholders
- *  — which remark passes through untouched as literal text — into the site's placeholder
- *  markup, matching the `[[X]]` → `<span class="ph" data-ph="X">[X]</span>` convention
- *  used everywhere else on the site (see lib/rich.ts). Must run AFTER remark so the
- *  brackets survive remark's processing intact. */
+function escapeHtml(s: string): string {
+  return s.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;");
+}
+
+/** Strips markdown emphasis/code markers (`**`, `__`, `*`, `_`, `` ` ``) from a placeholder
+ *  label so its raw text can be embedded inside an HTML tag's text content without remark
+ *  re-parsing it as emphasis (CommonMark still parses inline text between raw HTML tags). */
+function stripEmphasis(s: string): string {
+  return s
+    .replace(/\*\*([\s\S]+?)\*\*/g, "$1")
+    .replace(/__([\s\S]+?)__/g, "$1")
+    .replace(/\*([\s\S]+?)\*/g, "$1")
+    .replace(/_([\s\S]+?)_/g, "$1")
+    .replace(/`([\s\S]+?)`/g, "$1");
+}
+
+function placeholderSpan(rawLabel: string): string {
+  const label = escapeHtml(stripEmphasis(rawLabel));
+  return `<span class="ph" data-ph="${label}">[${label}]</span>`;
+}
+
+/** Converts Markdown to HTML (remark + remark-html). `[[X]]` placeholders are converted to
+ *  the site's placeholder markup — `<span class="ph" data-ph="X">[X]</span>`, matching the
+ *  convention used everywhere else on the site (see lib/rich.ts) — BEFORE the remark pass,
+ *  so the label can be stripped of markdown emphasis markers and HTML-escaped (for both the
+ *  `data-ph` attribute and the visible text) before it ever reaches remark's parser. Doing
+ *  this after remark (as a post-hoc string replace on the rendered HTML) is unsafe: a label
+ *  containing `**bold**` would already have been turned into `<strong>` by remark and leak
+ *  into the attribute, and an unescaped `"` or `&` in a label would break the attribute or
+ *  inject markup. remark-html's default `sanitize: true` would otherwise strip the `class`/
+ *  `data-ph` attributes (and possibly the tag) from our injected raw HTML, so it is disabled
+ *  here — safe because this only ever processes markdown authored by us, not user input. */
 export function renderMarkdown(md: string): string {
-  const html = String(remark().use(remarkHtml).processSync(md));
-  return html.replace(/\[\[([^\]]+)\]\]/g, (_m, label: string) => `<span class="ph" data-ph="${label}">[${label}]</span>`);
+  const withPlaceholders = md.replace(/\[\[([\s\S]+?)\]\]/g, (_m, label: string) => placeholderSpan(label));
+  return String(remark().use(remarkHtml, { sanitize: false }).processSync(withPlaceholders));
 }
 
 type FrontMatter = Record<string, string>;
