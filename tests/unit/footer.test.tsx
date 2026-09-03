@@ -16,6 +16,9 @@ describe("Footer", () => {
     expect(html).toContain('data-ph="Email"');
     expect(html).toContain('data-ph="Opening hours"');
   });
+  it("uses a unique SVG gradient id so it does not collide with the header's Brand instance", () => {
+    expect(html).toContain('id="gm-footer"');
+  });
   it("links every footer route", () => {
     for (const href of ["/permanent-resident-sg", "/packages", "/pr-readiness-review", "/about", "/case-studies", "/guides", "/contact", "/privacy-data-security"])
       expect(html).toContain(`href="${href}"`);

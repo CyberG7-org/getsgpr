@@ -27,7 +27,7 @@ export function Footer() {
       <div className="container-x">
         <div className="grid grid-cols-[1.4fr_1fr_1fr_1fr] gap-10 max-[980px]:grid-cols-2 max-[560px]:grid-cols-1">
           <div className="grid gap-2.5">
-            <Brand large />
+            <Brand large gradientId="gm-footer" />
             <p>Independent Singapore immigration consultancy for PR, citizenship and Long Term Visit Pass applications. Evidence-led preparation, published prices, no approval guarantees.</p>
             <p>{SITE.legalName} · UEN {SITE.uen}<br />{SITE.address}<br />{SITE.phoneDisplay} · <Ph label={SITE.placeholders.email} /><br /><Ph label={SITE.placeholders.hours} /></p>
           </div>
