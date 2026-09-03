@@ -204,6 +204,14 @@ export const ALLOW: Record<string, string[]> = {
     // address"). Same substitution family as the trust-strip line above, different
     // literal bracket wording used in this particular dt/dd pair.
     "[full address, tradehub 21]",
+
+    // Prose kv "Contact" row: renders the real phone number (+65 8934 0818) in
+    // place of the prototype's `[Phone]` placeholder, per fix-round-1 review and
+    // transcription rule 4 ("[Phone] → +65 8934 0818" applies everywhere, not just
+    // the trust strip). The Email/Hours placeholders in the same row are unaffected
+    // and still render literally, so the original three-placeholder combined
+    // sentence no longer forms verbatim.
+    "[phone] · [email] · [hours]",
   ],
 
   contact: [

@@ -19,7 +19,7 @@ export const contact: PageContent = {
     {
       kind: "contact",
       eyebrow: "Contact",
-      title: "Book a free call.",
+      title: "",
       prose: [
         { h3: "Or reach us directly" },
         { p: "[WhatsApp +65 8934 0818](https://wa.me/6589340818)" },

@@ -28,7 +28,7 @@ export const about: PageContent = {
             { k: "Office", v: `${SITE.address} · [Get directions](/contact)` },
             { k: "Established", v: "[[Year]]" },
             { k: "Languages", v: "English, Mandarin, Malay, Tamil" },
-            { k: "Contact", v: "[[Phone]] · [[Email]] · [[Hours]]" },
+            { k: "Contact", v: "+65 8934 0818 · [[Email]] · [[Hours]]" },
             {
               k: "Regulatory position",
               v: "GetSGPR is an independent consultancy. It is not affiliated with, licensed by or endorsed by ICA. [[If GetSGPR holds an MOM Employment Agency licence, state the number; if not, do not mention EA licensing, which applies to recruitment and placement rather than PR applications.]]",
