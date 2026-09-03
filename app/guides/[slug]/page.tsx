@@ -52,7 +52,7 @@ export default async function GuidePage({ params }: { params: Promise<{ slug: st
     { kind: "source", primary: guide.source },
     {
       kind: "cta",
-      title: "Not sure where you stand?",
+      title: "Is your situation similar?",
       sub: "Start the free Readiness Review.",
       buttons: [{ label: "Get My Free PR Readiness Report", href: "/pr-readiness-review", style: "light" }],
     },
@@ -66,7 +66,7 @@ export default async function GuidePage({ params }: { params: Promise<{ slug: st
         <Section>
           <div className="grid grid-cols-[5fr_7fr] max-[980px]:grid-cols-1 gap-14">
             <div>
-              <ImagePh ratio="1-1" label="Photo of the guide's author, headshot" />
+              <ImagePh ratio="1-1" label="Photo" />
             </div>
             <div className="prose-x" dangerouslySetInnerHTML={{ __html: guide.html }} />
           </div>

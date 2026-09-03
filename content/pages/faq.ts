@@ -92,7 +92,7 @@ export const faq: PageContent = {
         },
         {
           q: "What does a consultant charge?",
-          a: "It varies widely. Ours are fixed and published: Lite S$197, Partnered S$497, Concierge S$1,997. [See pricing](/packages)",
+          a: "It varies widely. Ours are fixed and published: Lite S$197, Partnered S$497, Concierge S$1,997. [See pricing](/packages).",
         },
       ],
     },
