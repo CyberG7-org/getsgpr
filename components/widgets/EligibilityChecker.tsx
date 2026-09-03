@@ -5,9 +5,10 @@ import { QUESTIONS, verdict } from "@/lib/checker";
 import { postLead, EMAIL_RE } from "@/lib/lead";
 import { RichText } from "@/components/ui/RichText";
 
-type State = { step: number; answers: number[]; email: string; emailError: boolean; emailStage: boolean; emailSaved: boolean };
+type Delivery = "idle" | "sending" | "sent" | "failed";
+type State = { step: number; answers: number[]; email: string; emailError: boolean; emailStage: boolean; delivery: Delivery };
 
-const INITIAL: State = { step: 0, answers: [], email: "", emailError: false, emailStage: true, emailSaved: false };
+const INITIAL: State = { step: 0, answers: [], email: "", emailError: false, emailStage: true, delivery: "idle" };
 
 export function EligibilityChecker() {
   const [s, setS] = useState<State>(INITIAL);
@@ -16,19 +17,20 @@ export function EligibilityChecker() {
   const total = QUESTIONS.length;
   const onOption = (i: number) => setS((prev) => ({ ...prev, answers: [...prev.answers, i], step: prev.step + 1 }));
   const onBack = () => setS((prev) => (prev.step === 0 ? prev : { ...prev, step: prev.step - 1, answers: prev.answers.slice(0, -1) }));
-  const onShow = () => {
+  const onShow = async () => {
     const v = emailInput.trim();
     if (!EMAIL_RE.test(v)) { setS((prev) => ({ ...prev, emailError: true })); return; }
-    setS((prev) => ({ ...prev, email: v, emailError: false, emailSaved: true, emailStage: false }));
+    setS((prev) => ({ ...prev, email: v, emailError: false, emailStage: false, delivery: "sending" }));
     const r = verdict(s.answers);
-    void postLead({ source: "checker", email: v, answers: s.answers, outcome: r.v, pkg: r.p });
+    const delivered = await postLead({ source: "checker", email: v, answers: s.answers, outcome: r.v, pkg: r.p });
+    setS((prev) => ({ ...prev, delivery: delivered ? "sent" : "failed" }));
   };
   const onSkip = () => setS((prev) => ({ ...prev, emailStage: false }));
   const onReset = () => { setS(INITIAL); setEmailInput(""); };
 
   return (
     <div className="bg-white text-navy-900 rounded-[22px] p-[30px] shadow-form grid gap-[18px]">
-      <div className="flex gap-1.5" role="progressbar" aria-valuemin={0} aria-valuemax={total} aria-valuenow={Math.min(s.step + 1, total)}>
+      <div className="flex gap-1.5" role="progressbar" aria-label="Eligibility questions answered" aria-valuemin={0} aria-valuemax={total} aria-valuenow={Math.min(s.step, total)}>
         {QUESTIONS.map((_, i) => (
           <span key={i} className={`flex-1 h-1.5 rounded-full ${i <= s.step ? "bg-navy-700" : "bg-line-soft"}`} />
         ))}
@@ -78,8 +80,14 @@ export function EligibilityChecker() {
                 <p className="bg-line-soft rounded-chip px-3.5 py-3 text-[14.5px] mt-3.5">
                   <RichText value={`Suggested package: **${r.p}**`} />
                 </p>
-                {s.emailSaved && (
-                  <p className="bg-green-bg text-green rounded-chip px-3.5 py-2.5 text-[14px] font-medium mt-3">✓ Sent to {s.email}</p>
+                {s.delivery === "sending" && (
+                  <p className="bg-line-soft text-slate-500 rounded-chip px-3.5 py-2.5 text-[14px] font-medium mt-3" role="status">Sending your snapshot…</p>
+                )}
+                {s.delivery === "sent" && (
+                  <p className="bg-green-bg text-green rounded-chip px-3.5 py-2.5 text-[14px] font-medium mt-3">✓ Submitted for delivery to {s.email}</p>
+                )}
+                {s.delivery === "failed" && (
+                  <p className="bg-red-bg text-red rounded-chip px-3.5 py-2.5 text-[14px] font-medium mt-3" role="alert">We could not send the email. Your result is shown here, and you can still book a free call.</p>
                 )}
                 <p className="fine mt-2.5">A GetSGPR snapshot, not an ICA decision. No agency can promise an ICA outcome.</p>
                 <div className="flex flex-wrap gap-3 items-center mt-3.5">

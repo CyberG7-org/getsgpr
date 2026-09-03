@@ -22,6 +22,7 @@ export const privacy: PageContent = {
       title: "In one minute.",
       items: [
         { title: "Before you are a client", text: "Your free Readiness Review collects no documents and no identity numbers." },
+        { title: "What the current policy covers", text: "The [published GetSGPR privacy policy](https://getsgpr.com/privacy-policy) covers identification, contact, employment, education, family, supporting-document and website data." },
         { title: "Where documents go", text: "Client documents go into a secure workspace, never into WhatsApp or personal inboxes." },
         { title: "Who can see them", text: "Only the people on your case can open your files. Access ends when the case closes." },
         { title: "How long we keep them", text: "We keep your files for [[x months]] after your outcome, then delete them." },
@@ -34,6 +35,7 @@ export const privacy: PageContent = {
       title: "What we collect before you become a client, and what we do not.",
       content: [
         { p: "The Readiness Review asks for ranges and categories: age band, salary band, years in Singapore, pass type. It asks for your first name and email so we can send your result. It does not ask for your NRIC, FIN, passport number, employer name or any document. A strategy call is a conversation; we may take notes, but we do not ask you to send files." },
+        { p: "The [current GetSGPR privacy policy](https://getsgpr.com/privacy-policy) says personal data may be used to provide consultancy services, prepare applications, communicate about services, process payments and receipts, and comply with Singapore law. It also states that personal data is not sold or rented to third parties." },
         { p: "**If someone claiming to be from GetSGPR asks for documents over WhatsApp or email before you have signed an engagement, do not send them, and tell us.**" },
       ],
     },
@@ -77,7 +79,7 @@ export const privacy: PageContent = {
         { p: "Fees are communicated before service engagement. " + REFUND_POLICY },
         { p: "GetSGPR does not guarantee any immigration outcome. ICA assesses every application on its own merits and makes all final decisions." },
         { p: "These Terms are governed by the laws of the Republic of Singapore. Disputes shall be resolved under the exclusive jurisdiction of the Singapore courts." },
-        { small: "Last updated [[date]]." },
+        { small: "Current GetSGPR terms reviewed 3 September 2026." },
       ],
     },
   ],

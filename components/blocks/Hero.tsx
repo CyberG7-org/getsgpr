@@ -7,22 +7,24 @@ import { Badge } from "@/components/ui/Badge";
 import { EligibilityChecker } from "@/components/widgets/EligibilityChecker";
 import { PackageCard } from "@/components/blocks/Packages";
 import { PACKAGES } from "@/content/packages";
+import { HeroBackgroundVideo } from "@/components/ui/HeroBackgroundVideo";
 
 export function Hero(b: HeroBlock) {
-  const dark = b.variant === "dark";
   const { aside } = b;
   const two = aside !== undefined;
   return (
-    <section className={`relative py-24 pb-[88px] max-[980px]:py-14 ${dark ? "bg-[linear-gradient(180deg,var(--color-ink),var(--color-navy-900))] text-on-dark on-dark" : ""}`}>
-      <div className={`container-x grid gap-14 items-center max-[980px]:grid-cols-1 max-[980px]:gap-8 ${two ? "grid-cols-[6.5fr_5.5fr]" : "grid-cols-1"}`}>
-        <div>
-          {b.eyebrow && <Eyebrow tone={b.eyebrowTone} onDark={dark}><RichText value={b.eyebrow} /></Eyebrow>}
-          <h1 className={`mb-5 max-w-[18ch] ${dark ? "text-on-dark" : ""}`}><RichText value={b.title} /></h1>
+    <section className={`hero-banner hero-${b.variant} relative isolate overflow-hidden py-24 pb-[88px] max-[980px]:py-14 text-on-dark on-dark`}>
+      <HeroBackgroundVideo />
+      <div className="hero-shade" aria-hidden="true" />
+      <div className={`container-x relative z-10 grid gap-14 items-center max-[980px]:grid-cols-1 max-[980px]:gap-8 ${two ? "grid-cols-[6.5fr_5.5fr]" : "grid-cols-1"}`}>
+        <div className="hero-copy">
+          {b.eyebrow && <Eyebrow tone={b.eyebrowTone} onDark><RichText value={b.eyebrow} /></Eyebrow>}
+          <h1 className="mb-5 max-w-[18ch] text-on-dark [text-shadow:0_2px_28px_rgba(0,0,0,.34)]"><RichText value={b.title} /></h1>
           {b.badge && <p className="small mb-4"><Badge><RichText value={b.badge} /></Badge></p>}
-          {b.sub && <RichText as="p" className={`lead mb-[18px] ${dark ? "text-on-dark-muted" : ""}`} value={b.sub} />}
-          {b.small && <RichText as="p" className={`small mb-[26px] max-w-[60ch] ${dark ? "text-on-dark-muted" : ""}`} value={b.small} />}
+          {b.sub && <RichText as="p" className="lead mb-[18px] text-on-dark" value={b.sub} />}
+          {b.small && <RichText as="p" className="small mb-[26px] max-w-[60ch] text-on-dark-muted" value={b.small} />}
           <ButtonRow buttons={b.buttons} />
-          {b.under && <RichText as="p" className={`small mt-3.5 ${dark ? "text-on-dark-muted" : ""}`} value={b.under} />}
+          {b.under && <RichText as="p" className="small mt-3.5 text-on-dark-muted" value={b.under} />}
         </div>
         {aside?.kind === "checker" && <EligibilityChecker />}
         {aside?.kind === "image" && <ImagePh ratio={aside.ratio} label={aside.label} className="min-h-[380px] max-[980px]:min-h-[240px]" />}

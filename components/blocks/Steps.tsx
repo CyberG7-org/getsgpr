@@ -7,11 +7,11 @@ export function Steps(b: StepsBlock & { onDark?: boolean }) {
   return (
     <>
       <SectionHead eyebrow={b.eyebrow} title={b.title} sub={b.sub} onDark={b.onDark} />
-      <div className={`grid gap-[18px] max-[980px]:grid-cols-1 ${three ? "grid-cols-3" : "grid-cols-4"}`}>
+      <div className={`process-grid grid gap-[18px] max-[980px]:grid-cols-1 ${three ? "grid-cols-3" : "grid-cols-4"}`}>
         {b.steps.map((s, i) => (
           <div
             key={i}
-            className={`reveal ${
+            className={`process-card reveal ${
               b.onDark
                 ? "bg-white/5 border border-[rgba(147,174,220,.2)] rounded-card px-[26px] py-7"
                 : "bg-white border border-line rounded-card px-[26px] py-7 shadow-card"

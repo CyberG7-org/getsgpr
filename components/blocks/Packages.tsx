@@ -13,7 +13,7 @@ export function PackageCard({ p, i, showNotFor, cta }: { p: Package; i: number; 
     <div
       key={p.key}
       data-index={i}
-      className={`card-hover border rounded-[22px] px-8 py-[34px] flex flex-col gap-3.5 shadow-card ${
+      className={`package-card card-hover border rounded-[22px] px-8 py-[34px] flex flex-col gap-3.5 shadow-card ${
         p.featured ? "bg-navy-900 border-navy-900 text-on-dark" : "bg-white border-line"
       }`}
     >

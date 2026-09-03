@@ -11,7 +11,7 @@ export function Tiles(b: TilesBlock) {
         {b.tiles.map((t, i) => (
           <div
             key={i}
-            className={`reveal border rounded-card px-6 py-[26px] shadow-card ${t.ours ? "bg-teal-bg border-transparent" : "bg-white border-line"}`}
+            className={`factor-tile card-hover reveal border rounded-card px-6 py-[26px] shadow-card ${t.ours ? "bg-teal-bg border-transparent" : "bg-white border-line"}`}
             style={{ animationDelay: `${i * 0.06}s` }}
           >
             <span className={`block text-[12.5px] font-semibold tracking-[.08em] mb-2.5 ${t.ours ? "text-teal" : "text-navy-700"}`}><RichText value={t.n} /></span>

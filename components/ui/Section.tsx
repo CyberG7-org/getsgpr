@@ -7,7 +7,7 @@ const TONES: Record<SectionTone, string> = {
 
 export function Section({ tone = "default", tight, id, children }: { tone?: SectionTone; tight?: boolean; id?: string; children: React.ReactNode }) {
   return (
-    <section id={id} className={`${tight ? "py-9" : "py-14 max-[980px]:py-10"} ${TONES[tone]}`}>
+    <section id={id} className={`${tight ? "py-10" : "py-[76px] max-[980px]:py-12"} ${TONES[tone]}`}>
       <div className="container-x">{children}</div>
     </section>
   );
