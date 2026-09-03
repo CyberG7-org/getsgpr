@@ -12,6 +12,7 @@ const blocks: Block[] = [
   { kind: "packages" },
   { kind: "reviews", title: "What clients say.", limit: 3 },
   { kind: "faq", title: "FAQ", items: [{ q: "Q?", a: "A" }], schema: true },
+  { kind: "sampleResult" },
   { kind: "cta", title: "Know where you stand.", buttons: [{ label: "Start", href: "/pr-readiness-review", style: "light" }] },
 ];
 const html = renderToStaticMarkup(<Blocks blocks={blocks} />);
@@ -36,6 +37,10 @@ describe("Blocks", () => {
   });
   it("renders the CTA band buttons", () => {
     expect(html).toContain('href="/pr-readiness-review"');
+  });
+  it("renders the readiness worked example from SampleResult", () => {
+    expect(html).toContain("Sample only. Your result is written for your answers.");
+    expect(html).toContain("Obtain a current employment letter dated within the last month.");
   });
   it("staggers entrance animation delays on tiles and steps", () => {
     expect((html.match(/animation-delay:0\.06s/g) ?? []).length).toBeGreaterThanOrEqual(1);

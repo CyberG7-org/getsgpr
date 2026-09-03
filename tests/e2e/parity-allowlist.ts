@@ -171,18 +171,26 @@ export const ALLOW: Record<string, string[]> = {
     "Layout of the page shown after",
     "Result page",
 
-    // SampleResult (components/blocks/SampleResult.tsx, built in an earlier task, out
-    // of this task's file list) is a shared, fixed-content widget: it always renders
-    // the three generic per-outcome intro paragraphs and generic bracket placeholders
-    // that belong to the prototype's static #result mock further down the page, not
-    // the concrete worked example ("Sample only. Your result is written for your
-    // answers.", with its specific sample strong/weak factors, actions and package)
-    // that readiness.html shows inline in the "A result you can act on, not a
-    // percentage." section. The component takes no per-page content input, so this
-    // section's specific sample copy can never be reproduced verbatim by it.
-    "your result is written for your answers.",
-    "obtain a current employment letter dated within the last month.",
-    "reconcile the employment dates on your cv, payslips and cpf statements.",
-    "gather evidence of community involvement from the last two years.",
+    // The rest of that same unported #result mock: its three generic per-outcome
+    // intro paragraphs, its generic bracket placeholders (distinct from the concrete
+    // worked example that SampleResult.tsx renders for the "A result you can act on,
+    // not a percentage." section above it), its two CTA buttons and its small print.
+    // None of this is reproduced anywhere on the live page — the real equivalents
+    // only exist inside ReadinessForm's post-submit result view, which parity's
+    // page.goto (no interaction) never reaches.
+    "Based on your answers, your profile and evidence look ready to be assembled into an application.",
+    "The work now is doing it well.",
+    "Based on your answers, one or more factors would benefit from work before you apply.",
+    "Doing that work first is usually better than applying and hoping.",
+    "More Information Needed:",
+    "Your answers raise a question we cannot resolve without talking to you.",
+    "That is not a bad sign; it means your situation needs a person, not a form.",
+    "[Generated from answers]",
+    "[Lite / Partnered / Concierge] · S$[price] · [one line on why].",
+    "Book a 20-minute strategy call with [consultant name]",
+    "[Buy Lite / Book Partnered / Book a Concierge strategy call]",
+    "Message us on WhatsApp to schedule (scheduling only, no documents).",
+    "This result is a GetSGPR diagnostic and not a prediction of ICA's decision.",
+    "ICA assesses every application on its own merits.",
   ],
 };
