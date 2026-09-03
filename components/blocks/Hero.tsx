@@ -26,7 +26,7 @@ export function Hero(b: HeroBlock) {
         </div>
         {aside?.kind === "checker" && <EligibilityChecker />}
         {aside?.kind === "image" && <ImagePh ratio={aside.ratio} label={aside.label} className="min-h-[380px] max-[980px]:min-h-[240px]" />}
-        {aside?.kind === "package" && <PackageCard p={PACKAGES.find((x) => x.key === aside.pkg)!} i={0} />}
+        {aside?.kind === "package" && <PackageCard p={PACKAGES.find((x) => x.key === aside.pkg)!} i={0} cta={aside.cta} />}
       </div>
     </section>
   );

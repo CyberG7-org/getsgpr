@@ -29,7 +29,7 @@ export const pkgLite: PageContent = {
         { label: "Get SGPR Lite", href: "/contact", style: "primary" },
         { label: "Compare all packages", href: "/packages", style: "ghost" },
       ],
-      aside: { kind: "package", pkg: "lite" },
+      aside: { kind: "package", pkg: "lite", cta: { label: "Get SGPR Lite", href: "/contact", style: "primary" } },
     },
     { kind: "trust" },
     {

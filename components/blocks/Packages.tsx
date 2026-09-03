@@ -1,4 +1,4 @@
-import type { PackagesBlock } from "@/content/types";
+import type { Btn, PackagesBlock } from "@/content/types";
 import { PACKAGES, type Package } from "@/content/packages";
 import { SectionHead } from "@/components/ui/SectionHead";
 import { Badge } from "@/components/ui/Badge";
@@ -8,7 +8,7 @@ import { RichText } from "@/components/ui/RichText";
 const DEFAULT_NOTE =
   "Prices in SGD, [[include / exclude]] GST. ICA application fees and third-party costs are shown separately. No hidden consultancy fees. No approval guarantees. [Compare everything →](/packages)";
 
-export function PackageCard({ p, i, showNotFor }: { p: Package; i: number; showNotFor?: boolean }) {
+export function PackageCard({ p, i, showNotFor, cta }: { p: Package; i: number; showNotFor?: boolean; cta?: Btn }) {
   return (
     <div
       key={p.key}
@@ -36,7 +36,7 @@ export function PackageCard({ p, i, showNotFor }: { p: Package; i: number; showN
           </ul>
         </div>
       )}
-      <div className="mt-auto"><Button {...p.cta} /></div>
+      <div className="mt-auto"><Button {...(cta ?? p.cta)} /></div>
     </div>
   );
 }

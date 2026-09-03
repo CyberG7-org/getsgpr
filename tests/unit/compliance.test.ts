@@ -7,6 +7,7 @@ describe("compliance", () => {
     expect(findViolations("90% approval rate")).toEqual(["90% approval"]);
     expect(findViolations("Guaranteed approval or your money back")).toEqual(["Guaranteed approval"]);
     expect(findViolations("We guarantee 100% approval.")).toEqual(["100% approval"]);
+    expect(findViolations("You guarantee approval.")).toEqual(["guarantee approval"]);
   });
   it("ignores allowed copy", () => {
     expect(findViolations("We do not guarantee 100% approval simply for marketing purposes.")).toEqual([]);

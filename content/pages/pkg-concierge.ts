@@ -29,7 +29,7 @@ export const pkgConcierge: PageContent = {
         { label: "Book a Concierge call", href: "/contact", style: "primary" },
         { label: "Compare all packages", href: "/packages", style: "ghost" },
       ],
-      aside: { kind: "package", pkg: "concierge" },
+      aside: { kind: "package", pkg: "concierge", cta: { label: "Book a Concierge call", href: "/contact", style: "primary" } },
     },
     { kind: "trust" },
     {

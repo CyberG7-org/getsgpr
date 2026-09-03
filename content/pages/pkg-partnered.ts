@@ -29,7 +29,7 @@ export const pkgPartnered: PageContent = {
         { label: "Book SGPR Partnered", href: "/contact", style: "primary" },
         { label: "Compare all packages", href: "/packages", style: "ghost" },
       ],
-      aside: { kind: "package", pkg: "partnered" },
+      aside: { kind: "package", pkg: "partnered", cta: { label: "Book SGPR Partnered", href: "/contact", style: "light" } },
     },
     { kind: "trust" },
     {

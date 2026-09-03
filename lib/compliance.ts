@@ -1,11 +1,11 @@
 export const FORBIDDEN: RegExp[] = [
   /high success rates?/i,
   /\bsuccess rates?\b/i,
-  /(?<!never |not |cannot |no |you )guaranteed? approval/i,
+  /(?<!never |not |cannot |no |do you )guaranteed? approval/i,
   /ICA[- ]approved/i,
   /ICA[- ]partner/i,
   /ICA[- ]endorsed/i,
-  /(?<!\d)(?<!not guarantee )(?<!you guarantee )\d{1,3}% (?:approval|success)/i,
+  /(?<!\d)(?<!not guarantee )(?<!do you guarantee )\d{1,3}% (?:approval|success)/i,
 ];
 
 export function stripPlaceholders(html: string): string {

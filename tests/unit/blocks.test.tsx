@@ -40,4 +40,18 @@ describe("Blocks", () => {
   it("staggers entrance animation delays on tiles and steps", () => {
     expect((html.match(/animation-delay:0\.06s/g) ?? []).length).toBeGreaterThanOrEqual(1);
   });
+  it("overrides the package-card CTA via the hero's package aside", () => {
+    const packageHeroHtml = renderToStaticMarkup(
+      <Blocks
+        blocks={[
+          {
+            kind: "hero", variant: "light", title: "SGPR Lite.",
+            aside: { kind: "package", pkg: "lite", cta: { label: "Talk to us", href: "/contact", style: "primary" } },
+          },
+        ]}
+      />
+    );
+    expect(packageHeroHtml).toContain('href="/contact"');
+    expect(packageHeroHtml).not.toContain('href="/sgpr-lite-diy-tier"');
+  });
 });

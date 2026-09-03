@@ -18,7 +18,7 @@ export type Hero = {
   kind: "hero"; variant: "dark" | "light" | "plain";
   eyebrow?: string; eyebrowTone?: Tone; title: string; sub?: string; small?: string; badge?: string;
   buttons?: Btn[]; under?: string;
-  aside?: { kind: "checker" } | { kind: "image"; ratio: Ratio; label: string } | { kind: "package"; pkg: "lite" | "partnered" | "concierge" };
+  aside?: { kind: "checker" } | { kind: "image"; ratio: Ratio; label: string } | { kind: "package"; pkg: "lite" | "partnered" | "concierge"; cta?: Btn };
 };
 export type Trust = { kind: "trust"; google?: boolean };
 export type Stats = { kind: "stats"; items: { value: string; label: string }[] };
