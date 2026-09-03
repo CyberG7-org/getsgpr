@@ -317,4 +317,19 @@ export const ALLOW: Record<string, string[]> = {
     // above (e.g. the "pr" key). No trust strip appears on this page.
     "last reviewed: [date] · primary source:",
   ],
+
+  privacy: [
+    // Trust strip — same fixed-component substitution as above.
+    "[Tradehub 21, full address]",
+
+    // Prose "Data protection contact" line (content/pages/privacy.ts): renders the
+    // real phone number (+65 8934 0818) and the real address (SITE.address) in place
+    // of the prototype's `[Phone]` and `[Postal address]` placeholders, per
+    // transcription rule 4 ("[Phone] → +65 8934 0818"; "[Postal address] → the full
+    // address"). Same substitution family as the about-page kv Contact row allowlist
+    // entry above — the DPO name/email placeholders are unaffected and still render
+    // literally, so the original four-placeholder combined sentence no longer forms
+    // verbatim.
+    "[dpo name] · [email] · [phone] · [postal address]",
+  ],
 };
