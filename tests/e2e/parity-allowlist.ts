@@ -193,4 +193,40 @@ export const ALLOW: Record<string, string[]> = {
     "This result is a GetSGPR diagnostic and not a prediction of ICA's decision.",
     "ICA assesses every application on its own merits.",
   ],
+
+  about: [
+    // Trust strip — same fixed-component substitution as above.
+    "[Tradehub 21, full address]",
+
+    // Prose kv "Office" row (content/pages/about.ts): renders the real address
+    // (SITE.address) in place of the prototype's `[Full address, Tradehub 21]`
+    // placeholder, per transcription rule 4 and the task brief ("Address = the full
+    // address"). Same substitution family as the trust-strip line above, different
+    // literal bracket wording used in this particular dt/dd pair.
+    "[full address, tradehub 21]",
+  ],
+
+  contact: [
+    // Trust strip — same fixed-component substitution as above.
+    "[Tradehub 21, full address]",
+
+    // Prose kv "Address" row (content/pages/contact.ts) — same substitution as the
+    // about-page kv Office row above.
+    "[full address, tradehub 21]",
+
+    // The prototype's Email row is transcribed with an apparent copy-paste error:
+    // its dd literally reads "[Address] · We reply within 24 hours." (the bracket
+    // should almost certainly read "[Email]"). Per the task brief, this page's kv
+    // corrects the label (Email = [[Email]]), which is rendered on its own row
+    // without the trailing "We reply within 24 hours." clause — that clause is
+    // reproduced verbatim elsewhere on this page (the hero sub's closing sentence).
+    "[address] · we reply within 24 hours.",
+
+    // GoHighLevel iframe embed note (contact.html's <p class="note"> next to the
+    // form embed): a builder/implementation note about the widget markup, not real
+    // page content. The live page renders the actual form via the GhlForm widget
+    // (components/widgets/GhlForm.tsx) with no such note.
+    "gohighlevel contact form embed.",
+    "each instance needs a unique id and data-layout-iframe-id.",
+  ],
 };
