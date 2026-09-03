@@ -17,6 +17,7 @@ export const ROUTE_KEYS: Record<string, string> = {
   "/sgpr-lite-diy-tier": "pkg-lite",
   "/sgpr-partnered-do-with-you": "pkg-partnered",
   "/sgpr-premium-concierge": "pkg-concierge",
+  "/pr-readiness-review": "readiness",
 };
 
 for (const [route, key] of Object.entries(ROUTE_KEYS)) {

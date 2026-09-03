@@ -154,4 +154,35 @@ export const ALLOW: Record<string, string[]> = {
     // Trust strip — same fixed-component substitution as above.
     "[Tradehub 21, full address]",
   ],
+
+  readiness: [
+    // Trust strip — same fixed-component substitution as above.
+    "[Tradehub 21, full address]",
+
+    // SourceBlock — same "[date]" vs "[date checked]" placeholder mismatch as above.
+    "last reviewed: [date] · primary source:",
+
+    // The prototype's static #result section (readiness.html) is a layout mock for
+    // the page shown after the questionnaire; per the task brief it is not ported,
+    // because the live result renders inside the ReadinessForm widget once answered
+    // (not on page load, which is all parity's page.goto ever exercises). Its
+    // section-head text is allowlisted rather than reproduced statically:
+    "Your PR readiness result:",
+    "Layout of the page shown after",
+    "Result page",
+
+    // SampleResult (components/blocks/SampleResult.tsx, built in an earlier task, out
+    // of this task's file list) is a shared, fixed-content widget: it always renders
+    // the three generic per-outcome intro paragraphs and generic bracket placeholders
+    // that belong to the prototype's static #result mock further down the page, not
+    // the concrete worked example ("Sample only. Your result is written for your
+    // answers.", with its specific sample strong/weak factors, actions and package)
+    // that readiness.html shows inline in the "A result you can act on, not a
+    // percentage." section. The component takes no per-page content input, so this
+    // section's specific sample copy can never be reproduced verbatim by it.
+    "your result is written for your answers.",
+    "obtain a current employment letter dated within the last month.",
+    "reconcile the employment dates on your cv, payslips and cpf statements.",
+    "gather evidence of community involvement from the last two years.",
+  ],
 };
