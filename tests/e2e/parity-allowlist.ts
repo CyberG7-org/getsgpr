@@ -93,4 +93,34 @@ export const ALLOW: Record<string, string[]> = {
     // SourceBlock — same "[date]" vs "[date checked]" placeholder mismatch as above.
     "last reviewed: [date] · primary source:",
   ],
+
+  citizenship: [
+    // Trust strip — same fixed-component substitution as above.
+    "[Tradehub 21, full address]",
+
+    // SourceBlock — same "[date]" vs "[date checked]" placeholder mismatch as above.
+    // citizenship.html repeats this source block twice (inline + tight section) with
+    // identical text; both collapse to one deduplicated sentence and are covered here.
+    "last reviewed: [date] · primary source:",
+  ],
+
+  ltvp: [
+    // Trust strip — same fixed-component substitution as above.
+    "[Tradehub 21, full address]",
+
+    // SourceBlock — same "[date]" vs "[date checked]" placeholder mismatch as above.
+    // ltvp.html repeats this source block twice (inline + tight section) with
+    // identical text; both collapse to one deduplicated sentence and are covered here.
+    "last reviewed: [date] · primary source:",
+  ],
+
+  appeal: [
+    // Trust strip — same fixed-component substitution as above.
+    "[Tradehub 21, full address]",
+
+    // SourceBlock — same "[date]" vs "[date checked]" placeholder mismatch as above.
+    // appeal.html repeats this source block twice (inline + tight section) with
+    // identical text; both collapse to one deduplicated sentence and are covered here.
+    "last reviewed: [date] · primary source:",
+  ],
 };

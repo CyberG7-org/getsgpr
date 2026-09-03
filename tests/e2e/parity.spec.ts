@@ -10,6 +10,9 @@ export const ROUTE_KEYS: Record<string, string> = {
   "/permanent-resident-sg/family-spouse": "pr-family",
   "/permanent-resident-sg/ep-s-pass-holders": "pr-ep",
   "/permanent-resident-sg/founders-self-employed": "pr-founders",
+  "/singapore-citizen": "citizenship",
+  "/ltvp": "ltvp",
+  "/pr-appeal": "appeal",
 };
 
 for (const [route, key] of Object.entries(ROUTE_KEYS)) {
