@@ -36,4 +36,27 @@ export const ALLOW: Record<string, string[]> = {
     "[Client quote, unedited, with permission to publish.]",
     "[Public first name] · [Package] · [Month, year]",
   ],
+
+  services: [
+    // Trust strip (components/blocks/Trust.tsx): renders the real address (SITE.address)
+    // in place of the prototype's `[Tradehub 21, full address]` placeholder — same
+    // fixed-component substitution as the home page allowlist above.
+    "[Tradehub 21, full address]",
+
+    // SourceBlock (components/ui/SourceBlock.tsx, shared fixed component): always
+    // renders the placeholder label SITE.placeholders.checkedOn ("date checked") for
+    // the last-reviewed date, not the prototype's bare "[date]" placeholder. The
+    // component takes no per-page date input, so this line can never match verbatim.
+    "last reviewed: [date] · primary source:",
+  ],
+
+  pr: [
+    // Trust strip — same fixed-component substitution as above.
+    "[Tradehub 21, full address]",
+
+    // SourceBlock — same "[date]" vs "[date checked]" placeholder mismatch as above.
+    // pr.html repeats this source block twice with identical text; both collapse to
+    // one deduplicated sentence in prototypeSentences() and are covered by this line.
+    "last reviewed: [date] · primary source:",
+  ],
 };

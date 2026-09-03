@@ -2,7 +2,11 @@ import { test, expect } from "@playwright/test";
 import { prototypeSentences, norm } from "./prototype-text";
 import { ALLOW } from "./parity-allowlist";
 
-export const ROUTE_KEYS: Record<string, string> = { "/": "home" };
+export const ROUTE_KEYS: Record<string, string> = {
+  "/": "home",
+  "/services": "services",
+  "/permanent-resident-sg": "pr",
+};
 
 for (const [route, key] of Object.entries(ROUTE_KEYS)) {
   test(`parity ${route} ⇄ ${key}.html`, async ({ page }) => {
