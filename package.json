@@ -10,6 +10,7 @@
     "test": "vitest run",
     "test:watch": "vitest",
     "e2e": "playwright test",
+    "prebuild": "npm run lint:compliance",
     "lint:compliance": "tsx scripts/lint-compliance.ts",
     "audit:placeholders": "tsx scripts/audit-placeholders.ts"
   },
