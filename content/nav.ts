@@ -48,5 +48,6 @@ export const NAV = {
     "/singapore-citizen", "/ltvp", "/pr-appeal", "/packages", "/sgpr-lite-diy-tier",
     "/sgpr-partnered-do-with-you", "/sgpr-premium-concierge", "/case-studies", "/about",
     "/privacy-data-security", "/guides", "/guides/singapore-pr-faq", "/contact",
+    "/case-studies/sample-reapplication", "/case-studies/sample-family", "/case-studies/sample-first-time",
   ],
 } as const;

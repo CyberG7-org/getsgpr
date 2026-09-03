@@ -1,5 +1,6 @@
 import Link from "next/link";
 import type { Crumbs as CrumbsBlock } from "@/content/types";
+import { RichText } from "@/components/ui/RichText";
 
 export function Crumbs({ items }: Pick<CrumbsBlock, "items">) {
   return (
@@ -8,7 +9,7 @@ export function Crumbs({ items }: Pick<CrumbsBlock, "items">) {
         {items.map((it, i) => (
           <span key={i}>
             {i > 0 && " › "}
-            {it.href ? <Link href={it.href} className="text-slate-400">{it.label}</Link> : it.label}
+            {it.href ? <Link href={it.href} className="text-slate-400"><RichText value={it.label} /></Link> : <RichText value={it.label} />}
           </span>
         ))}
       </div>

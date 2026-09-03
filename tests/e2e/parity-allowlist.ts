@@ -237,4 +237,40 @@ export const ALLOW: Record<string, string[]> = {
     "gohighlevel contact form embed.",
     "each instance needs a unique id and data-layout-iframe-id.",
   ],
+
+  cases: [
+    // Trust strip — same fixed-component substitution as above.
+    "[Tradehub 21, full address]",
+
+    // cases.html mocks six outcome cards with hand-written, card-specific meta/badge/
+    // image-label text (no real data behind them). Per the task brief, the live page
+    // instead builds its cards at render time from getCaseStudies() — three real
+    // CaseStudy records, each carrying one generic `profile` placeholder shared with
+    // the case detail page's "Applicant profile" Kv row (content/case-studies/*.md),
+    // not six distinct hand-written meta lines. The three cards we do have use that
+    // generic profile text, so it appears on the page; the specific meta wording for
+    // the prototype's other three mock cards (which have no corresponding real case
+    // record) cannot be reproduced and is allowlisted here:
+    "[ep holder · 30–34 · technology · 6 years]",
+    "[reapplication approved]",
+    "[s pass holder · 35–39 · healthcare · 8 years]",
+    "[family · ep holder, spouse and child]",
+    "[founder · 40–44 · logistics]",
+    "[pr since year · finance]",
+
+    // Same root cause: cases.html's outcome cards show per-card image-source labels
+    // ("Outcome document on file", "Video", "Google review"). CaseStudy.imageLabel is
+    // fixed to "Redacted ICA outcome document" for every case per the task brief
+    // (matching the case.html detail page's split-section image caption), so the
+    // index cards show that text instead of the prototype's per-card labels.
+    "outcome document on file",
+  ],
+
+  case: [
+    // Trust strip is not present on the case detail page; no allowlist entries are
+    // needed here. Every prototype placeholder on case.html is reproduced verbatim,
+    // via the Markdown `[[X]]` → Ph conversion (lib/markdown.ts) for the case body
+    // and the Kv rows for "At a glance" (see content/case-studies/*.md and
+    // app/case-studies/[slug]/page.tsx).
+  ],
 };
