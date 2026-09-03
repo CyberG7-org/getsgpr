@@ -16,3 +16,12 @@ for (const route of NAV.routes) {
     expect(errors).toEqual([]);
   });
 }
+
+test("sitemap lists every route", async ({ request }) => {
+  const res = await request.get("/sitemap.xml");
+  expect(res.status()).toBe(200);
+  const body = await res.text();
+  for (const route of NAV.routes) {
+    expect(body, `sitemap missing ${route}`).toContain(`${SITE.url}${route}`);
+  }
+});
