@@ -102,7 +102,7 @@ export const faq: PageContent = {
       items: [
         {
           q: "What if I am rejected?",
-          a: "You may appeal through ICA's e-Service, or apply again later. Which is better depends on what has materially changed. [Read: PR rejected: appeal or reapply?](/guides/appeal-or-reapply)",
+          a: "You may appeal through ICA's e-Service, or apply again later. Which is better depends on what has materially changed. [Read: PR rejected: appeal or reapply?](/pr-appeal)",
         },
         {
           q: "Does ICA give reasons?",
@@ -127,13 +127,7 @@ export const faq: PageContent = {
           a: "No. No consultancy is. ICA says so on its own website.",
         },
         {
-          // Rephrased from the prototype's original question (see faq.html) — its
-          // exact wording trips lib/compliance.ts's approval-guarantee check (the
-          // regex only exempts a small set of words directly before "guarantee(d)",
-          // and "anyone" isn't one of them). The same regex excludes that original
-          // sentence from parity's expected list for this page too (see the FORBIDDEN
-          // filter in tests/e2e/prototype-text.ts), so no allowlist entry is needed.
-          q: "Is approval ever guaranteed?",
+          q: "Can anyone guarantee approval?",
           a: "No. Singapore's consumer regulator has taken court action against consultancies that claimed to.",
         },
       ],

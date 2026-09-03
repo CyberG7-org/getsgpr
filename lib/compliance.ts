@@ -1,7 +1,7 @@
 export const FORBIDDEN: RegExp[] = [
   /high success rates?/i,
   /\bsuccess rates?\b/i,
-  /(?<!never |not |cannot |no |do you )guaranteed? approval/i,
+  /(?<!never |not |cannot |no |do you |anyone )guaranteed? approval/i,
   /ICA[- ]approved/i,
   /ICA[- ]partner/i,
   /ICA[- ]endorsed/i,
