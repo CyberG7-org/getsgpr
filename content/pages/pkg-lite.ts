@@ -25,12 +25,11 @@ export const pkgLite: PageContent = {
       title: "SGPR Lite: do it yourself, without guessing.",
       sub: "For independent applicants who want clarity and structure without agency fees. Everything you need to prepare a Singapore PR application properly, organised the way we organise it for clients.",
       small: "Independent consultancy. ICA makes all decisions. No approval guarantees.",
-      badge: `${pkg.price} · ${pkg.priceNote}`,
       buttons: [
         { label: "Get SGPR Lite", href: "/contact", style: "primary" },
         { label: "Compare all packages", href: "/packages", style: "ghost" },
       ],
-      under: pkg.bestFor,
+      aside: { kind: "package", pkg: "lite" },
     },
     { kind: "trust" },
     {

@@ -147,7 +147,7 @@ export const packages: PageContent = {
         { q: "Can I upgrade later?", a: "Yes. Lite and Partnered fees are credited in full against Premium Concierge within [[90]] days of purchase." },
         { q: "Do you offer refunds?", a: "Lite is a digital product and is non-refundable once downloaded. For Partnered and Concierge, [[state the policy, for example: a full refund if you cancel before the strategy consultation, and a pro-rated refund for unused stages thereafter]]." },
         { q: "What if I cannot get a document?", a: "Tell us. Where a record genuinely cannot be obtained, we draft a declaration letter explaining its absence at no extra charge." },
-        { q: "Is approval guaranteed?", a: "No. ICA makes every decision on the merits of the application. Anyone who promises approval is either misleading you or breaking Singapore's consumer protection rules." },
+        { q: "Do you guarantee approval?", a: "No. ICA makes every decision on the merits of the application. Anyone who promises approval is either misleading you or breaking Singapore's consumer protection rules." },
         { q: "How do I pay?", a: "[[Card, PayNow or bank transfer.]] Lite is paid online at purchase. Partnered and Concierge are invoiced after the scope is agreed, before work begins." },
       ],
     },

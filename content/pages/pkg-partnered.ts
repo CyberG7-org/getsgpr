@@ -25,12 +25,11 @@ export const pkgPartnered: PageContent = {
       title: "SGPR Partnered: you remain in control. We pressure-test the case.",
       sub: "For applicants who want expert feedback and shared work across scheduled calls. You do the work; we find the gaps and inconsistencies before ICA does.",
       small: "Independent consultancy. ICA makes all decisions. No approval guarantees.",
-      badge: `${pkg.price} · ${pkg.priceNote}`,
       buttons: [
         { label: "Book SGPR Partnered", href: "/contact", style: "primary" },
         { label: "Compare all packages", href: "/packages", style: "ghost" },
       ],
-      under: pkg.bestFor,
+      aside: { kind: "package", pkg: "partnered" },
     },
     { kind: "trust" },
     {

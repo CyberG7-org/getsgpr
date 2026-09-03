@@ -25,12 +25,11 @@ export const pkgConcierge: PageContent = {
       title: "Premium Concierge: we manage the application with you from strategy to submission.",
       sub: "For busy professionals and families who want strategy, writing, document handling and submission managed by one accountable case manager.",
       small: "Independent consultancy. ICA makes all decisions. No approval guarantees.",
-      badge: `${pkg.price} · ${pkg.priceNote}`,
       buttons: [
         { label: "Book a Concierge call", href: "/contact", style: "primary" },
         { label: "Compare all packages", href: "/packages", style: "ghost" },
       ],
-      under: pkg.bestFor,
+      aside: { kind: "package", pkg: "concierge" },
     },
     { kind: "trust" },
     {

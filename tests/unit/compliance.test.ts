@@ -13,6 +13,7 @@ describe("compliance", () => {
     expect(findViolations("No approval guarantees.")).toEqual([]);
     expect(findViolations("We never guarantee approval.")).toEqual([]);
     expect(findViolations("Do you guarantee 100% approval if I engage your firm?")).toEqual([]);
+    expect(findViolations("Do you guarantee approval?")).toEqual([]);
   });
   it("strips placeholder spans before checking", () => {
     const html = 'Rate <span class="ph" data-ph="x">[90% approval]</span> and [[success rate]] here';
