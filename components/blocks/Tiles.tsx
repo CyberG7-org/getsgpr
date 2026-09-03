@@ -9,7 +9,11 @@ export function Tiles(b: TilesBlock) {
       <SectionHead eyebrow={b.eyebrow} title={b.title} sub={b.sub} />
       <div className="grid grid-cols-4 gap-[18px] max-[980px]:grid-cols-1">
         {b.tiles.map((t, i) => (
-          <div key={i} className={`border rounded-card px-6 py-[26px] shadow-card ${t.ours ? "bg-teal-bg border-transparent" : "bg-white border-line"}`}>
+          <div
+            key={i}
+            className={`reveal border rounded-card px-6 py-[26px] shadow-card ${t.ours ? "bg-teal-bg border-transparent" : "bg-white border-line"}`}
+            style={{ animationDelay: `${i * 0.06}s` }}
+          >
             <span className={`block text-[12.5px] font-semibold tracking-[.08em] mb-2.5 ${t.ours ? "text-teal" : "text-navy-700"}`}><RichText value={t.n} /></span>
             <h4 className="mb-1.5"><RichText value={t.title} /></h4>
             <RichText as="p" className="text-[14.5px] text-slate-500 leading-[1.55]" value={t.text} />

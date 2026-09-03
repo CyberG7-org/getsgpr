@@ -7,7 +7,8 @@ const blocks: Block[] = [
   { kind: "hero", variant: "dark", eyebrow: "Singapore PR consultancy", title: "Build a stronger application.", sub: "Sub **bold**", buttons: [{ label: "Go", href: "/packages", style: "light" }] },
   { kind: "trust", google: true },
   { kind: "cards", columns: 4, title: "Four services.", cards: [{ tone: "teal", badge: "PR", title: "Permanent Residence", text: "Text", tags: ["A", "B"], link: { label: "Learn more →", href: "/permanent-resident-sg" } }] },
-  { kind: "steps", title: "How it works", tone: "dark", steps: [{ when: "Day 0", title: "Free consultation", text: "T" }] },
+  { kind: "steps", title: "How it works", tone: "dark", steps: [{ when: "Day 0", title: "Free consultation", text: "T" }, { when: "Week 1", title: "Profile strategy", text: "P" }] },
+  { kind: "tiles", title: "Factors", tiles: [{ n: "01", title: "Factor A", text: "Text A" }, { n: "02", title: "Factor B", text: "Text B" }] },
   { kind: "packages" },
   { kind: "reviews", title: "What clients say.", limit: 3 },
   { kind: "faq", title: "FAQ", items: [{ q: "Q?", a: "A" }], schema: true },
@@ -35,5 +36,8 @@ describe("Blocks", () => {
   });
   it("renders the CTA band buttons", () => {
     expect(html).toContain('href="/pr-readiness-review"');
+  });
+  it("staggers entrance animation delays on tiles and steps", () => {
+    expect((html.match(/animation-delay:0\.06s/g) ?? []).length).toBeGreaterThanOrEqual(1);
   });
 });

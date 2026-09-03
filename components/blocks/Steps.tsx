@@ -11,11 +11,12 @@ export function Steps(b: StepsBlock & { onDark?: boolean }) {
         {b.steps.map((s, i) => (
           <div
             key={i}
-            className={
+            className={`reveal ${
               b.onDark
                 ? "bg-white/5 border border-[rgba(147,174,220,.2)] rounded-card px-[26px] py-7"
                 : "bg-white border border-line rounded-card px-[26px] py-7 shadow-card"
-            }
+            }`}
+            style={{ animationDelay: `${i * 0.06}s` }}
           >
             <span className={`block text-[12.5px] font-semibold tracking-[.08em] uppercase mb-2.5 ${b.onDark ? "text-blue-300" : "text-navy-700"}`}>
               <RichText value={s.when} />
