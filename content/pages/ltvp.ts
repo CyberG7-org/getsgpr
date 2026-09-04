@@ -34,18 +34,18 @@ export const ltvp: PageContent = {
       kind: "prose", tone: "alt",
       title: "What ICA says.",
       content: [
-        { p: "ICA publishes who may be sponsored for a Long Term Visit Pass, including the spouse, children and parents of Singapore citizens and PRs, with different requirements by category, the sponsor's obligations, the documents required and the validity and renewal terms. ICA assesses each application on its merits." },
-        { small: "Source: ICA, Long Term Visit Pass pages. [[Confirm current categories and requirements before publishing.]] Checked [[date]]." },
+        { p: "ICA currently lists seven Long-Term Visit Pass eligibility categories: spouses of Singapore citizens; spouses of Singapore PRs; eligible unmarried children below 21 of Singapore citizens or PRs; parents of Singapore citizens or PRs; graduates from Singapore institutes of higher learning seeking employment; one parent or grandparent of a child studying in Singapore on a Student's Pass; and visitors seeking permission to give birth in Singapore. Sponsorship requirements differ by category. ICA also advises current LTVP holders to apply for renewal at least three months before their pass expires." },
+        { small: "Source: ICA, \"Becoming a Long-Term Visit Pass Holder\". Checked [[date]]." },
       ],
-      source: "ICA, Long Term Visit Pass pages",
+      source: 'ICA, "Becoming a Long-Term Visit Pass Holder"',
     },
     {
       kind: "cards", columns: 3,
-      title: "What decides an LTVP application.",
+      title: "What ICA considers for LTVP applications.",
       cards: [
-        { title: "The relationship", text: "Evidenced, not asserted: records, photographs where appropriate, shared addresses, correspondence." },
-        { title: "The sponsor's means and standing", text: "Employment, income, residence and their own immigration status." },
-        { title: "Evidence quality and timing", text: "Foreign documents in the right form, current, translated and consistent with the sponsor's records." },
+        { title: "Family ties and profile", text: "The applicant's family ties to Singaporeans and wider family circumstances." },
+        { title: "Economic contribution and qualifications", text: "The applicant's economic contributions, qualifications and ability to contribute to Singapore." },
+        { title: "Age, residency and integration", text: "Age, length of residency, ability to integrate and commitment to sinking roots in Singapore." },
       ],
     },
     {
@@ -56,11 +56,9 @@ export const ltvp: PageContent = {
         { title: "Relationship evidence review", text: "What to include, what to leave out, and how to present it." },
         { title: "Foreign document handling", text: "Translation and certification requirements, and the timeline to obtain them." },
         { title: "Sponsor evidence preparation", text: "The sponsor's letter, income and residence records, prepared to the same standard as the applicant's." },
-        { title: "Renewal reminders", text: "[[If offered: a reminder before expiry and a check on any change in circumstances.]]" },
       ],
       foot: {
-        text: "Fee: S$[[x]] fixed, for one sponsor and one applicant. Additional applicants S$[[x]]. [[Confirm.]]",
-        button: { label: "Book an LTVP consultation", href: "/packages", style: "ghost" },
+        button: { label: "Book an LTVP consultation", href: "/contact", style: "ghost" },
       },
     },
     {
@@ -89,13 +87,13 @@ export const ltvp: PageContent = {
       items: [
         { q: "Who can sponsor an LTVP?", a: "Singapore citizens and PRs, for the family members ICA lists. The categories and their requirements are on ica.gov.sg and we confirm which applies to you at the consultation." },
         { q: "Can my family member work on an LTVP?", a: "Some LTVP holders may be eligible for a Letter of Consent or a work pass, depending on the sponsor's status and other conditions published by MOM. We explain what applies; we do not promise work rights." },
-        { q: "How long does it take?", a: "ICA publishes its processing time. Our preparation typically takes [[two to four weeks]], most of it waiting for foreign documents." },
+        { q: "How long does it take?", a: "ICA publishes the processing time for each LTVP category. Preparation time depends on how quickly the applicant and sponsor can obtain the required records, particularly documents issued overseas." },
         { q: "Is LTVP a route to PR?", a: "LTVP is a visit pass, not a residence status. Some LTVP holders later apply for PR on their own merits. If that is your plan, say so at the consultation so the evidence you gather now is useful later." },
       ],
     },
     {
       kind: "source", tight: true,
-      primary: "ICA, Long Term Visit Pass pages",
+      primary: 'ICA, "Becoming a Long-Term Visit Pass Holder"',
     },
     {
       kind: "cta",
