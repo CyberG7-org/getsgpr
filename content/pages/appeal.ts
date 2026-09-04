@@ -26,18 +26,18 @@ export const appeal: PageContent = {
       items: [
         { title: "Appealing immediately with the same evidence", text: "An appeal that adds nothing new asks ICA to change its mind for no reason." },
         { title: "Reapplying on a date, not a change", text: "Waiting the customary period and resubmitting the same profile." },
-        { title: "Guessing the reason", text: "ICA does not give reasons. Building a strategy around a guess wastes the next attempt." },
-        { title: "Paying for false hope", text: "Consultancies that promise to \"overturn\" a rejection. Singapore's consumer regulator has taken action against exactly this." },
+        { title: "Treating assumptions as facts", text: "Building the next strategy around a guessed rejection reason instead of reviewing the application and available evidence." },
+        { title: "Believing an approval promise", text: "ICA assesses every appeal on its own merits. No consultant controls the outcome." },
       ],
     },
     {
       kind: "prose", tone: "alt",
       title: "What ICA says about appeals.",
       content: [
-        { p: "ICA states that unsuccessful applicants may appeal through its e-Service, and that appeals are assessed on their own merits. ICA does not publish reasons for rejection and does not endorse or work with commercial consultants. Applicants may also submit a fresh application later." },
-        { small: "Source: ICA, \"Appeal for Singapore Citizenship / Permanent Residence\" and \"Becoming a Permanent Resident\". Checked [[date]]." },
+        { p: "ICA permits an appeal only after a Singapore Citizenship, Permanent Residence or Long-Term Visit Pass application has been rejected. The appeal must be submitted through ICA's e-Service; ICA does not accept appeals in person, by email or by post. The sponsor of the rejected application must submit the appeal using Singpass, or the main applicant if there was no sponsor. If the original application was submitted without Singpass, the appeal must use the same email address. New supporting documents and official translations may be required. Every appeal is assessed on its own merits, and processing times vary." },
+        { small: "Source: ICA, \"Appeal for Singapore Citizenship, Permanent Residence or Long-Term Visit Pass\". Checked [[date]]." },
       ],
-      source: 'ICA, "Appeal for Singapore Citizenship / Permanent Residence"',
+      source: 'ICA, "Appeal for Singapore Citizenship, Permanent Residence or Long-Term Visit Pass"',
     },
     {
       kind: "cards", columns: 3,
@@ -61,8 +61,7 @@ export const appeal: PageContent = {
         { title: "Submission assistance", text: "Through ICA's e-Service, step by step." },
       ],
       foot: {
-        text: "Concierge includes the rejection strategy session and one appeal or reapplication assessment [[and drafting — confirm]]. Partnered clients can add the assessment for S$[[x]]. A stand-alone Rejection Strategy Session is S$[[x]]. [[Confirm.]]",
-        button: { label: "See the appeal policy on the pricing page", href: "/packages", style: "ghost" },
+        button: { label: "See the appeal policy on the pricing page", href: "/packages#appeal", style: "ghost" },
       },
     },
     {
@@ -90,15 +89,15 @@ export const appeal: PageContent = {
       openFirst: true,
       items: [
         { q: "Should I appeal or reapply?", a: "It depends on whether something material has changed and how quickly. An appeal makes sense when you have new, substantial evidence to put in front of ICA soon. A reapplication makes sense when the change needs time to build. The diagnostic and the strategy session answer this for your case." },
-        { q: "Can you find out why I was rejected?", a: "No. ICA does not give reasons and has no channel for consultants to ask. Anyone who claims otherwise is misleading you." },
-        { q: "How long should I wait before reapplying?", a: "ICA does not publish a required waiting period. What matters is the change in your profile and evidence, not the calendar. [[Confirm current ICA guidance.]]" },
+        { q: "Can you find out why I was rejected?", a: "We cannot obtain ICA's private assessment or use a separate consultant channel. We review the previous application, the current profile and the evidence to identify what can be strengthened." },
+        { q: "How long should I wait before reapplying?", a: "ICA's current appeal and PR guidance does not state a mandatory waiting period for a fresh application. The useful question is whether your circumstances or supporting evidence have materially improved." },
         { q: "Will an appeal hurt a later application?", a: "There is no published evidence that it does. A weak appeal is a wasted effort rather than a penalty, but it is still wasted." },
         { q: "I used another consultant last time. Can you still help?", a: "Yes. We will need the previous application if you have it, so we can see exactly what ICA saw." },
       ],
     },
     {
       kind: "source", tight: true,
-      primary: 'ICA, "Appeal for Singapore Citizenship / Permanent Residence"',
+      primary: 'ICA, "Appeal for Singapore Citizenship, Permanent Residence or Long-Term Visit Pass"',
     },
     {
       kind: "cta",
