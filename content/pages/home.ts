@@ -163,6 +163,7 @@ export const home: PageContent = {
       kind: "reviews",
       eyebrow: "Testimonials",
       title: "What clients say.",
+      sub: "Feedback from clients across PR, citizenship, LTVP and appeal applications.",
       limit: 3,
     },
     {

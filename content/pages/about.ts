@@ -55,7 +55,7 @@ export const about: PageContent = {
         },
         {
           title: "Proof you can check beats proof we selected.",
-          text: "Our reviews are on Google, unedited, with dates. Our cases are published with written consent and redacted outcome documents. If a claim on this site cannot be checked, we take it down.",
+          text: "We publish attributed client feedback as it was originally shared with GetSGPR. Our cases are published only with written consent and redacted outcome documents.",
         },
       ],
     },
@@ -71,6 +71,7 @@ export const about: PageContent = {
       kind: "reviews",
       eyebrow: "Testimonials",
       title: "What clients say.",
+      sub: "Feedback from clients across PR, citizenship, LTVP and appeal applications.",
       limit: 9,
     },
     {
@@ -81,7 +82,7 @@ export const about: PageContent = {
         ["\"Highest approval rate\"", "An 8-factor diagnostic that tells you what is strong and what is weak"],
         ["\"Guaranteed PR\" or \"secret ICA criteria\"", "ICA's published factors, cited with dates"],
         ["Prices on request", "Three fixed prices, published, with everything included and excluded"],
-        ["Anonymous testimonials", "Google reviews and consented client cases with outcome documents"],
+        ["Anonymous testimonials", "Attributed client feedback and consented client cases with outcome documents"],
         ["Documents by WhatsApp", "A secure client workspace and a published data policy"],
       ],
     },

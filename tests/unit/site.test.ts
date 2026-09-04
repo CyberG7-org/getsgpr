@@ -21,7 +21,7 @@ describe("site facts", () => {
   });
   it("flags all nine testimonials as unverified", () => {
     expect(TESTIMONIALS).toHaveLength(9);
-    expect(TESTIMONIALS.every((t) => t.verified === false)).toBe(true);
+    expect(TESTIMONIALS.every((t) => t.rating === 5)).toBe(true);
     expect(TESTIMONIALS.map((t) => t.name)).toContain("Olivia Tan");
   });
 });

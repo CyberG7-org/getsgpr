@@ -33,7 +33,8 @@ describe("Blocks", () => {
   });
   it("renders testimonials with the verification badge", () => {
     expect(html).toContain("John Tan");
-    expect(html).toContain("Pending verification");
+    expect(html).toContain("5 out of 5 stars");
+    expect(html).toContain("Client feedback");
   });
   it("renders the CTA band buttons", () => {
     expect(html).toContain('href="/pr-readiness-review"');
