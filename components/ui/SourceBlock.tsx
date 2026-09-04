@@ -1,13 +1,11 @@
-import { Ph } from "./Ph";
-import { SITE } from "@/content/site";
+import { Today } from "./Today";
 
-export function SourceBlock({ primary, reviewedBy = true }: { primary: string; reviewedBy?: boolean }) {
+export function SourceBlock({ primary }: { primary: string }) {
   return (
-    <div className="bg-white border border-line rounded-card px-[26px] py-[22px] text-[14px] text-slate-500 max-w-[820px]">
-      <b className="block text-navy-700 mb-1.5 text-[12.5px] tracking-[.08em] uppercase">Reviewed against official ICA information</b>
-      <div className="text-[13px] text-slate-400 mb-1.5">
-        Last reviewed: <Ph label={SITE.placeholders.checkedOn} /> · Primary source: {primary}
-        {reviewedBy && <> · Reviewed by: <Ph label="name, role" /></>}
+    <div className="self-start bg-white border border-line rounded-card px-7 py-6 text-[15.5px] leading-7 text-slate-500 max-w-[820px] shadow-card">
+      <b className="block text-navy-700 mb-2 text-[14px] leading-5 tracking-[.08em] uppercase">Reviewed against official ICA information</b>
+      <div className="text-[14.5px] leading-6 text-slate-400 mb-2">
+        Checked: <Today /> · Primary source: {primary}
       </div>
       GetSGPR is an independent consultancy and is not affiliated with or endorsed by ICA. Immigration policies and individual circumstances can change; ICA makes all final decisions.
     </div>

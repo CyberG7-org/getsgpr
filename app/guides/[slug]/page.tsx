@@ -44,7 +44,7 @@ export default async function GuidePage({ params }: { params: Promise<{ slug: st
       kind: "hero", variant: "plain",
       eyebrow: `Guide · ${guide.category}`,
       title: guide.title,
-      small: "Last reviewed [[date]] · Reviewed by [[name, role]]",
+      small: "Last reviewed [[date]]",
     },
   ];
 

@@ -15,7 +15,7 @@ export default function GuidesPage() {
   const startHereCards: Card[] = guides.map((g) => ({
     badge: g.category,
     title: g.title,
-    text: "[[Author]] · Reviewed by [[name]] · Last reviewed [[date]] · [[x]] min read",
+    text: "[[Author]] · Last reviewed [[date]] · [[x]] min read",
     link: { label: "Read →", href: `/guides/${g.slug}` },
   }));
 

@@ -22,7 +22,7 @@ function Inner({ b }: { b: Block }) {
     case "reviews": return <Reviews {...b} />;
     case "faq": return <FaqBlock {...b} />;
     case "contact": return <ContactSplit {...b} />;
-    case "source": return <SourceBlock primary={b.primary} reviewedBy={b.reviewedBy} />;
+    case "source": return <SourceBlock primary={b.primary} />;
     case "table": return <TableBlock {...b} />;
     case "prose": return <SplitProse {...b} />;
     case "honest": return <Honest {...b} />;

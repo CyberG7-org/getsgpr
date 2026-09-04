@@ -2,7 +2,7 @@ import type { PageContent } from "@/content/types";
 
 export const faqMeta = {
   title: "Singapore PR FAQ: Eligibility, Documents, Timing, Appeals — GetSGPR",
-  description: "Short answers, with links to the longer guides and to ICA's own pages. Reviewed by [[name]] on [[date]].",
+  description: "Short answers, with links to the longer guides and to ICA's own pages.",
   path: "/guides/singapore-pr-faq",
 };
 
@@ -26,7 +26,7 @@ export const faq: PageContent = {
       kind: "hero", variant: "plain",
       eyebrow: "Reference",
       title: "Singapore PR: the questions people actually ask.",
-      sub: "Short answers, with links to the longer guides and to ICA's own pages. Reviewed by [[name]] on [[date]].",
+      sub: "Short answers, with links to the longer guides and to ICA's own pages. Last reviewed [[date]].",
     },
     {
       kind: "faq", tight: true, schema: true, openFirst: true,
