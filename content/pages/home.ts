@@ -187,12 +187,12 @@ export const home: PageContent = {
       title: "Questions people ask before they call us.",
       schema: true, openFirst: true,
       items: [
-        { q: "Is there any consultation fee involved?", a: "No. The initial consultation is complimentary and non-obligatory. We recommend booking one to two weeks ahead, and you can reschedule free with 24 hours' notice. [[Lift verbatim from the live site.]]" },
-        { q: "Do you guarantee 100% approval if I engage your firm?", a: "No. We do not guarantee 100% approval simply for marketing purposes. No agency can promise an ICA outcome. We uphold transparency and honesty in our services, review your profile thoroughly and tell you plainly when waiting is the better move. [[Lift verbatim from the live site.]]" },
-        { q: "How long will it take to prepare my application?", a: "Preparation generally takes one to three months, depending on how complete your documents are and how quickly employers and institutions respond. ICA's own processing time is separate. [[Lift verbatim from the live site.]]" },
-        { q: "What if my documents are not in English?", a: "Documents not in English must be accompanied by an accepted translation. We coordinate translations where needed, at cost. [[Lift verbatim from the live site.]]" },
-        { q: "What if I cannot produce my birth certificate or education certificates?", a: "Where a document genuinely cannot be obtained, we draft a declaration letter explaining its absence at no additional charge. [[Lift verbatim from the live site.]]" },
-        { q: "Can I appeal if my application gets rejected?", a: "Yes. Appeals are lodged through ICA's e-Service and assessed on their merits. We reassess the reasons with you and advise on appeal or re-submission. [[Lift verbatim from the live site.]]" },
+        { q: "Is there any consultation fee involved?", a: "No. The initial consultation is complimentary and non-obligatory. We recommend booking one to two weeks ahead, and you can reschedule or cancel with at least 24 hours' notice." },
+        { q: "Do you guarantee 100% approval if I engage your firm?", a: "No. We do not guarantee approval. ICA assesses every application on its own merits. We review your profile thoroughly, strengthen the areas within your control and tell you plainly when waiting may be the better move." },
+        { q: "How long will it take to prepare my application?", a: "Preparation generally takes one to three months, depending on your circumstances, how complete your documents are and how quickly third parties respond. ICA's processing time begins after submission and is separate." },
+        { q: "What if my documents are not in English?", a: "Documents not in English must be accompanied by an official English translation. ICA accepts translations provided by the embassy of the country that issued the document or by a notary public in Singapore or the issuing country. Private translations must be properly attested or notarised." },
+        { q: "What if I cannot produce my birth certificate or education certificates?", a: "If a required document genuinely cannot be obtained, we can help draft a declaration letter explaining the circumstances. This is included in our service at no additional charge." },
+        { q: "Can I appeal if my application gets rejected?", a: "Yes. We first reassess your circumstances and any material changes to determine whether an appeal is viable or a new application would be more appropriate. Every case is considered individually." },
       ],
     },
     {
