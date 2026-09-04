@@ -133,12 +133,12 @@ export function ReadinessForm() {
       <h3 className="text-[23px] text-white mb-2">Where should we send your result?</h3>
       <p className="text-[14px] text-white/70 mb-5">Enter your details after answering all 15 questions.</p>
       <div className="grid grid-cols-2 max-[640px]:grid-cols-1 gap-4">
-        <div className="grid gap-1.5">
+        <div className="grid content-start gap-1.5">
           <label className="font-semibold text-[14px] text-white">First name</label>
           <input type="text" placeholder="First name" value={firstName} onChange={(e) => setFirstName(e.target.value)}
             className="[font:inherit] min-h-[52px] px-3.5 py-3 border border-white/20 bg-white text-navy-900 rounded-btn w-full" />
         </div>
-        <div className="grid gap-1.5">
+        <div className="grid content-start gap-1.5">
           <label className="font-semibold text-[14px] text-white">Email</label>
           <input type="email" placeholder="you@example.com" value={email} onChange={(e) => setEmail(e.target.value)}
             className="[font:inherit] min-h-[52px] px-3.5 py-3 border border-white/20 bg-white text-navy-900 rounded-btn w-full" />
