@@ -159,6 +159,13 @@
   .prose-x ul, .prose-x ol { @apply pl-5 grid gap-2; }
   .prose-x ul { list-style: disc; } .prose-x ol { list-style: decimal; }
   .prose-x strong { @apply text-navy-900; }
+  .contact-info-card .prose-x { @apply gap-5; }
+  .contact-info-card .prose-x h3 { @apply mt-0 font-display text-[24px] font-semibold tracking-[-.025em] text-navy-900; }
+  .contact-info-card .prose-x > p:has(a) { @apply m-0; }
+  .contact-info-card .prose-x > p:has(a) a { @apply inline-flex min-h-11 items-center rounded-[12px] bg-navy-900 px-4 py-2.5 font-semibold text-white no-underline transition-[transform,background-color] duration-200; }
+  .contact-info-card .prose-x > p:has(a) a::after { content: "↗"; @apply ml-2 text-blue-300; }
+  .contact-info-card .prose-x > p:has(a) a:hover { @apply -translate-y-0.5 bg-navy-700; }
+  .contact-info-card .prose-x > p:last-child:has(strong) { @apply mt-1 rounded-[14px] border border-line bg-paper-alt p-5 text-[14px] leading-6; }
 
   /* decorative shapes */
   .shapes { @apply fixed inset-0 -z-10 pointer-events-none overflow-hidden; }
