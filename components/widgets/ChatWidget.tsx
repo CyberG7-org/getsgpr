@@ -1,8 +1,12 @@
 "use client";
 import Script from "next/script";
+import { usePathname } from "next/navigation";
 import { SITE } from "@/content/site";
 
 export function ChatWidget() {
+  const pathname = usePathname();
+  if (pathname === "/book-a-call") return null;
+
   return (
     <Script
       src="https://widgets.leadconnectorhq.com/loader.js"

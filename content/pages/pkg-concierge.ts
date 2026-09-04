@@ -26,10 +26,10 @@ export const pkgConcierge: PageContent = {
       sub: "For busy professionals and families who want strategy, writing, document handling and submission managed by one accountable case manager.",
       small: "Independent consultancy. ICA makes all decisions. No approval guarantees.",
       buttons: [
-        { label: "Book a Concierge call", href: "/contact", style: "primary" },
+        { label: "Book a Concierge call", href: "/book-a-call", style: "primary" },
         { label: "Compare all packages", href: "/packages", style: "outline-dark" },
       ],
-      aside: { kind: "package", pkg: "concierge", cta: { label: "Book a Concierge call", href: "/contact", style: "primary" } },
+      aside: { kind: "package", pkg: "concierge", cta: { label: "Book a Concierge call", href: "/book-a-call", style: "primary" } },
     },
     { kind: "trust" },
     {
@@ -85,7 +85,7 @@ export const pkgConcierge: PageContent = {
       sub: "The free Readiness Review recommends one at the end, or book a free call.",
       buttons: [
         { label: "Get My Free PR Readiness Report", href: "/pr-readiness-review", style: "light" },
-        { label: "Book a free call", href: "/contact", style: "outline-dark" },
+        { label: "Book a free call", href: "/book-a-call", style: "outline-dark" },
       ],
     },
   ],

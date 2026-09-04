@@ -104,7 +104,7 @@ export const appeal: PageContent = {
       title: "Find out what has really changed.",
       buttons: [
         { label: "Start the Rejection Diagnostic", href: "/pr-readiness-review", style: "light" },
-        { label: "Book a rejection strategy session", href: "/contact", style: "outline-dark" },
+        { label: "Book a rejection strategy session", href: "/book-a-call", style: "outline-dark" },
       ],
     },
   ],

@@ -26,10 +26,10 @@ export const pkgPartnered: PageContent = {
       sub: "For applicants who want expert feedback and shared work across scheduled calls. You do the work; we find the gaps and inconsistencies before ICA does.",
       small: "Independent consultancy. ICA makes all decisions. No approval guarantees.",
       buttons: [
-        { label: "Book SGPR Partnered", href: "/contact", style: "primary" },
+        { label: "Book SGPR Partnered", href: "/book-a-call", style: "primary" },
         { label: "Compare all packages", href: "/packages", style: "outline-dark" },
       ],
-      aside: { kind: "package", pkg: "partnered", cta: { label: "Book SGPR Partnered", href: "/contact", style: "light" } },
+      aside: { kind: "package", pkg: "partnered", cta: { label: "Book SGPR Partnered", href: "/book-a-call", style: "light" } },
     },
     { kind: "trust" },
     {
@@ -85,7 +85,7 @@ export const pkgPartnered: PageContent = {
       sub: "The free Readiness Review recommends one at the end, or book a free call.",
       buttons: [
         { label: "Get My Free PR Readiness Report", href: "/pr-readiness-review", style: "light" },
-        { label: "Book a free call", href: "/contact", style: "outline-dark" },
+        { label: "Book a free call", href: "/book-a-call", style: "outline-dark" },
       ],
     },
   ],

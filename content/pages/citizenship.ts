@@ -15,7 +15,7 @@ export const citizenship: PageContent = {
       sub: "Citizenship asks a different question from PR. Not whether you could contribute here, but whether you already belong here. We help you answer it with evidence.",
       small: "Independent consultancy. ICA makes all decisions. No approval guarantees.",
       buttons: [
-        { label: "Book a citizenship consultation", href: "/contact", style: "primary" },
+        { label: "Book a citizenship consultation", href: "/book-a-call", style: "primary" },
       ],
       aside: { kind: "image", ratio: "4-3", label: "Photo relevant to this segment, no client faces without consent" },
     },
@@ -102,7 +102,7 @@ export const citizenship: PageContent = {
       kind: "cta",
       title: "Show that you belong here.",
       buttons: [
-        { label: "Book a citizenship consultation", href: "/contact", style: "light" },
+        { label: "Book a citizenship consultation", href: "/book-a-call", style: "light" },
       ],
     },
   ],

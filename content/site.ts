@@ -10,7 +10,11 @@ export const SITE = {
   tagline: "Know where you stand. Strengthen what matters. Submit with confidence.",
   disclaimer: "GetSGPR is an independent consultancy and is not affiliated with, licensed by or endorsed by the Immigration & Checkpoints Authority (ICA) or any government agency. ICA assesses every application on its own merits and makes all final decisions. Nothing on this website is a promise or prediction of approval.",
   independenceLine: "Independent Singapore immigration consultancy. ICA makes all approval decisions. We never guarantee approval.",
-  ghl: { formId: "z6a7dZmxkVc4lU8nayfJ", chatWidgetId: "685385ad2eeadb3322507b55" },
+  ghl: {
+    formId: "z6a7dZmxkVc4lU8nayfJ",
+    calendarId: "BmjSgje9UxMhSTAWMR9b",
+    chatWidgetId: "685385ad2eeadb3322507b55",
+  },
   // Facts the live site does not publish. Rendered through <Ph>.
   placeholders: { email: "Email", hours: "Opening hours", googleRating: "Google rating", reviewCount: "Number of reviews", dpo: "DPO name", checkedOn: "date checked" },
 } as const;

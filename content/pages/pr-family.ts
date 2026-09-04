@@ -24,7 +24,7 @@ export const prFamily: PageContent = {
       sub: "A family application is several people's records read as one story. The story holds when every date, address and relationship agrees across every document.",
       small: SITE.independenceLine,
       buttons: [
-        { label: "Book a family consultation", href: "/contact", style: "primary" },
+        { label: "Book a family consultation", href: "/book-a-call", style: "primary" },
       ],
       aside: { kind: "image", ratio: "4-3", label: "Photo relevant to this segment, no client faces without consent" },
     },
@@ -110,7 +110,7 @@ export const prFamily: PageContent = {
       kind: "cta",
       title: "Get the whole household on one page.",
       buttons: [
-        { label: "Book a family consultation", href: "/contact", style: "light" },
+        { label: "Book a family consultation", href: "/book-a-call", style: "light" },
         { label: "Get My Free PR Readiness Report", href: "/pr-readiness-review", style: "outline-dark" },
       ],
     },

@@ -91,7 +91,7 @@ export function EligibilityChecker() {
                 )}
                 <p className="fine mt-2.5">A GetSGPR snapshot, not an ICA decision. No agency can promise an ICA outcome.</p>
                 <div className="flex flex-wrap gap-3 items-center mt-3.5">
-                  <Link href="/contact" className="btn btn-primary">Book a free call</Link>
+                  <Link href="/book-a-call" className="btn btn-primary">Book a free call</Link>
                   <button type="button" onClick={onReset} className="text-[14px] text-slate-400 bg-transparent border-0 cursor-pointer underline">Start over</button>
                 </div>
               </>
