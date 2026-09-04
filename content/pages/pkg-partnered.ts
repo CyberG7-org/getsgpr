@@ -27,7 +27,7 @@ export const pkgPartnered: PageContent = {
       small: "Independent consultancy. ICA makes all decisions. No approval guarantees.",
       buttons: [
         { label: "Book SGPR Partnered", href: "/contact", style: "primary" },
-        { label: "Compare all packages", href: "/packages", style: "ghost" },
+        { label: "Compare all packages", href: "/packages", style: "outline-dark" },
       ],
       aside: { kind: "package", pkg: "partnered", cta: { label: "Book SGPR Partnered", href: "/contact", style: "light" } },
     },

@@ -27,7 +27,7 @@ export const pkgConcierge: PageContent = {
       small: "Independent consultancy. ICA makes all decisions. No approval guarantees.",
       buttons: [
         { label: "Book a Concierge call", href: "/contact", style: "primary" },
-        { label: "Compare all packages", href: "/packages", style: "ghost" },
+        { label: "Compare all packages", href: "/packages", style: "outline-dark" },
       ],
       aside: { kind: "package", pkg: "concierge", cta: { label: "Book a Concierge call", href: "/contact", style: "primary" } },
     },

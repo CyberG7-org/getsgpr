@@ -2,7 +2,6 @@ import type { Hero as HeroBlock } from "@/content/types";
 import { Eyebrow } from "@/components/ui/Eyebrow";
 import { RichText } from "@/components/ui/RichText";
 import { ButtonRow } from "@/components/ui/Button";
-import { ImagePh } from "@/components/ui/ImagePh";
 import { Badge } from "@/components/ui/Badge";
 import { EligibilityChecker } from "@/components/widgets/EligibilityChecker";
 import { PackageCard } from "@/components/blocks/Packages";
@@ -11,7 +10,7 @@ import { HeroBackgroundVideo } from "@/components/ui/HeroBackgroundVideo";
 
 export function Hero(b: HeroBlock) {
   const { aside } = b;
-  const two = aside !== undefined;
+  const two = aside !== undefined && aside.kind !== "image";
   return (
     <section className={`hero-banner hero-${b.variant} relative isolate overflow-hidden py-24 pb-[88px] max-[980px]:py-14 text-on-dark on-dark`}>
       <HeroBackgroundVideo />
@@ -27,7 +26,6 @@ export function Hero(b: HeroBlock) {
           {b.under && <RichText as="p" className="small mt-3.5 text-on-dark-muted" value={b.under} />}
         </div>
         {aside?.kind === "checker" && <EligibilityChecker />}
-        {aside?.kind === "image" && <ImagePh ratio={aside.ratio} label={aside.label} className="min-h-[380px] max-[980px]:min-h-[240px]" />}
         {aside?.kind === "package" && <PackageCard p={PACKAGES.find((x) => x.key === aside.pkg)!} i={0} cta={aside.cta} />}
       </div>
     </section>

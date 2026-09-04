@@ -17,7 +17,7 @@ export const pr: PageContent = {
       small: SITE.independenceLine,
       buttons: [
         { label: "Get My Free PR Readiness Report", href: "/pr-readiness-review", style: "primary" },
-        { label: "Compare Packages", href: "/packages", style: "ghost" },
+        { label: "Compare Packages", href: "/packages", style: "outline-dark" },
       ],
       aside: { kind: "image", ratio: "4-3", label: "Photo relevant to this segment, no client faces without consent" },
     },
