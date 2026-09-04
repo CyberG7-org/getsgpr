@@ -32,10 +32,12 @@ function CardView({ c, i }: { c: Card; i: number }) {
 }
 
 export function Cards(b: CardsBlock) {
+  const columns = b.cards.length === 1 ? "grid-cols-1" : COLS[b.columns];
+
   return (
     <>
       <SectionHead eyebrow={b.eyebrow} eyebrowTone={b.eyebrowTone} title={b.title} sub={b.sub} />
-      <div className={`grid gap-[18px] max-[980px]:grid-cols-1 max-[980px]:gap-3.5 ${COLS[b.columns]}`} style={b.maxWidth ? { maxWidth: b.maxWidth } : undefined}>
+      <div className={`grid gap-[18px] max-[980px]:grid-cols-1 max-[980px]:gap-3.5 ${columns}`} style={b.maxWidth ? { maxWidth: b.maxWidth } : undefined}>
         {b.cards.map((c, i) => <CardView key={c.title + i} c={c} i={i} />)}
       </div>
       {b.note && <RichText as="p" className="note" value={b.note} />}

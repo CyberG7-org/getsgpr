@@ -10,6 +10,12 @@ import { Text } from "./Text"; import { TableBlock } from "./TableBlock"; import
 import { ReadinessForm } from "@/components/widgets/ReadinessForm";
 import { SectionHead } from "@/components/ui/SectionHead";
 
+function isDraftCaseSection(b: Block) {
+  return b.kind === "cards"
+    && b.cards.length > 0
+    && b.cards.every((card) => card.outcome && JSON.stringify(card).includes("[["));
+}
+
 function Inner({ b }: { b: Block }) {
   switch (b.kind) {
     case "stats": return <Stats {...b} />;
@@ -38,6 +44,7 @@ export function Blocks({ blocks }: { blocks: Block[] }) {
   return (
     <>
       {blocks.map((b, i) => {
+        if (isDraftCaseSection(b)) return null;
         if (b.kind === "hero") return <Hero key={i} {...b} />;
         if (b.kind === "trust") return <Trust key={i} google={b.google} />;
         if (b.kind === "cta") return <CtaBand key={i} title={b.title} sub={b.sub} buttons={b.buttons} />;
