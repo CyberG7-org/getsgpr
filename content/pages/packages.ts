@@ -11,6 +11,7 @@ export const packages: PageContent = {
   blocks: [
     {
       kind: "hero", variant: "plain",
+      centered: true,
       eyebrow: "Packages",
       title: "Choose how much support you need. Know the price before you speak to us.",
       sub: "From structured DIY preparation to full application management. Every package shows exactly what is included, what is not and what happens after submission.",
