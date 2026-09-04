@@ -17,6 +17,7 @@ export type Foot = { text?: string; link?: { label: string; href: string }; butt
 export type Hero = {
   kind: "hero"; variant: "dark" | "light" | "plain";
   eyebrow?: string; eyebrowTone?: Tone; title: string; sub?: string; small?: string; badge?: string;
+  crumbs?: { label: string; href?: string }[];
   buttons?: Btn[]; under?: string; centered?: boolean;
   aside?: { kind: "checker" } | { kind: "image"; ratio: Ratio; label: string } | { kind: "package"; pkg: "lite" | "partnered" | "concierge"; cta?: Btn };
 };

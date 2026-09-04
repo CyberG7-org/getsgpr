@@ -31,20 +31,30 @@ export default async function GuidePage({ params }: { params: Promise<{ slug: st
   const guide = getGuide(slug);
   if (!guide || guide.slug === "singapore-pr-faq") notFound();
 
+  const crumbs = [
+    { label: "Home", href: "/" },
+    { label: "Knowledge Centre", href: "/guides" },
+    { label: guide.title },
+  ];
+
+  const breadcrumbJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: crumbs.map((item, index) => ({
+      "@type": "ListItem",
+      position: index + 1,
+      name: item.label,
+      item: item.href ? `https://getsgpr.com${item.href}` : `https://getsgpr.com/guides/${guide.slug}`,
+    })),
+  };
+
   const topBlocks: Block[] = [
-    {
-      kind: "crumbs",
-      items: [
-        { label: "Home", href: "/" },
-        { label: "Knowledge Centre", href: "/guides" },
-        { label: guide.title },
-      ],
-    },
     {
       kind: "hero", variant: "plain",
       eyebrow: `Guide · ${guide.category}`,
       title: guide.title,
       small: "Last reviewed [[date]]",
+      crumbs,
     },
   ];
 
@@ -60,6 +70,7 @@ export default async function GuidePage({ params }: { params: Promise<{ slug: st
 
   return (
     <>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }} />
       <Shapes preset="plain" />
       <main>
         <Blocks blocks={topBlocks} />
