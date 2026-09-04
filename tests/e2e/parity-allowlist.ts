@@ -232,8 +232,8 @@ export const ALLOW: Record<string, string[]> = {
 
     // GoHighLevel iframe embed note (contact.html's <p class="note"> next to the
     // form embed): a builder/implementation note about the widget markup, not real
-    // page content. The live page renders the actual form via the GhlForm widget
-    // (components/widgets/GhlForm.tsx) with no such note.
+    // page content. The live page renders the booking calendar through the
+    // GhlCalendar widget with no such note.
     "gohighlevel contact form embed.",
     "each instance needs a unique id and data-layout-iframe-id.",
   ],

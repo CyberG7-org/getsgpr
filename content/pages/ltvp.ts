@@ -15,7 +15,7 @@ export const ltvp: PageContent = {
       sub: "An LTVP application is really two people's evidence: the sponsor's and the applicant's. We prepare both so the relationship and the means of support are clear and consistent.",
       small: "Independent consultancy. ICA makes all decisions. No approval guarantees.",
       buttons: [
-        { label: "Book an LTVP consultation", href: "/book-a-call", style: "primary" },
+        { label: "Book an LTVP consultation", href: "/contact", style: "primary" },
       ],
       aside: { kind: "image", ratio: "4-3", label: "Photo relevant to this segment, no client faces without consent" },
     },
@@ -58,7 +58,7 @@ export const ltvp: PageContent = {
         { title: "Sponsor evidence preparation", text: "The sponsor's letter, income and residence records, prepared to the same standard as the applicant's." },
       ],
       foot: {
-        button: { label: "Book an LTVP consultation", href: "/book-a-call", style: "ghost" },
+        button: { label: "Book an LTVP consultation", href: "/contact", style: "ghost" },
       },
     },
     {
@@ -99,7 +99,7 @@ export const ltvp: PageContent = {
       kind: "cta",
       title: "Bring your family here, properly.",
       buttons: [
-        { label: "Book an LTVP consultation", href: "/book-a-call", style: "light" },
+        { label: "Book an LTVP consultation", href: "/contact", style: "light" },
       ],
     },
   ],

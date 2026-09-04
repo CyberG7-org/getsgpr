@@ -13,7 +13,7 @@ export const NAV = {
     { label: "Knowledge Centre", href: "/guides" },
     { label: "About", href: "/about" },
   ] as Link[],
-  cta: { label: "Book a free call", href: "/book-a-call" },
+  cta: { label: "Book a free call", href: "/contact" },
   compact: [
     { label: "Services", href: "/services" },
     { label: "Packages", href: "/packages" },
@@ -45,7 +45,7 @@ export const NAV = {
     "/permanent-resident-sg/ep-s-pass-holders", "/permanent-resident-sg/founders-self-employed",
     "/singapore-citizen", "/ltvp", "/pr-appeal", "/packages", "/sgpr-lite-diy-tier",
     "/sgpr-partnered-do-with-you", "/sgpr-premium-concierge", "/about",
-    "/privacy-data-security", "/guides", "/guides/singapore-pr-faq", "/contact", "/book-a-call",
+    "/privacy-data-security", "/guides", "/guides/singapore-pr-faq", "/contact",
     "/guides/should-i-apply-now-or-wait", "/guides/pr-document-checklist",
     "/guides/appeal-or-reapply", "/guides/what-ica-considers",
   ],

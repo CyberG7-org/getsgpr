@@ -24,7 +24,7 @@ export const prFounders: PageContent = {
       sub: "Your application has to prove what an employment letter proves for everyone else: that your work is real, stable and contributes here. That takes more evidence, organised better.",
       small: SITE.independenceLine,
       buttons: [
-        { label: "Book a specialist assessment", href: "/book-a-call", style: "primary" },
+        { label: "Book a specialist assessment", href: "/contact", style: "primary" },
       ],
       aside: { kind: "image", ratio: "4-3", label: "Photo relevant to this segment, no client faces without consent" },
     },
@@ -110,7 +110,7 @@ export const prFounders: PageContent = {
       kind: "cta",
       title: "Show the substance behind the business.",
       buttons: [
-        { label: "Book a specialist assessment", href: "/book-a-call", style: "light" },
+        { label: "Book a specialist assessment", href: "/contact", style: "light" },
       ],
     },
   ],

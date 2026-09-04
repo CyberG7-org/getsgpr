@@ -5,7 +5,7 @@ import { SITE } from "@/content/site";
 
 export function ChatWidget() {
   const pathname = usePathname();
-  if (pathname === "/book-a-call") return null;
+  if (pathname === "/contact") return null;
 
   return (
     <Script

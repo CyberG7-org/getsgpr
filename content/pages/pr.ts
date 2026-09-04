@@ -142,7 +142,7 @@ export const pr: PageContent = {
       title: "Know where you stand before you apply.",
       buttons: [
         { label: "Get My Free PR Readiness Report", href: "/pr-readiness-review", style: "light" },
-        { label: "Book a 20-minute strategy call", href: "/book-a-call", style: "outline-dark" },
+        { label: "Book a 20-minute strategy call", href: "/contact", style: "outline-dark" },
       ],
     },
   ],

@@ -46,7 +46,7 @@ export function MobileNav() {
           </div>
         </div>
       </details>
-      <Link href="/book-a-call" className="min-h-11 inline-flex items-center bg-blue-300 text-navy-900 font-semibold no-underline text-[14px] px-3.5 rounded-[9px]">Book a call</Link>
+      <Link href="/contact" className="min-h-11 inline-flex items-center bg-blue-300 text-navy-900 font-semibold no-underline text-[14px] px-3.5 rounded-[9px]">Book a call</Link>
     </nav>
   );
 }

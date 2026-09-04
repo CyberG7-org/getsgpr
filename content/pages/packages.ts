@@ -158,8 +158,8 @@ export const packages: PageContent = {
       sub: "Not sure which fits? Start the free Readiness Review and we will recommend one.",
       buttons: [
         { label: "Get SGPR Lite", href: "/sgpr-lite-diy-tier", style: "light" },
-        { label: "Book SGPR Partnered", href: "/book-a-call", style: "outline-dark" },
-        { label: "Book a Concierge call", href: "/book-a-call", style: "outline-dark" },
+        { label: "Book SGPR Partnered", href: "/contact", style: "outline-dark" },
+        { label: "Book a Concierge call", href: "/contact", style: "outline-dark" },
       ],
     },
   ],

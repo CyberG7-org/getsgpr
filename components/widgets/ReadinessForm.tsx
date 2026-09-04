@@ -75,7 +75,7 @@ export function ReadinessForm() {
           <p className="text-[15px] text-slate-500">{result.pkg.name} · {result.pkg.price} · {result.pkg.why}</p>
         </div>
         <div className="flex flex-wrap gap-3 items-center">
-          <Link href="/book-a-call" className="btn btn-primary">Book a 20-minute strategy call</Link>
+          <Link href="/contact" className="btn btn-primary">Book a 20-minute strategy call</Link>
           <Link href={result.pkg.href} className="btn btn-ghost">{cta}</Link>
         </div>
         <p className="small">Message us on WhatsApp to schedule (scheduling only, no documents). This result is a GetSGPR diagnostic and not a prediction of ICA&apos;s decision. ICA assesses every application on its own merits.</p>
