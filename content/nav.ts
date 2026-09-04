@@ -10,7 +10,6 @@ export const NAV = {
   primary: [
     { label: "Packages", href: "/packages" },
     { label: "Readiness Review", href: "/pr-readiness-review" },
-    { label: "Case Studies", href: "/case-studies" },
     { label: "Knowledge Centre", href: "/guides" },
     { label: "About", href: "/about" },
   ] as Link[],
@@ -30,7 +29,6 @@ export const NAV = {
     ] as Link[],
     company: [
       { label: "About GetSGPR", href: "/about" },
-      { label: "Case studies", href: "/case-studies" },
       { label: "Knowledge Centre", href: "/guides" },
       { label: "PR FAQ", href: "/guides/singapore-pr-faq" },
       { label: "Contact", href: "/contact" },
@@ -46,9 +44,8 @@ export const NAV = {
     "/permanent-resident-sg/first-time-application", "/permanent-resident-sg/family-spouse",
     "/permanent-resident-sg/ep-s-pass-holders", "/permanent-resident-sg/founders-self-employed",
     "/singapore-citizen", "/ltvp", "/pr-appeal", "/packages", "/sgpr-lite-diy-tier",
-    "/sgpr-partnered-do-with-you", "/sgpr-premium-concierge", "/case-studies", "/about",
+    "/sgpr-partnered-do-with-you", "/sgpr-premium-concierge", "/about",
     "/privacy-data-security", "/guides", "/guides/singapore-pr-faq", "/contact",
-    "/case-studies/sample-reapplication", "/case-studies/sample-family", "/case-studies/sample-first-time",
     "/guides/should-i-apply-now-or-wait", "/guides/pr-document-checklist",
     "/guides/appeal-or-reapply", "/guides/what-ica-considers",
   ],

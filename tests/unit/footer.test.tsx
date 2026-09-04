@@ -21,7 +21,8 @@ describe("Footer", () => {
     expect(html).toContain('alt="GetSGPR"');
   });
   it("links every footer route", () => {
-    for (const href of ["/permanent-resident-sg", "/packages", "/pr-readiness-review", "/about", "/case-studies", "/guides", "/contact", "/privacy-data-security"])
+    for (const href of ["/permanent-resident-sg", "/packages", "/pr-readiness-review", "/about", "/guides", "/contact", "/privacy-data-security"])
       expect(html).toContain(`href="${href}"`);
+    expect(html).not.toContain('href="/case-studies"');
   });
 });
