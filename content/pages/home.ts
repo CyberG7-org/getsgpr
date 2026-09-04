@@ -22,10 +22,13 @@ export const home: PageContent = {
       under: "Or answer six quick questions on the right for an instant snapshot.",
       aside: { kind: "checker" },
     },
-    { kind: "trust", google: true },
     {
       kind: "stats", tight: true,
-      items: [{ value: "24 hours", label: "we respond within" }],
+      items: [
+        { value: "Fixed-price packages", label: "Clear pricing for the support you need." },
+        { value: "No approval guarantees", label: "ICA makes all application decisions." },
+        { value: "Reply within 24 hours", label: "Speak with our team about your next step." },
+      ],
     },
     {
       kind: "honesty", tone: "alt",
