@@ -37,7 +37,14 @@ export type Steps = { kind: "steps"; eyebrow?: string; title: string; sub?: stri
 export type PackagesBlock = { kind: "packages"; eyebrow?: string; title?: string; sub?: string; note?: string; showNotFor?: boolean };
 export type Reviews = { kind: "reviews"; eyebrow?: string; title: string; sub?: string; limit?: number };
 export type Faq = { kind: "faq"; eyebrow?: string; title: string; items: { q: string; a: string }[]; schema?: boolean; openFirst?: boolean; note?: string };
-export type ContactSplit = { kind: "contact"; eyebrow?: string; title: string; sub?: string; prose: ProseItem[] };
+export type ContactSplit = {
+  kind: "contact";
+  eyebrow?: string;
+  title: string;
+  sub?: string;
+  prose: ProseItem[];
+  calendar?: { eyebrow?: string; title: string; sub?: string };
+};
 export type CtaBandBlock = { kind: "cta"; title: string; sub?: string; buttons: Btn[] };
 export type Source = { kind: "source"; primary: string };
 export type Table = { kind: "table"; eyebrow?: string; title?: string; sub?: string; columns: string[]; rows: string[][]; note?: string; foot?: Foot };
