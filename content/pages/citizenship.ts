@@ -34,8 +34,8 @@ export const citizenship: PageContent = {
       kind: "prose", tone: "alt",
       title: "What ICA says it considers.",
       content: [
-        { p: "ICA publishes who may apply for Singapore citizenship, including PR holders who have held PR for a qualifying period, spouses of citizens, and children born to or adopted by citizens, together with the documents required for each category. Applications are assessed on their merits. Citizenship carries obligations, including renouncing other citizenships and, for male applicants and sons, National Service liability, which ICA and MINDEF publish." },
-        { small: "Source: ICA, \"Becoming a Singapore Citizen\". [[Confirm current categories and residence periods against the ICA page before publishing.]] Checked [[date]]." },
+        { p: "ICA currently lists five eligibility routes: PRs aged 21 or above who have held PR for at least two years; PRs who have held PR for at least two years and have been married to a Singapore citizen for at least two years; eligible unmarried children below 21 of Singapore citizens; PR students who meet ICA's residence and education conditions; and PR aged parents of Singapore citizens aged 21 or above. Meeting an eligibility route does not guarantee approval. ICA assesses family ties, economic contributions, qualifications, age, family profile, length of residency, ability to integrate and commitment to sinking roots." },
+        { small: "Source: ICA, \"Becoming a Singapore Citizen\". Checked [[date]]." },
       ],
       source: 'ICA, "Becoming a Singapore Citizen"',
     },
@@ -44,10 +44,10 @@ export const citizenship: PageContent = {
       title: "The factors that carry citizenship applications.",
       sub: "Citizenship applications use the same consultation and evidence process as PR. The free Readiness Review is designed for PR; for citizenship, start with a consultation.",
       cards: [
-        { title: "Residence continuity as a PR", text: "The length and stability of your record since PR was granted." },
-        { title: "Integration and roots", text: "Employment, property, community, children's schooling and family here, as evidence rather than adjectives." },
-        { title: "Family profile and long-term plan", text: "Whether the household's plan is coherent, including who is converting and when." },
-        { title: "Evidence quality and timing", text: "Whether your records are current, complete and consistent." },
+        { title: "Family ties and profile", text: "Your family ties to Singaporeans and your wider family circumstances." },
+        { title: "Economic contribution and qualifications", text: "Your economic contributions, qualifications and ability to contribute to Singapore." },
+        { title: "Age and length of residency", text: "Your age and the length of time you have resided in Singapore." },
+        { title: "Integration and roots", text: "Your ability to integrate into society and your commitment to sinking roots in Singapore." },
       ],
     },
     {
@@ -61,7 +61,6 @@ export const citizenship: PageContent = {
         { title: "Obligations briefing", text: "Renunciation and National Service consequences explained before you commit, so nothing surprises you later." },
       ],
       foot: {
-        text: "Partnered S$[[x]] · Concierge S$[[x]] for a single applicant, family members S$[[x]] each. [[Confirm whether Lite includes a citizenship toolkit.]]",
         button: { label: "See pricing", href: "/packages", style: "ghost" },
       },
     },
