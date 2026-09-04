@@ -52,7 +52,7 @@ export const faq: PageContent = {
       items: [
         {
           q: "What documents do I need?",
-          a: "ICA publishes a document checklist that includes personal identification, education certificates, a recent employment letter, six months of payslips and, for the self-employed, business registration and financial records, among others. Use ICA's current checklist rather than any copy, including ours. [ICA PR document checklist →](#)",
+          a: "ICA publishes a document checklist that includes personal identification, education certificates, a recent employment letter, six months of payslips and, for the self-employed, business registration and financial records, among others. Use ICA's current checklist rather than an old saved copy. [Read our document guide](/guides/pr-document-checklist)",
         },
         {
           q: "What if I cannot get a document?",
@@ -74,11 +74,11 @@ export const faq: PageContent = {
         },
         {
           q: "How long does ICA take?",
-          a: "ICA publishes its processing time on ica.gov.sg. It starts after submission. Nothing a consultant does shortens it.",
+          a: "ICA states that PR applications will be processed within six months when all required documents are submitted and in order. Some applications may take longer. Nothing a consultant does shortens ICA's assessment.",
         },
         {
           q: "How long does preparation take?",
-          a: "With us, typically one to three months, depending mostly on how quickly employers and institutions supply records.",
+          a: "Preparation time depends mainly on how quickly you can obtain the required records and resolve missing or inconsistent information.",
         },
       ],
     },
@@ -88,7 +88,7 @@ export const faq: PageContent = {
       items: [
         {
           q: "What does ICA charge?",
-          a: "A processing fee per applicant at submission and further fees on approval. Current amounts are on ica.gov.sg. [[Insert with date checked.]]",
+          a: "ICA currently charges S$100 per PR application at submission. Successful applicants pay S$20 for the Entry Permit, S$50 for a five-year Re-Entry Permit and S$50 for the Singapore Identity Card. ICA states that fees are non-refundable. Checked 4 September 2026.",
         },
         {
           q: "What does a consultant charge?",
@@ -105,8 +105,8 @@ export const faq: PageContent = {
           a: "You may appeal through ICA's e-Service, or apply again later. Which is better depends on what has materially changed. [Read: PR rejected: appeal or reapply?](/pr-appeal)",
         },
         {
-          q: "Does ICA give reasons?",
-          a: "No.",
+          q: "Can I see ICA's internal assessment?",
+          a: "ICA does not provide applicants or consultants with its internal scoring or factor weightings. Review the submitted application and any material changes before choosing an appeal or a fresh application.",
         },
         {
           q: "Can a consultant find out why?",
@@ -128,7 +128,7 @@ export const faq: PageContent = {
         },
         {
           q: "Can anyone guarantee approval?",
-          a: "No. Singapore's consumer regulator has taken court action against consultancies that claimed to.",
+          a: "No. ICA assesses every application on its own merits and makes the final decision.",
         },
       ],
     },

@@ -2,7 +2,6 @@ import { notFound } from "next/navigation";
 import { Blocks } from "@/components/blocks/Blocks";
 import { Shapes } from "@/components/ui/Shapes";
 import { Section } from "@/components/ui/Section";
-import { ImagePh } from "@/components/ui/ImagePh";
 import { pageMetadata } from "@/lib/metadata";
 import { getGuides, getGuide } from "@/lib/markdown";
 import type { Block } from "@/content/types";
@@ -64,12 +63,7 @@ export default async function GuidePage({ params }: { params: Promise<{ slug: st
       <main>
         <Blocks blocks={topBlocks} />
         <Section>
-          <div className="grid grid-cols-[5fr_7fr] max-[980px]:grid-cols-1 gap-14">
-            <div>
-              <ImagePh ratio="1-1" label="Photo" />
-            </div>
-            <div className="prose-x" dangerouslySetInnerHTML={{ __html: guide.html }} />
-          </div>
+          <article className="prose-x mx-auto max-w-[820px]" dangerouslySetInnerHTML={{ __html: guide.html }} />
         </Section>
         <Blocks blocks={bottomBlocks} />
       </main>
