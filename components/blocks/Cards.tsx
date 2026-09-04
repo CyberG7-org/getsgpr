@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import type { Cards as CardsBlock, Card } from "@/content/types";
 import { SectionHead } from "@/components/ui/SectionHead";
 import { Badge } from "@/components/ui/Badge";
@@ -12,6 +13,11 @@ const TAG: Record<string, string> = { teal: "bg-teal-bg text-teal", red: "bg-red
 function CardView({ c, i }: { c: Card; i: number }) {
   return (
     <div className={`accent-card ${c.tone ? `accent-${c.tone}` : ""} card-hover reveal bg-white border border-line rounded-card px-8 py-[34px] max-[980px]:px-6 max-[980px]:py-[30px] flex flex-col gap-2.5 shadow-card`} style={{ animationDelay: `${i * 0.06}s` }}>
+      {c.image && (
+        <div className="relative -mx-8 -mt-[34px] mb-5 aspect-[16/8] overflow-hidden border-b border-line max-[980px]:-mx-6 max-[980px]:-mt-[30px] max-[640px]:aspect-[16/9]">
+          <Image src={c.image.src} alt={c.image.alt} fill sizes="(max-width: 980px) 100vw, 50vw" className="object-cover transition-transform duration-500" />
+        </div>
+      )}
       {c.badge && !c.outcome && <Badge tone={c.tone}>{c.badge}</Badge>}
       {c.outcome && <><Badge tone="green"><RichText value={c.badge ?? "[[Verified outcome]]"} /></Badge><ImagePh ratio="16-9" label={c.outcome.imageLabel} /></>}
       <h3 className="text-[22px] max-[980px]:text-[18px]"><RichText value={c.title} /></h3>

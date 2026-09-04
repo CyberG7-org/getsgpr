@@ -24,6 +24,8 @@ export type Guide = {
   summary: string;
   category: string;
   source: string;
+  image?: string;
+  imageAlt?: string;
   html: string;
 };
 
@@ -117,6 +119,8 @@ export function getGuides(): Guide[] {
       summary: data.summary,
       category: data.category,
       source: data.source,
+      image: data.image,
+      imageAlt: data.imageAlt,
       html: renderMarkdown(content),
     }));
   }

@@ -3,6 +3,8 @@ title: "Should I apply for Singapore PR now or wait?"
 summary: "A practical way to choose an application date using ICA's published factors and the quality of your current evidence."
 category: "Timing"
 source: 'ICA, "Becoming a Permanent Resident"'
+image: "/guides/apply-or-wait.webp"
+imageAlt: "A person working through a written planning checklist"
 ---
 
 ## Start with eligibility

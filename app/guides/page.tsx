@@ -13,6 +13,7 @@ export default function GuidesPage() {
     badge: g.category,
     title: g.title,
     text: g.summary,
+    image: g.image && g.imageAlt ? { src: g.image, alt: g.imageAlt } : undefined,
     link: { label: "Read →", href: `/guides/${g.slug}` },
   }));
 

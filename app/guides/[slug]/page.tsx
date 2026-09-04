@@ -1,4 +1,5 @@
 import { notFound } from "next/navigation";
+import Image from "next/image";
 import { Blocks } from "@/components/blocks/Blocks";
 import { Shapes } from "@/components/ui/Shapes";
 import { Section } from "@/components/ui/Section";
@@ -63,6 +64,18 @@ export default async function GuidePage({ params }: { params: Promise<{ slug: st
       <main>
         <Blocks blocks={topBlocks} />
         <Section>
+          {guide.image && guide.imageAlt && (
+            <figure className="relative mx-auto mb-14 aspect-[16/7] max-w-[1040px] overflow-hidden rounded-[24px] border border-line bg-line-soft shadow-card max-[640px]:mb-10 max-[640px]:aspect-[4/3] max-[640px]:rounded-[18px]">
+              <Image
+                src={guide.image}
+                alt={guide.imageAlt}
+                fill
+                priority
+                sizes="(max-width: 640px) 100vw, 1040px"
+                className="object-cover"
+              />
+            </figure>
+          )}
           <article className="prose-x mx-auto max-w-[820px]" dangerouslySetInnerHTML={{ __html: guide.html }} />
         </Section>
         <Blocks blocks={bottomBlocks} />

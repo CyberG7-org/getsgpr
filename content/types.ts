@@ -25,6 +25,7 @@ export type Stats = { kind: "stats"; items: { value: string; label: string }[] }
 export type Honesty = { kind: "honesty"; title: string; paragraphs: string[] };
 export type Card = {
   tone?: Tone; badge?: string; title: string; text?: string; tags?: string[]; bullets?: string[];
+  image?: { src: string; alt: string };
   link?: { label: string; href: string };
   outcome?: { imageLabel: string; meta: string; challenge: string; did: string; result: string; href: string };
 };

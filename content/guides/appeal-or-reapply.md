@@ -3,6 +3,8 @@ title: "PR rejected: appeal or reapply?"
 summary: "How ICA's appeal process works and how to decide whether an appeal or a fresh application is more suitable."
 category: "After a decision"
 source: 'ICA, "Appeal for Singapore Citizenship, Permanent Residence or Long-Term Visit Pass"'
+image: "/guides/appeal-or-reapply.webp"
+imageAlt: "Two people reviewing documents together at a desk"
 ---
 
 ## Who may submit an appeal
