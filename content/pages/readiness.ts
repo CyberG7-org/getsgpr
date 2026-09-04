@@ -55,11 +55,10 @@ export const readiness: PageContent = {
       ],
     },
     {
-      kind: "text",
+      kind: "sampleResult",
       title: "A result you can act on, not a percentage.",
-      sub: 'We do not produce a "72% chance" figure, because nobody outside ICA can. Your result tells you which of three positions you are in, what is strong, what is weak, and the three most useful things to do next.',
+      sub: "Understand where you stand, see what is working in your favour, and leave with three practical next steps. Your review focuses on preparation, not a predicted approval percentage.",
     },
-    { kind: "sampleResult", tight: true },
     {
       kind: "cards", tone: "alt", columns: 3,
       title: "Three outcomes, three different next steps.",

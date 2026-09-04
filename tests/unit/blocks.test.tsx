@@ -40,7 +40,8 @@ describe("Blocks", () => {
     expect(html).toContain('href="/pr-readiness-review"');
   });
   it("renders the readiness worked example from SampleResult", () => {
-    expect(html).toContain("Sample only. Your result is written for your answers.");
+    expect(html).toContain("Sample readiness report");
+    expect(html).toContain("not an ICA decision or approval prediction");
     expect(html).toContain("Obtain a current employment letter dated within the last month.");
   });
   it("staggers entrance animation delays on tiles and steps", () => {

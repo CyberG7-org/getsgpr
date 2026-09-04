@@ -32,7 +32,7 @@ function Inner({ b }: { b: Block }) {
     case "table": return <TableBlock {...b} />;
     case "prose": return <SplitProse {...b} />;
     case "honest": return <Honest {...b} />;
-    case "sampleResult": return <SampleResult />;
+    case "sampleResult": return <SampleResult {...b} />;
     case "filters": return <Filters {...b} />;
     case "text": return <Text {...b} />;
     case "readinessForm": return <><SectionHead eyebrow={b.eyebrow} title={b.title} sub={b.sub} /><ReadinessForm /></>;
