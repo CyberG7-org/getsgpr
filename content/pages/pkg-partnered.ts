@@ -26,10 +26,10 @@ export const pkgPartnered: PageContent = {
       sub: "For applicants who want expert feedback and shared work across scheduled calls. You do the work; we find the gaps and inconsistencies before ICA does.",
       small: "Independent consultancy. ICA makes all decisions. No approval guarantees.",
       buttons: [
-        { label: "Book SGPR Partnered", href: "/contact", style: "primary" },
+        { label: "Book SGPR Partnered", href: "/book-a-call", style: "primary" },
         { label: "Compare all packages", href: "/packages", style: "outline-dark" },
       ],
-      aside: { kind: "package", pkg: "partnered", cta: { label: "Book SGPR Partnered", href: "/contact", style: "light" } },
+      aside: { kind: "package", pkg: "partnered", cta: { label: "Book SGPR Partnered", href: "/book-a-call", style: "light" } },
     },
     { kind: "trust" },
     {
@@ -43,6 +43,16 @@ export const pkgPartnered: PageContent = {
         { title: "Personalised evidence-gap list", text: "Exactly which records to obtain, from whom, and by when." },
         { title: "Feedback via secure shared Drive", text: "Upload your drafts; we return written comments. Two review rounds on forms, cover letter and supporting statements." },
         { title: "30-day question window", text: "Email questions answered within [[two]] working days after your final review." },
+      ],
+    },
+    {
+      kind: "items", tone: "alt", columns: 3,
+      eyebrow: "Why choose Partnered",
+      title: "Keep control, with an experienced second pair of eyes.",
+      items: [
+        { title: "Get feedback on your case", text: "The report and consultation focus on your profile, timing and evidence instead of general application advice." },
+        { title: "Catch gaps while you can fix them", text: "Two review rounds give you time to correct inconsistent records, weak explanations and incomplete drafts." },
+        { title: "Use consultancy time efficiently", text: "You prepare the file and receive professional challenge where judgment matters, without paying for full case management." },
       ],
     },
     {

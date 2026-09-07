@@ -68,6 +68,16 @@ export const prFirstTime: PageContent = {
       foot: { button: { label: "Compare packages", href: "/packages", style: "ghost" } },
     },
     {
+      kind: "items", columns: 3,
+      eyebrow: "Why GetSGPR",
+      title: "Why first-time applicants work with us.",
+      items: [
+        { title: "Start with a readiness decision", text: "We help you decide whether the current profile is ready before you invest time assembling the full application." },
+        { title: "Build the file in the right order", text: "You receive a clear sequence for employment records, personal evidence, forms and the final narrative." },
+        { title: "Avoid first-application mistakes", text: "We check freshness and consistency before small discrepancies become part of the record ICA reviews." },
+      ],
+    },
+    {
       kind: "cards", columns: 3, maxWidth: 380,
       eyebrow: "Client case",
       title: "A case like yours.",

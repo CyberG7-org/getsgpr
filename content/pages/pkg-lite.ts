@@ -46,6 +46,16 @@ export const pkgLite: PageContent = {
       ],
     },
     {
+      kind: "items", tone: "alt", columns: 3,
+      eyebrow: "Why choose Lite",
+      title: "Structure without full consultancy fees.",
+      items: [
+        { title: "Stop working from scattered advice", text: "Use one organised process that connects the ICA checklist, your evidence and the final consistency checks." },
+        { title: "Prepare at your own pace", text: "Keep control of the application while following the same sequence GetSGPR uses to organise client files." },
+        { title: "Know when to ask for more help", text: "The self-assessment shows where your case is straightforward and where professional review may be useful." },
+      ],
+    },
+    {
       kind: "honest", tone: "alt", tight: true,
       title: "What it does not include.",
       text: "Lite does not include consultations, document review, form completion, submission or appeal support. If you want a second pair of eyes, see SGPR Partnered.",

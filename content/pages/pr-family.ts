@@ -24,7 +24,7 @@ export const prFamily: PageContent = {
       sub: "A family application is several people's records read as one story. The story holds when every date, address and relationship agrees across every document.",
       small: SITE.independenceLine,
       buttons: [
-        { label: "Book a family consultation", href: "/contact", style: "primary" },
+        { label: "Book a family consultation", href: "/book-a-call", style: "primary" },
       ],
       aside: { kind: "image", ratio: "4-3", label: "Photo relevant to this segment, no client faces without consent" },
     },
@@ -73,6 +73,16 @@ export const prFamily: PageContent = {
       },
     },
     {
+      kind: "items", columns: 3,
+      eyebrow: "Why GetSGPR",
+      title: "Why families work with us.",
+      items: [
+        { title: "One owner for the whole household", text: "We organise every family member's records together instead of treating them as unrelated files." },
+        { title: "Fewer conflicting details", text: "Dates, addresses, employment histories and family information are reconciled across the application." },
+        { title: "A clear family plan", text: "We help explain who is applying, how the household is established here and what the long-term plan is." },
+      ],
+    },
+    {
       kind: "cards", columns: 3, maxWidth: 380,
       eyebrow: "Client case",
       title: "A case like yours.",
@@ -110,7 +120,7 @@ export const prFamily: PageContent = {
       kind: "cta",
       title: "Get the whole household on one page.",
       buttons: [
-        { label: "Book a family consultation", href: "/contact", style: "light" },
+        { label: "Book a family consultation", href: "/book-a-call", style: "light" },
         { label: "Get My Free PR Readiness Report", href: "/pr-readiness-review", style: "outline-dark" },
       ],
     },

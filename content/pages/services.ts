@@ -68,6 +68,18 @@ export const services: PageContent = {
       ],
     },
     {
+      kind: "items", columns: 2,
+      eyebrow: "Why GetSGPR",
+      title: "Why clients choose GetSGPR.",
+      sub: "You receive advice tied to your circumstances, documents and timing, with a clear scope before paid work begins.",
+      items: [
+        { title: "A strategy for your actual profile", text: "We identify what is strong, what needs work and which evidence supports each point, instead of giving you a standard document list." },
+        { title: "An honest view on timing", text: "If waiting would produce a stronger application, we explain why and what should change before you apply." },
+        { title: "One consistent application", text: "We check dates, job titles, household details and supporting statements together so the application reads as one reliable record." },
+        { title: "Support matched to your needs", text: "Choose structured self-help, professional review or full case management. You pay for the level of help you will use." },
+      ],
+    },
+    {
       kind: "steps", light: true,
       title: "The same six stages, every time.",
       steps: [

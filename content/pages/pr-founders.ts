@@ -24,7 +24,7 @@ export const prFounders: PageContent = {
       sub: "Your application has to prove what an employment letter proves for everyone else: that your work is real, stable and contributes here. That takes more evidence, organised better.",
       small: SITE.independenceLine,
       buttons: [
-        { label: "Book a specialist assessment", href: "/contact", style: "primary" },
+        { label: "Book a specialist assessment", href: "/book-a-call", style: "primary" },
       ],
       aside: { kind: "image", ratio: "4-3", label: "Photo relevant to this segment, no client faces without consent" },
     },
@@ -73,6 +73,16 @@ export const prFounders: PageContent = {
       },
     },
     {
+      kind: "items", columns: 3,
+      eyebrow: "Why GetSGPR",
+      title: "Why founders work with us.",
+      items: [
+        { title: "Make complex income understandable", text: "We reconcile salary, director's fees, dividends and business records into a financial account the documents support." },
+        { title: "Show business substance", text: "Company activity, clients, staff, premises and local contribution are organised around what each record proves." },
+        { title: "Connect the founder to the company", text: "The narrative explains your role, the business's place in Singapore and the long-term plan for both." },
+      ],
+    },
+    {
       kind: "cards", columns: 3, maxWidth: 380,
       eyebrow: "Client case",
       title: "A case like yours.",
@@ -110,7 +120,7 @@ export const prFounders: PageContent = {
       kind: "cta",
       title: "Show the substance behind the business.",
       buttons: [
-        { label: "Book a specialist assessment", href: "/contact", style: "light" },
+        { label: "Book a specialist assessment", href: "/book-a-call", style: "light" },
       ],
     },
   ],

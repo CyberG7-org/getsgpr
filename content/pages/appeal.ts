@@ -65,6 +65,17 @@ export const appeal: PageContent = {
       },
     },
     {
+      kind: "items", columns: 2,
+      eyebrow: "Why GetSGPR",
+      title: "Why rejected applicants choose GetSGPR.",
+      items: [
+        { title: "A recommendation before more spending", text: "We review what has materially changed and tell you whether an appeal, a later reapplication or more time is the sensible next step." },
+        { title: "A fresh review of the previous case", text: "We compare the earlier application with your current profile to find gaps, inconsistencies and evidence that now needs updating." },
+        { title: "A reasoned new narrative", text: "If you proceed, the submission explains the material change and supports it with current documents instead of repeating the old case." },
+        { title: "No invented rejection reason", text: "ICA does not give consultants a private explanation. Our advice is based on the application, the available evidence and published requirements." },
+      ],
+    },
+    {
       kind: "cards", columns: 3, maxWidth: 380,
       eyebrow: "Client case",
       title: "A case like yours.",
@@ -104,7 +115,7 @@ export const appeal: PageContent = {
       title: "Find out what has really changed.",
       buttons: [
         { label: "Start the Rejection Diagnostic", href: "/pr-readiness-review", style: "light" },
-        { label: "Book a rejection strategy session", href: "/contact", style: "outline-dark" },
+        { label: "Book a rejection strategy session", href: "/book-a-call", style: "outline-dark" },
       ],
     },
   ],

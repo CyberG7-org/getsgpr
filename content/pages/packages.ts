@@ -28,6 +28,18 @@ export const packages: PageContent = {
       text: "Your scope and fee are agreed in writing before work begins. ICA application fees, translations, notarisation and other third-party costs are shown separately where applicable. Prices in SGD, [[include / exclude]] GST at the prevailing rate.",
     },
     {
+      kind: "items", columns: 2,
+      eyebrow: "Why GetSGPR",
+      title: "Why choose a GetSGPR package.",
+      sub: "Each package gives you a defined level of support, a clear process and work tied to your actual application.",
+      items: [
+        { title: "Pay for the help you need", text: "Choose a guided toolkit, professional review or full case management. The scope is clear before work begins." },
+        { title: "Find problems before submission", text: "Our checks focus on missing evidence, outdated records and inconsistencies across forms and supporting documents." },
+        { title: "Receive advice you can act on", text: "You get specific next steps for your timing, evidence and narrative, including a recommendation to wait when that is the stronger choice." },
+        { title: "Keep one clear point of reference", text: "Checklists, comments and case documents stay organised, so you can see what is complete and what still needs attention." },
+      ],
+    },
+    {
       kind: "table",
       title: "Compare everything.",
       columns: ["Feature", "SGPR Lite", "SGPR Partnered", "Premium Concierge"],
@@ -158,8 +170,8 @@ export const packages: PageContent = {
       sub: "Not sure which fits? Start the free Readiness Review and we will recommend one.",
       buttons: [
         { label: "Get SGPR Lite", href: "/sgpr-lite-diy-tier", style: "light" },
-        { label: "Book SGPR Partnered", href: "/contact", style: "outline-dark" },
-        { label: "Book a Concierge call", href: "/contact", style: "outline-dark" },
+        { label: "Book SGPR Partnered", href: "/book-a-call", style: "outline-dark" },
+        { label: "Book a Concierge call", href: "/book-a-call", style: "outline-dark" },
       ],
     },
   ],

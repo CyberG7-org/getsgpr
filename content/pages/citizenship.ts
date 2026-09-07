@@ -15,7 +15,7 @@ export const citizenship: PageContent = {
       sub: "Citizenship asks a different question from PR. Not whether you could contribute here, but whether you already belong here. We help you answer it with evidence.",
       small: "Independent consultancy. ICA makes all decisions. No approval guarantees.",
       buttons: [
-        { label: "Book a citizenship consultation", href: "/contact", style: "primary" },
+        { label: "Book a citizenship consultation", href: "/book-a-call", style: "primary" },
       ],
       aside: { kind: "image", ratio: "4-3", label: "Photo relevant to this segment, no client faces without consent" },
     },
@@ -65,6 +65,17 @@ export const citizenship: PageContent = {
       },
     },
     {
+      kind: "items", columns: 2,
+      eyebrow: "Why GetSGPR",
+      title: "Why applicants choose GetSGPR for citizenship support.",
+      items: [
+        { title: "Treat citizenship as a distinct application", text: "We focus on the record you have built since becoming a PR, rather than recycling the case you made for permanent residence." },
+        { title: "Make integration evidence concrete", text: "We help turn family ties, community involvement and long-term plans into specific, supportable evidence." },
+        { title: "Plan around the whole household", text: "For family applications, we align each person's timing, intentions and supporting records so the household plan is clear." },
+        { title: "Understand the commitment first", text: "We discuss practical matters such as renunciation and National Service before you invest time in preparing the application." },
+      ],
+    },
+    {
       kind: "cards", columns: 3, maxWidth: 380,
       eyebrow: "Client case",
       title: "A case like yours.",
@@ -102,7 +113,7 @@ export const citizenship: PageContent = {
       kind: "cta",
       title: "Show that you belong here.",
       buttons: [
-        { label: "Book a citizenship consultation", href: "/contact", style: "light" },
+        { label: "Book a citizenship consultation", href: "/book-a-call", style: "light" },
       ],
     },
   ],

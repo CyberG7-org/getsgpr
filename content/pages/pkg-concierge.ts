@@ -26,10 +26,10 @@ export const pkgConcierge: PageContent = {
       sub: "For busy professionals and families who want strategy, writing, document handling and submission managed by one accountable case manager.",
       small: "Independent consultancy. ICA makes all decisions. No approval guarantees.",
       buttons: [
-        { label: "Book a Concierge call", href: "/contact", style: "primary" },
+        { label: "Book a Concierge call", href: "/book-a-call", style: "primary" },
         { label: "Compare all packages", href: "/packages", style: "outline-dark" },
       ],
-      aside: { kind: "package", pkg: "concierge", cta: { label: "Book a Concierge call", href: "/contact", style: "primary" } },
+      aside: { kind: "package", pkg: "concierge", cta: { label: "Book a Concierge call", href: "/book-a-call", style: "primary" } },
     },
     { kind: "trust" },
     {
@@ -43,6 +43,16 @@ export const pkgConcierge: PageContent = {
         { title: "Writing", text: "Forms completed for your signature. A tailored application narrative and cover letter written by us. Three revision rounds and a final consistency audit." },
         { title: "Translation coordination and ICA submission", text: "Third-party work coordinated at cost. Step-by-step assistance through the ICA e-Service." },
         { title: "Live updates and post-outcome review", text: "Advisory until the outcome, then a strategy review, including a rejection strategy session and one appeal or reapplication assessment if needed." },
+      ],
+    },
+    {
+      kind: "items", tone: "alt", columns: 3,
+      eyebrow: "Why choose Concierge",
+      title: "One accountable team across the whole application.",
+      items: [
+        { title: "Reduce the work on your side", text: "We organise the evidence, prepare the writing and manage the review sequence while you provide decisions and source documents." },
+        { title: "Keep complex cases coordinated", text: "A named case manager aligns family records, business evidence and changing circumstances across the full file." },
+        { title: "Add a final independent check", text: "A second reviewer checks the application before submission to catch gaps the main case team may have missed." },
       ],
     },
     {

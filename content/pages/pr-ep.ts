@@ -71,6 +71,16 @@ export const prEp: PageContent = {
       foot: { button: { label: "Compare packages", href: "/packages", style: "ghost" } },
     },
     {
+      kind: "items", columns: 3,
+      eyebrow: "Why GetSGPR",
+      title: "Why pass holders work with us.",
+      items: [
+        { title: "Read the employment record as ICA will", text: "We review the letter, payslips, CPF history, CV and qualifications as one connected record." },
+        { title: "Explain career changes clearly", text: "Promotions, employer moves and pay changes are presented as an accurate progression with supporting documents." },
+        { title: "Choose a stronger submission point", text: "We help you decide whether to apply now or wait for a confirmed change that improves the evidence." },
+      ],
+    },
+    {
       kind: "cards", columns: 3, maxWidth: 380,
       eyebrow: "Client case",
       title: "A case like yours.",

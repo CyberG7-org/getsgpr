@@ -103,6 +103,17 @@ export const pr: PageContent = {
       foot: { button: { label: "Compare everything", href: "/packages", style: "ghost" } },
     },
     {
+      kind: "items", columns: 2,
+      eyebrow: "Why GetSGPR",
+      title: "Why applicants choose GetSGPR for PR support.",
+      items: [
+        { title: "Know whether you are ready", text: "We separate profile strengths from evidence gaps, so you know whether to prepare now or strengthen first." },
+        { title: "Avoid preventable inconsistencies", text: "Your forms, employment records, CPF history and supporting statements are checked against one another before submission." },
+        { title: "Explain the case with evidence", text: "We help connect your contribution, family circumstances and roots in Singapore to records ICA can assess." },
+        { title: "Use your time where it matters", text: "You receive a prioritised action list instead of spending weeks collecting documents that add little to the application." },
+      ],
+    },
+    {
       kind: "cards", columns: 3, maxWidth: 380,
       eyebrow: "Client case",
       title: "A case like yours.",

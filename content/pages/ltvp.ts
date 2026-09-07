@@ -15,7 +15,7 @@ export const ltvp: PageContent = {
       sub: "An LTVP application is really two people's evidence: the sponsor's and the applicant's. We prepare both so the relationship and the means of support are clear and consistent.",
       small: "Independent consultancy. ICA makes all decisions. No approval guarantees.",
       buttons: [
-        { label: "Book an LTVP consultation", href: "/contact", style: "primary" },
+        { label: "Book an LTVP consultation", href: "/book-a-call", style: "primary" },
       ],
       aside: { kind: "image", ratio: "4-3", label: "Photo relevant to this segment, no client faces without consent" },
     },
@@ -58,8 +58,19 @@ export const ltvp: PageContent = {
         { title: "Sponsor evidence preparation", text: "The sponsor's letter, income and residence records, prepared to the same standard as the applicant's." },
       ],
       foot: {
-        button: { label: "Book an LTVP consultation", href: "/contact", style: "ghost" },
+        button: { label: "Book an LTVP consultation", href: "/book-a-call", style: "ghost" },
       },
+    },
+    {
+      kind: "items", columns: 2,
+      eyebrow: "Why GetSGPR",
+      title: "Why families choose GetSGPR for LTVP support.",
+      items: [
+        { title: "Prepare both sides of the application", text: "We review the sponsor and applicant together, so income, residence, relationship and household details support the same account." },
+        { title: "Handle overseas records early", text: "We identify translation, certification and validity requirements before foreign documents become a last-minute delay." },
+        { title: "Show the relationship clearly", text: "We help select relevant evidence and organise it in a way that is easy to follow, without adding unnecessary personal material." },
+        { title: "Reduce renewal surprises", text: "We flag changes in the sponsor's or applicant's circumstances that may need to be addressed before a renewal is filed." },
+      ],
     },
     {
       kind: "cards", columns: 3, maxWidth: 380,
@@ -99,7 +110,7 @@ export const ltvp: PageContent = {
       kind: "cta",
       title: "Bring your family here, properly.",
       buttons: [
-        { label: "Book an LTVP consultation", href: "/contact", style: "light" },
+        { label: "Book an LTVP consultation", href: "/book-a-call", style: "light" },
       ],
     },
   ],
