@@ -37,7 +37,7 @@ export const contact: PageContent = {
           ],
         },
         { small: "Languages: English, Mandarin, Malay, Tamil" },
-        { h3: "Please book an appointment with us." },
+        { h3: "Before you send anything. Please book an appointment with us." },
         {
           strong: "If you become a client we will open a secure workspace for your files. If anyone asks you for documents before you have signed an engagement with us, do not send them, and tell us.",
         },
