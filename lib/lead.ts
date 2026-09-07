@@ -1,4 +1,4 @@
-export type Lead = { source: "checker" | "readiness"; email: string; firstName?: string; answers: number[]; outcome: string; pkg: string };
+export type Lead = { source: "checker" | "readiness" | "citizenship-readiness"; email: string; firstName?: string; answers: number[]; outcome: string; pkg: string };
 export const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
 
 export async function postLead(lead: Lead): Promise<boolean> {

@@ -15,6 +15,10 @@ describe("POST /api/lead", () => {
     expect(res.status).toBe(202);
     expect(await res.json()).toEqual({ ok: true, forwarded: false });
   });
+  it("accepts citizenship readiness leads", async () => {
+    const res = await POST(new Request("http://x/api/lead", { method: "POST", body: JSON.stringify({ ...body, source: "citizenship-readiness" }) }));
+    expect(res.status).toBe(202);
+  });
   it("forwards when GHL_LEAD_WEBHOOK_URL is set", async () => {
     vi.stubEnv("GHL_LEAD_WEBHOOK_URL", "https://hook.example/x");
     const spy = vi.spyOn(globalThis, "fetch").mockResolvedValue(new Response("ok", { status: 200 }));

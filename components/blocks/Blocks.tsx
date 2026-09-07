@@ -38,6 +38,7 @@ function Inner({ b }: { b: Block }) {
     case "filters": return <Filters {...b} />;
     case "text": return <Text {...b} />;
     case "readinessForm": return <><SectionHead eyebrow={b.eyebrow} title={b.title} sub={b.sub} /><ReadinessForm /></>;
+    case "citizenshipReadinessForm": return <><SectionHead eyebrow={b.eyebrow} title={b.title} sub={b.sub} /><ReadinessForm mode="citizenship" /></>;
     default: return null;
   }
 }

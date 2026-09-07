@@ -1,13 +1,21 @@
 import type { SampleResult as SampleResultBlock } from "@/content/types";
 import { Button } from "@/components/ui/Button";
 
-const actions = [
+const prActions = [
   "Obtain a current employment letter dated within the last month.",
   "Reconcile employment dates across your CV, payslips and CPF statements.",
   "Gather evidence of community involvement from the last two years.",
 ];
 
-export function SampleResult({ title, sub }: Omit<SampleResultBlock, "kind">) {
+const citizenshipActions = [
+  "Confirm the ICA eligibility route and qualifying period that applies.",
+  "Reconcile CPF, employment and income records across the PR period.",
+  "Prepare evidence of family ties, residence and ongoing commitments in Singapore.",
+];
+
+export function SampleResult({ title, sub, variant = "pr" }: Omit<SampleResultBlock, "kind">) {
+  const citizenship = variant === "citizenship";
+  const actions = citizenship ? citizenshipActions : prActions;
   return (
     <div className="grid grid-cols-[.85fr_1.15fr] items-center gap-12 max-[980px]:grid-cols-1 max-[980px]:gap-8">
       <div>
@@ -19,7 +27,7 @@ export function SampleResult({ title, sub }: Omit<SampleResultBlock, "kind">) {
             <li key={item} className="flex items-center gap-3"><span aria-hidden="true" className="flex size-7 shrink-0 items-center justify-center rounded-full bg-white border border-line text-navy-700">✓</span>{item}</li>
           ))}
         </ul>
-        <Button label="Start my free review" href="#form" style="primary" />
+        <Button label={citizenship ? "Start my citizenship check" : "Start my free review"} href="#form" style="primary" />
         <p className="mt-3 text-[13px] text-slate-500">About 10 minutes · No documents needed</p>
       </div>
       <article aria-label="Sample readiness report" className="overflow-hidden rounded-[24px] border border-line bg-white shadow-card">
@@ -32,18 +40,18 @@ export function SampleResult({ title, sub }: Omit<SampleResultBlock, "kind">) {
           <div className="grid grid-cols-2 gap-3 max-[600px]:grid-cols-1 mb-6">
             <div className="rounded-xl bg-[#edf7f3] p-4">
               <h4 className="text-[13px] font-semibold text-[#235c49] mb-2">Strong areas</h4>
-              <ul className="list-disc pl-4 text-[14px] leading-relaxed text-[#235c49] space-y-1"><li>Residence continuity</li><li>Qualifications</li></ul>
+              <ul className="list-disc pl-4 text-[14px] leading-relaxed text-[#235c49] space-y-1"><li>{citizenship ? "Established PR history" : "Residence continuity"}</li><li>{citizenship ? "Family ties to Singapore" : "Qualifications"}</li></ul>
             </div>
             <div className="rounded-xl bg-[#fff7e7] p-4">
               <h4 className="text-[13px] font-semibold text-[#795313] mb-2">Areas to strengthen</h4>
-              <ul className="list-disc pl-4 text-[14px] leading-relaxed text-[#795313] space-y-1"><li>Evidence quality and timing</li><li>Integration and roots</li></ul>
+              <ul className="list-disc pl-4 text-[14px] leading-relaxed text-[#795313] space-y-1"><li>{citizenship ? "Economic record consistency" : "Evidence quality and timing"}</li><li>{citizenship ? "Community involvement evidence" : "Integration and roots"}</li></ul>
             </div>
           </div>
           <h4 className="text-[15px] font-semibold text-navy-900 mb-4">Your next three actions</h4>
           <ol className="grid gap-4">
             {actions.map((action, i) => <li key={action} className="flex gap-3 text-[14px] leading-relaxed text-slate-500"><span aria-hidden="true" className="flex size-6 shrink-0 items-center justify-center rounded-full bg-[#edf1f8] text-[12px] font-semibold text-navy-900">{i + 1}</span><span>{action}</span></li>)}
           </ol>
-          <div className="mt-6 border-t border-line pt-4 flex flex-wrap items-center justify-between gap-2 text-[14px]"><span className="text-slate-500">Suggested support</span><span className="font-semibold text-navy-900">SGPR Partnered</span></div>
+          <div className="mt-6 border-t border-line pt-4 flex flex-wrap items-center justify-between gap-2 text-[14px]"><span className="text-slate-500">Suggested support</span><span className="font-semibold text-navy-900">{citizenship ? "Citizenship consultation" : "SGPR Partnered"}</span></div>
           <p className="mt-4 text-[12px] leading-relaxed text-slate-500">Illustrative example. Your result is based on your answers and is not an ICA decision or approval prediction.</p>
         </div>
       </article>

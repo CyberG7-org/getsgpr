@@ -51,13 +51,14 @@ export type Source = { kind: "source"; primary: string };
 export type Table = { kind: "table"; eyebrow?: string; title?: string; sub?: string; columns: string[]; rows: string[][]; note?: string; foot?: Foot };
 export type ProseBlock = { kind: "prose"; eyebrow?: string; title?: string; sub?: string; content: ProseItem[]; source?: string; image?: { ratio: Ratio; label: string; caption?: string }; images?: { ratio: Ratio; label: string }[]; foot?: Foot };
 export type Honest = { kind: "honest"; title: string; text: string };
-export type SampleResult = { kind: "sampleResult"; title?: string; sub?: string };
+export type SampleResult = { kind: "sampleResult"; title?: string; sub?: string; variant?: "pr" | "citizenship" };
 export type Crumbs = { kind: "crumbs"; items: { label: string; href?: string }[] };
 export type Filters = { kind: "filters"; chips: string[] };
 export type Text = { kind: "text"; eyebrow?: string; title?: string; sub?: string; paragraphs?: string[]; buttons?: Btn[]; foot?: Foot };
 export type ReadinessFormBlock = { kind: "readinessForm"; eyebrow?: string; title: string; sub?: string };
+export type CitizenshipReadinessFormBlock = { kind: "citizenshipReadinessForm"; eyebrow?: string; title: string; sub?: string };
 
 type Wrap = { tone?: SectionTone; tight?: boolean; id?: string };
-export type Block = Wrap & (Hero | Trust | Stats | Honesty | Cards | Tiles | Items | Steps | PackagesBlock | Reviews | Faq | ContactSplit | CalendarBlock | CtaBandBlock | Source | Table | ProseBlock | Honest | SampleResult | Crumbs | Filters | Text | ReadinessFormBlock);
+export type Block = Wrap & (Hero | Trust | Stats | Honesty | Cards | Tiles | Items | Steps | PackagesBlock | Reviews | Faq | ContactSplit | CalendarBlock | CtaBandBlock | Source | Table | ProseBlock | Honest | SampleResult | Crumbs | Filters | Text | ReadinessFormBlock | CitizenshipReadinessFormBlock);
 
 export type PageContent = { meta: PageMeta; shapes: "home" | "service" | "plain"; blocks: Block[] };

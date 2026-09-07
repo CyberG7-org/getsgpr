@@ -34,7 +34,7 @@ export const privacy: PageContent = {
       kind: "prose", tone: "alt",
       title: "What we collect before you become a client, and what we do not.",
       content: [
-        { p: "The Readiness Review asks for ranges and categories: age band, salary band, years in Singapore, pass type. It asks for your first name and email so we can send your result. It does not ask for your NRIC, FIN, passport number, employer name or any document. A strategy call is a conversation; we may take notes, but we do not ask you to send files." },
+        { p: "The PR and citizenship readiness reviews ask for ranges and categories such as age band, income band, years in Singapore and current status. They ask for your first name and email so we can send your result. They do not ask for your NRIC, FIN, passport number, employer name or any document. A strategy call is a conversation; we may take notes, but we do not ask you to send files." },
         { p: "The [current GetSGPR privacy policy](https://getsgpr.com/privacy-policy) says personal data may be used to provide consultancy services, prepare applications, communicate about services, process payments and receipts, and comply with Singapore law. It also states that personal data is not sold or rented to third parties." },
         { p: "**If someone claiming to be from GetSGPR asks for documents over WhatsApp or email before you have signed an engagement, do not send them, and tell us.**" },
       ],

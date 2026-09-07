@@ -14,7 +14,7 @@ describe("site facts", () => {
     const expected = ["/", "/pr-readiness-review", "/services", "/permanent-resident-sg",
       "/permanent-resident-sg/first-time-application", "/permanent-resident-sg/family-spouse",
       "/permanent-resident-sg/ep-s-pass-holders", "/permanent-resident-sg/founders-self-employed",
-      "/singapore-citizen", "/ltvp", "/pr-appeal", "/packages", "/sgpr-lite-diy-tier",
+      "/singapore-citizen", "/citizenship-readiness-review", "/ltvp", "/pr-appeal", "/packages", "/sgpr-lite-diy-tier",
       "/sgpr-partnered-do-with-you", "/sgpr-premium-concierge", "/about",
       "/privacy-data-security", "/guides", "/guides/singapore-pr-faq", "/contact", "/book-a-call"];
     for (const r of expected) expect(NAV.routes).toContain(r);

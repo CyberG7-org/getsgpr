@@ -27,6 +27,7 @@ export const NAV = {
       { label: "PR Rejection Appeal", href: "/pr-appeal" },
       { label: "Packages", href: "/packages" },
       { label: "Free PR Readiness Review", href: "/pr-readiness-review" },
+      { label: "Free Citizenship Readiness Checker", href: "/citizenship-readiness-review" },
     ] as Link[],
     company: [
       { label: "About GetSGPR", href: "/about" },
@@ -44,7 +45,7 @@ export const NAV = {
     "/", "/pr-readiness-review", "/services", "/permanent-resident-sg",
     "/permanent-resident-sg/first-time-application", "/permanent-resident-sg/family-spouse",
     "/permanent-resident-sg/ep-s-pass-holders", "/permanent-resident-sg/founders-self-employed",
-    "/singapore-citizen", "/ltvp", "/pr-appeal", "/packages", "/sgpr-lite-diy-tier",
+    "/singapore-citizen", "/citizenship-readiness-review", "/ltvp", "/pr-appeal", "/packages", "/sgpr-lite-diy-tier",
     "/sgpr-partnered-do-with-you", "/sgpr-premium-concierge", "/about",
     "/privacy-data-security", "/guides", "/guides/singapore-pr-faq", "/contact", "/book-a-call",
     "/guides/should-i-apply-now-or-wait", "/guides/pr-document-checklist",
