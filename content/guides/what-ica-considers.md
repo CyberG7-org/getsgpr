@@ -35,7 +35,7 @@ Eligibility also differs from approval. Being in an eligible category allows a p
 
 The application should match the information in its supporting records. Employment dates, job titles, salary information and family details should be consistent across the form and documents. This is application preparation advice from GetSGPR, not an additional ICA assessment criterion.
 
-*Source: [ICA, Becoming a Permanent Resident](https://www.ica.gov.sg/reside/PR/). Checked 4 September 2026.*
+*Source: [ICA, Becoming a Permanent Resident](https://www.ica.gov.sg/reside/PR/). Checked [[date]].*
 
 ## Related guides
 

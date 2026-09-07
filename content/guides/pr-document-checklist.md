@@ -39,7 +39,7 @@ ICA currently charges S$100 for each PR application at submission. Successful ap
 
 PR applications are generally processed within six months when all required documents are submitted and in order. Some applications may take longer.
 
-*Source: [ICA, Becoming a Permanent Resident](https://www.ica.gov.sg/reside/PR/) and the [ICA PR document checklist](https://www.ica.gov.sg/docs/default-source/ica/ipses/pr-document-checklist.pdf). Checked 4 September 2026.*
+*Source: [ICA, Becoming a Permanent Resident](https://www.ica.gov.sg/reside/PR/) and the [ICA PR document checklist](https://www.ica.gov.sg/docs/default-source/ica/ipses/pr-document-checklist.pdf). Checked [[date]].*
 
 ## Related guides
 

@@ -33,7 +33,7 @@ Review what has materially changed since the rejected application. New employmen
 
 ICA's public PR and appeal pages do not state a mandatory waiting period for a fresh PR application. Choose the route based on the available evidence rather than an unofficial calendar rule.
 
-*Source: [ICA, Appeal for Singapore Citizenship, Permanent Residence or Long-Term Visit Pass](https://www.ica.gov.sg/reside/reside-appeals) and [ICA, Becoming a Permanent Resident](https://www.ica.gov.sg/reside/PR/). Checked 4 September 2026.*
+*Source: [ICA, Appeal for Singapore Citizenship, Permanent Residence or Long-Term Visit Pass](https://www.ica.gov.sg/reside/reside-appeals) and [ICA, Becoming a Permanent Resident](https://www.ica.gov.sg/reside/PR/). Checked [[date]].*
 
 ## Related guides
 

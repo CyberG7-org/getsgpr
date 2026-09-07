@@ -7,6 +7,7 @@ import { Footer } from "@/components/layout/Footer";
 import { ActionBar } from "@/components/layout/ActionBar";
 import { ChatWidget } from "@/components/widgets/ChatWidget";
 import { Reveal } from "@/components/ui/Reveal";
+import { ReviewedDateHydrator } from "@/components/ui/ReviewedDateHydrator";
 
 const bricolage = Bricolage_Grotesque({
   subsets: ["latin"],
@@ -39,6 +40,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         }) }} />
         <Header />
         <Reveal />
+        <ReviewedDateHydrator />
         {children}
         <Footer />
         <ActionBar />

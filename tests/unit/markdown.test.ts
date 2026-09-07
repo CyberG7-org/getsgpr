@@ -6,7 +6,7 @@ describe("renderMarkdown", () => {
   it("renders headings, placeholders and bold text", () => {
     const html = renderMarkdown("## H\n\nText [[Date]] **b**");
     expect(html).toContain("<h2>H</h2>");
-    expect(html).toContain('<span class="ph" data-ph="Date">[Date]</span>');
+    expect(html).toContain("<time data-reviewed-date>—</time>");
     expect(html).toContain("<strong>b</strong>");
   });
 
@@ -35,7 +35,7 @@ describe("renderMarkdown", () => {
 
   it("still renders real markdown outside a placeholder in the same paragraph", () => {
     const html = renderMarkdown("Text [[Date]] and **b** too");
-    expect(html).toContain('<span class="ph" data-ph="Date">[Date]</span>');
+    expect(html).toContain("<time data-reviewed-date>—</time>");
     expect(html).toContain("<strong>b</strong>");
   });
 

@@ -33,7 +33,7 @@ ICA's checklist may require identification, civil-status, education and employme
 
 ICA states that PR applications will be processed within six months when all required documents are submitted and in order, although some applications may take longer. This period begins after submission.
 
-*Source: [ICA, Becoming a Permanent Resident](https://www.ica.gov.sg/reside/PR/) and the [ICA PR document checklist](https://www.ica.gov.sg/docs/default-source/ica/ipses/pr-document-checklist.pdf). Checked 4 September 2026.*
+*Source: [ICA, Becoming a Permanent Resident](https://www.ica.gov.sg/reside/PR/) and the [ICA PR document checklist](https://www.ica.gov.sg/docs/default-source/ica/ipses/pr-document-checklist.pdf). Checked [[date]].*
 
 ## Related guides
 

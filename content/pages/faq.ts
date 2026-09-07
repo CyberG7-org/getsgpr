@@ -88,7 +88,7 @@ export const faq: PageContent = {
       items: [
         {
           q: "What does ICA charge?",
-          a: "ICA currently charges S$100 per PR application at submission. Successful applicants pay S$20 for the Entry Permit, S$50 for a five-year Re-Entry Permit and S$50 for the Singapore Identity Card. ICA states that fees are non-refundable. Checked 4 September 2026.",
+          a: "ICA currently charges S$100 per PR application at submission. Successful applicants pay S$20 for the Entry Permit, S$50 for a five-year Re-Entry Permit and S$50 for the Singapore Identity Card. ICA states that fees are non-refundable. Checked [[date]].",
         },
         {
           q: "What does a consultant charge?",

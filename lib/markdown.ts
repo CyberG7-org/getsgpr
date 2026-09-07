@@ -49,7 +49,11 @@ function stripEmphasis(s: string): string {
 }
 
 function placeholderSpan(rawLabel: string): string {
-  const label = escapeHtml(stripEmphasis(rawLabel));
+  const plainLabel = stripEmphasis(rawLabel).trim();
+  if (["date", "date checked"].includes(plainLabel.toLowerCase())) {
+    return "<time data-reviewed-date>—</time>";
+  }
+  const label = escapeHtml(plainLabel);
   return `<span class="ph" data-ph="${label}">[${label}]</span>`;
 }
 
