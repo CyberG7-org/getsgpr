@@ -6,6 +6,7 @@ import { usePathname } from "next/navigation";
 import { NAV } from "@/content/nav";
 import { Brand } from "./Brand";
 import { MobileNav } from "./MobileNav";
+import { BookCallButton } from "@/components/ui/BookCallButton";
 
 const linkCls = "px-3.5 py-[9px] rounded-[9px] text-blue-100 no-underline text-[14.5px] font-medium transition-colors hover:bg-[rgba(147,174,220,.12)] hover:text-on-dark";
 
@@ -55,7 +56,7 @@ export function Header() {
             </div>
           </details>
           {NAV.primary.map((l) => <Link key={l.href} href={l.href} className={linkCls}>{l.label}</Link>)}
-          <Link href={NAV.cta.href} className="btn btn-light btn-sm ml-2.5">{NAV.cta.label}</Link>
+          <BookCallButton href={NAV.cta.href} />
         </nav>
         <MobileNav />
       </div>
