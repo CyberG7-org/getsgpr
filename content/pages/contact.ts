@@ -33,7 +33,7 @@ export const contact: PageContent = {
             { k: "Address", v: `${SITE.address} · By appointment.` },
             { k: "Phone", v: "+65 8934 0818" },
             { k: "Email", v: "[[Email]]" },
-            { k: "Hours", v: "[[Opening hours]]" },
+            { k: "Hours", v: "9 AM to 6 PM\nBy appointment only" },
           ],
         },
         { small: "Languages: English, Mandarin, Malay, Tamil" },

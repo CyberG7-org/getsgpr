@@ -6,7 +6,7 @@ export function Kv({ rows }: { rows: { k: string; v: string }[] }) {
       {rows.map((r) => (
         <div key={r.k} className="contents">
           <dt className="text-slate-400 text-[12.5px] font-semibold tracking-[.06em] uppercase pt-[3px]">{r.k}</dt>
-          <dd className="m-0 text-slate-500"><RichText value={r.v} /></dd>
+          <dd className="m-0 whitespace-pre-line text-slate-500"><RichText value={r.v} /></dd>
         </div>
       ))}
     </dl>
