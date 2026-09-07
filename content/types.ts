@@ -45,6 +45,7 @@ export type ContactSplit = {
   prose: ProseItem[];
   calendar?: { eyebrow?: string; title: string; sub?: string };
 };
+export type CalendarBlock = { kind: "calendar"; eyebrow?: string; title: string; sub?: string };
 export type CtaBandBlock = { kind: "cta"; title: string; sub?: string; buttons: Btn[] };
 export type Source = { kind: "source"; primary: string };
 export type Table = { kind: "table"; eyebrow?: string; title?: string; sub?: string; columns: string[]; rows: string[][]; note?: string; foot?: Foot };
@@ -57,6 +58,6 @@ export type Text = { kind: "text"; eyebrow?: string; title?: string; sub?: strin
 export type ReadinessFormBlock = { kind: "readinessForm"; eyebrow?: string; title: string; sub?: string };
 
 type Wrap = { tone?: SectionTone; tight?: boolean; id?: string };
-export type Block = Wrap & (Hero | Trust | Stats | Honesty | Cards | Tiles | Items | Steps | PackagesBlock | Reviews | Faq | ContactSplit | CtaBandBlock | Source | Table | ProseBlock | Honest | SampleResult | Crumbs | Filters | Text | ReadinessFormBlock);
+export type Block = Wrap & (Hero | Trust | Stats | Honesty | Cards | Tiles | Items | Steps | PackagesBlock | Reviews | Faq | ContactSplit | CalendarBlock | CtaBandBlock | Source | Table | ProseBlock | Honest | SampleResult | Crumbs | Filters | Text | ReadinessFormBlock);
 
 export type PageContent = { meta: PageMeta; shapes: "home" | "service" | "plain"; blocks: Block[] };

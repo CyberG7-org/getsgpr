@@ -213,7 +213,7 @@ export const home: PageContent = {
       sub: "Ten minutes. No documents. No NRIC or passport numbers. Just a clear picture of what is ready, what is weak and what to do next.",
       buttons: [
         { label: "Get My Free PR Readiness Report", href: "/pr-readiness-review", style: "light" },
-        { label: "Book a free call", href: "/contact", style: "outline-dark" },
+        { label: "Book a free call", href: "/book-a-call", style: "outline-dark" },
       ],
     },
   ],

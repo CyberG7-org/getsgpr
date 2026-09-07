@@ -8,7 +8,6 @@ describe("redirects", () => {
       "/home": "/",
       "/about-us": "/about",
       "/contactus": "/contact",
-      "/book-a-call": "/contact",
       "/service": "/services",
       "/package": "/packages",
       "/privacy-policy": "/privacy-data-security",

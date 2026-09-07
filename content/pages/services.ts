@@ -64,7 +64,7 @@ export const services: PageContent = {
       sub: "Take the free Readiness Review, or book a 20-minute call. Either way you will be told which service fits, or that none does yet, before any fee is discussed.",
       buttons: [
         { label: "Get My Free PR Readiness Report", href: "/pr-readiness-review", style: "primary" },
-        { label: "Book a 20-minute strategy call", href: "/contact", style: "ghost" },
+        { label: "Book a 20-minute strategy call", href: "/book-a-call", style: "ghost" },
       ],
     },
     {

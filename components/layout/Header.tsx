@@ -44,7 +44,7 @@ export function Header() {
     <header className="sticky top-0 z-[60] bg-[rgba(10,18,35,.92)] backdrop-blur-[12px] text-on-dark">
       <div className="container-x flex items-center gap-5 min-h-[62px]">
         <Brand />
-        <nav aria-label="Primary" className="hidden min-[1081px]:flex items-center gap-0.5 ml-auto">
+        <nav aria-label="Primary" className="hidden min-[1201px]:flex items-center gap-0.5 ml-auto">
           <details ref={servicesRef} className="nav-details relative">
             <summary className={`${linkCls} cursor-pointer`}>Services</summary>
             <div className="absolute top-11 left-0 bg-white border border-line rounded-[14px] shadow-card min-w-[270px] p-2 grid">

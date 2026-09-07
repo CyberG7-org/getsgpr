@@ -96,7 +96,7 @@ export const about: PageContent = {
       title: "See where you stand.",
       buttons: [
         { label: "Get My Free PR Readiness Report", href: "/pr-readiness-review", style: "light" },
-        { label: "Book a 20-minute strategy call", href: "/contact", style: "outline-dark" },
+        { label: "Book a 20-minute strategy call", href: "/book-a-call", style: "outline-dark" },
       ],
     },
   ],

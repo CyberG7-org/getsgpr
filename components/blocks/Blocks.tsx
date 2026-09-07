@@ -9,6 +9,7 @@ import { SampleResult } from "./SampleResult"; import { Crumbs } from "./Crumbs"
 import { Text } from "./Text"; import { TableBlock } from "./TableBlock"; import { FaqBlock } from "./FaqBlock";
 import { ReadinessForm } from "@/components/widgets/ReadinessForm";
 import { SectionHead } from "@/components/ui/SectionHead";
+import { Calendar } from "./Calendar";
 
 function isDraftCaseSection(b: Block) {
   return b.kind === "cards"
@@ -28,6 +29,7 @@ function Inner({ b }: { b: Block }) {
     case "reviews": return <Reviews {...b} />;
     case "faq": return <FaqBlock {...b} />;
     case "contact": return <ContactSplit {...b} />;
+    case "calendar": return <Calendar {...b} />;
     case "source": return <SourceBlock primary={b.primary} />;
     case "table": return <TableBlock {...b} />;
     case "prose": return <SplitProse {...b} />;

@@ -26,7 +26,7 @@ export function MobileNav() {
   }, []);
 
   return (
-    <nav aria-label="Primary, compact" className="flex min-[1081px]:hidden items-center gap-1.5 ml-auto">
+    <nav aria-label="Primary, compact" className="flex min-[1201px]:hidden items-center gap-1.5 ml-auto">
       <details ref={menuRef} className="mobile-menu relative">
         <summary className="min-h-11 px-3.5 inline-flex items-center gap-2 rounded-[9px] text-blue-100 text-[14px] font-semibold cursor-pointer hover:bg-[rgba(147,174,220,.12)]">
           <span aria-hidden="true" className="grid gap-[4px] w-4"><i className="h-[1.5px] bg-current rounded-full" /><i className="h-[1.5px] bg-current rounded-full" /><i className="h-[1.5px] bg-current rounded-full" /></span>
@@ -46,7 +46,7 @@ export function MobileNav() {
           </div>
         </div>
       </details>
-      <Link href="/contact" className="min-h-11 inline-flex items-center bg-blue-300 text-navy-900 font-semibold no-underline text-[14px] px-3.5 rounded-[9px]">Book a call</Link>
+      <Link href="/book-a-call" className="min-h-11 inline-flex items-center bg-blue-300 text-navy-900 font-semibold no-underline text-[14px] px-3.5 rounded-[9px]">Book a call</Link>
     </nav>
   );
 }
