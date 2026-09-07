@@ -28,7 +28,6 @@ export const contact: PageContent = {
       prose: [
         { h3: "Or reach us directly" },
         { p: "[WhatsApp +65 8934 0818](https://wa.me/6589340818)" },
-        { p: "For scheduling and status only. We do not accept documents by WhatsApp." },
         {
           kv: [
             { k: "Address", v: `${SITE.address} · By appointment.` },
@@ -38,9 +37,9 @@ export const contact: PageContent = {
           ],
         },
         { small: "Languages: English, Mandarin, Malay, Tamil" },
-        { h3: "Before you send anything." },
+        { h3: "Please book an appointment with us." },
         {
-          strong: "Please do not send passports, NRIC or FIN numbers or other documents by email or WhatsApp. If you become a client we will open a secure workspace for your files. If anyone asks you for documents before you have signed an engagement with us, do not send them, and tell us.",
+          strong: "If you become a client we will open a secure workspace for your files. If anyone asks you for documents before you have signed an engagement with us, do not send them, and tell us.",
         },
       ],
     },

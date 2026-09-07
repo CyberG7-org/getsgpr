@@ -14,7 +14,7 @@ export const READINESS_QUESTIONS = [
   { group: "Group C — Family and ties", q: "10. Will family members be included in your application?", options: ["No", "Spouse", "Spouse and children", "Children only", "Parents"] },
   { group: "Group C — Family and ties", q: "11. Do you have Singapore-based evidence of community involvement, such as volunteering, associations or professional bodies?", options: ["Yes, within the last two years", "Yes, but older", "No"] },
   { group: "Group D — Evidence and timing", q: "12. Do you have an employment letter dated within the last month and six months of payslips?", options: ["Both", "One", "Neither"] },
-  { group: "Group D — Evidence and timing", q: "13. Do the dates and job titles on your CV, payslips, CPF and employment letters all agree?", options: ["Yes", "Mostly", "Not sure", "Known differences"] },
+  { group: "Group D — Evidence and timing", q: "13. Do the dates and job titles on your CV, payslips, CPF and employment letters all tally?", options: ["Yes", "Mostly", "Not sure", "Known differences"] },
   { group: "Group D — Evidence and timing", q: "14. Have you applied for Singapore PR before?", options: ["No", "Yes, withdrawn", "Yes, rejected once", "Yes, rejected more than once"] },
   { group: "Group D — Evidence and timing", q: "15. If rejected: what has materially changed since your last application?", options: ["New job or promotion", "Salary increase", "Marriage or child", "Longer residence", "New qualification", "Nothing significant", "Not sure"] },
 ];
