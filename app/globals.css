@@ -101,6 +101,98 @@
   .btn-outline-dark { @apply bg-transparent text-on-dark border-[rgba(147,174,220,.45)] hover:bg-[rgba(147,174,220,.12)]; }
   .btn-sm { @apply min-h-[44px] px-[18px] py-[9px] text-[15px]; }
 
+  /* Singapore-red shimmer for readiness calls to action */
+  @property --readiness-angle {
+    syntax: "<angle>";
+    initial-value: 0deg;
+    inherits: false;
+  }
+  @property --readiness-offset {
+    syntax: "<angle>";
+    initial-value: 0deg;
+    inherits: false;
+  }
+  @property --readiness-spread {
+    syntax: "<percentage>";
+    initial-value: 5%;
+    inherits: false;
+  }
+  .readiness-cta {
+    --readiness-red: #ed2939;
+    --readiness-red-deep: #b80f24;
+    --readiness-red-bright: #ff5b68;
+    --readiness-duration: 3s;
+    isolation: isolate;
+    position: relative;
+    display: inline-flex;
+    min-height: 52px;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    border: 1px solid transparent;
+    border-radius: var(--radius-btn);
+    padding: 12px 24px;
+    background:
+      linear-gradient(135deg, var(--readiness-red), var(--readiness-red-deep)) padding-box,
+      conic-gradient(
+        from calc(var(--readiness-angle) - var(--readiness-offset)),
+        transparent,
+        var(--readiness-red-bright) var(--readiness-spread),
+        #fff calc(var(--readiness-spread) * 2),
+        var(--readiness-red-bright) calc(var(--readiness-spread) * 3),
+        transparent calc(var(--readiness-spread) * 4)
+      ) border-box;
+    box-shadow: inset 0 0 0 1px rgba(255,255,255,.16), 0 10px 24px -12px rgba(184,15,36,.72);
+    color: #fff;
+    font-family: var(--font-body);
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 1.2;
+    text-decoration: none;
+    outline-offset: 4px;
+    transition: transform 220ms ease, box-shadow 220ms ease, --readiness-offset 800ms cubic-bezier(.25,1,.5,1), --readiness-spread 800ms cubic-bezier(.25,1,.5,1);
+    animation: readiness-angle var(--readiness-duration) linear infinite;
+  }
+  .readiness-cta::before,
+  .readiness-cta::after {
+    content: "";
+    position: absolute;
+    pointer-events: none;
+    z-index: -1;
+  }
+  .readiness-cta::before {
+    inset: 3px;
+    border-radius: calc(var(--radius-btn) - 3px);
+    background-image: radial-gradient(circle at 2px 2px, rgba(255,255,255,.58) .5px, transparent .7px);
+    background-size: 5px 5px;
+    mask-image: conic-gradient(from calc(var(--readiness-angle) + 45deg), #000, transparent 12% 88%, #000);
+    opacity: .34;
+  }
+  .readiness-cta::after {
+    width: 115%;
+    aspect-ratio: 1;
+    left: 50%;
+    top: 50%;
+    translate: -50% -50%;
+    background: linear-gradient(-50deg, transparent 42%, rgba(255,255,255,.3), transparent 58%);
+    mask-image: radial-gradient(circle at bottom, transparent 35%, #000);
+    animation: readiness-shimmer calc(var(--readiness-duration) * 2.5) linear infinite;
+  }
+  .readiness-cta span { position: relative; z-index: 1; }
+  .readiness-cta:hover,
+  .readiness-cta:focus-visible {
+    --readiness-spread: 20%;
+    --readiness-offset: 95deg;
+    transform: translateY(-2px);
+    box-shadow: inset 0 0 0 1px rgba(255,255,255,.24), 0 15px 28px -12px rgba(184,15,36,.82);
+    color: #fff;
+  }
+  .readiness-cta:active { transform: translateY(0) scale(.98); }
+  .readiness-cta-sm { min-height: 44px; padding: 9px 18px; font-size: 15px; }
+
+  @keyframes readiness-angle { to { --readiness-angle: 360deg; } }
+  @keyframes readiness-shimmer { to { rotate: 360deg; } }
+
   /* cards hover, reveal */
   .card-hover { @apply transition-[transform,border-color] duration-[350ms] hover:-translate-y-[5px] hover:border-blue-200; }
   .reveal { opacity: 0; }
@@ -264,6 +356,9 @@
   .sg-call-link:active { transform: scale(.97); }
 
   @media (prefers-reduced-motion: reduce) {
+    .readiness-cta,
+    .readiness-cta::after { animation: none; }
+    .readiness-cta { transition: none; }
     .sg-call-link,
     .sg-call-drawer,
     .sg-call-corner { transition: none; }

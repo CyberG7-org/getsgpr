@@ -1,7 +1,12 @@
 import Link from "next/link";
 import type { Btn } from "@/content/types";
+import { ReadinessButton } from "./ReadinessButton";
 
 export function Button({ label, href, style, small }: Btn & { small?: boolean }) {
+  if (href === "/pr-readiness-review" || href === "/citizenship-readiness-review") {
+    return <ReadinessButton label={label} href={href} small={small} />;
+  }
+
   const cls = `btn btn-${style}${small ? " btn-sm" : ""}`;
   return href.startsWith("/") || href.startsWith("#")
     ? <Link href={href} className={cls}>{label}</Link>
