@@ -30,6 +30,18 @@ export function SplitProse(b: ProseBlock) {
           {b.images.map((im, i) => <ImagePh key={i} ratio={im.ratio} label={im.label} />)}
         </div>
       )}
+      {b.map && (
+        <div className="mt-8 overflow-hidden rounded-[22px] border border-line bg-white shadow-[0_14px_35px_rgba(11,27,52,0.08)]">
+          <iframe
+            className="block h-[430px] w-full max-[640px]:h-[330px]"
+            src={`https://www.google.com/maps?q=${encodeURIComponent(b.map.address)}&output=embed`}
+            title={b.map.title}
+            loading="lazy"
+            referrerPolicy="no-referrer-when-downgrade"
+            allowFullScreen
+          />
+        </div>
+      )}
       <FootRow foot={b.foot} />
     </>
   );

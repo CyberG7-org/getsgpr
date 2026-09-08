@@ -25,7 +25,7 @@ export const about: PageContent = {
           kv: [
             { k: "Legal name", v: "SGPR Immigration Singapore" },
             { k: "UEN", v: "53408306D" },
-            { k: "Office", v: `${SITE.address} · [Get directions](/contact)` },
+            { k: "Office", v: `${SITE.address} · [Get directions](https://www.google.com/maps/search/?api=1&query=18%20Boon%20Lay%20Way%20%2304-118%20Singapore%20609966)` },
             { k: "Established", v: "[[Year]]" },
             { k: "Languages", v: "English, Mandarin, Malay, Tamil" },
             { k: "Contact", v: `+65 8934 0818 · [${SITE.email}](${SITE.emailUrl}) · ${SITE.openingHours} · ${SITE.appointmentNote}` },
@@ -36,10 +36,10 @@ export const about: PageContent = {
           ],
         },
       ],
-      images: [
-        { ratio: "4-3", label: "Office photo" },
-        { ratio: "4-3", label: "Map" },
-      ],
+      map: {
+        address: "18 Boon Lay Way #04-118 Singapore 609966",
+        title: "Google Map showing the GetSGPR office at 18 Boon Lay Way",
+      },
     },
     {
       kind: "items", tone: "alt", columns: 3,
