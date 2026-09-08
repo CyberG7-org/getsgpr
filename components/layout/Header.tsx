@@ -45,17 +45,18 @@ export function Header() {
       <div className="container-x flex items-center gap-5 min-h-[62px]">
         <Brand />
         <nav aria-label="Primary" className="hidden min-[1201px]:flex items-center gap-0.5 ml-auto">
-          <details ref={servicesRef} className="nav-details relative">
-            <summary className={`${linkCls} cursor-pointer`}>Services</summary>
-            <div className="absolute top-11 left-0 bg-white border border-line rounded-[14px] shadow-card min-w-[270px] p-2 grid">
-              {NAV.services.map((s) => (
-                <Link key={s.href} href={s.href} onClick={() => { if (servicesRef.current) servicesRef.current.open = false; }} className="px-3 py-2.5 rounded-[9px] text-navy-900 no-underline text-[15px] font-medium hover:bg-line-soft">
-                  {s.label}<small className="block text-slate-400 text-[12.5px] font-normal mt-0.5">{s.small}</small>
-                </Link>
-              ))}
-            </div>
-          </details>
-          {NAV.primary.map((l) => <Link key={l.href} href={l.href} className={linkCls}>{l.label}</Link>)}
+          {NAV.primary.map((l) => l.label === "Services" ? (
+            <details key={l.href} ref={servicesRef} className="nav-details relative">
+              <summary className={`${linkCls} cursor-pointer`}>Services</summary>
+              <div className="absolute top-11 left-0 bg-white border border-line rounded-[14px] shadow-card min-w-[270px] p-2 grid">
+                {NAV.services.map((s) => (
+                  <Link key={s.href} href={s.href} onClick={() => { if (servicesRef.current) servicesRef.current.open = false; }} className="px-3 py-2.5 rounded-[9px] text-navy-900 no-underline text-[15px] font-medium hover:bg-line-soft">
+                    {s.label}<small className="block text-slate-400 text-[12.5px] font-normal mt-0.5">{s.small}</small>
+                  </Link>
+                ))}
+              </div>
+            </details>
+          ) : <Link key={l.href} href={l.href} className={linkCls}>{l.label}</Link>)}
           <BookCallButton href={NAV.cta.href} />
         </nav>
         <MobileNav />

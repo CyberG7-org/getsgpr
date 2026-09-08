@@ -23,6 +23,10 @@ describe("site facts", () => {
     expect(NAV.routes.some((r) => r.startsWith("/case-studies"))).toBe(false);
     expect(NAV.cta.href).toBe("/book-a-call");
   });
+  it("uses the requested primary navigation order", () => {
+    expect(NAV.primary.map((link) => link.label)).toEqual(["About", "Services", "Packages", "Knowledge Centre", "Contact Us"]);
+    expect(NAV.cta.label).toBe("Book a free call");
+  });
   it("flags all nine testimonials as unverified", () => {
     expect(TESTIMONIALS).toHaveLength(9);
     expect(TESTIMONIALS.every((t) => t.rating === 5)).toBe(true);

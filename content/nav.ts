@@ -8,11 +8,11 @@ export const NAV = {
     { label: "PR Rejection Appeal", href: "/pr-appeal", small: "Appeal or reapply, on evidence" },
   ] as Link[],
   primary: [
+    { label: "About", href: "/about" },
+    { label: "Services", href: "/services" },
     { label: "Packages", href: "/packages" },
-    { label: "Readiness Review", href: "/pr-readiness-review" },
     { label: "Knowledge Centre", href: "/guides" },
     { label: "Contact Us", href: "/contact" },
-    { label: "About", href: "/about" },
   ] as Link[],
   cta: { label: "Book a free call", href: "/book-a-call" },
   compact: [
