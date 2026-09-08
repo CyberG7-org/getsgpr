@@ -27,7 +27,7 @@ export const privacy: PageContent = {
         { title: "Who can see them", text: "Only the people on your case can open your files. Access ends when the case closes." },
         { title: "How long we keep them", text: "We keep your files for [[x months]] after your outcome, then delete them." },
         { title: "Where they are stored", text: "Your data is stored in [[Singapore / locations]], with [[named safeguards]] for any overseas processing." },
-        { title: "Who to ask", text: "[[Name]] is our data protection contact: [[email]]." },
+        { title: "Who to ask", text: `[[Name]] is our data protection contact: [${SITE.email}](${SITE.emailUrl}).` },
       ],
     },
     {
@@ -64,9 +64,9 @@ export const privacy: PageContent = {
       kind: "prose",
       title: "Your rights.",
       content: [
-        { p: "Under Singapore's Personal Data Protection Act you may ask us what personal data we hold about you, how it has been used, and to correct it. You may withdraw consent to our use of your data, subject to the consequences we will explain, such as being unable to continue your case. Write to [[DPO name]] at [[email]] and we will respond within [[x]] days." },
+        { p: `Under Singapore's Personal Data Protection Act you may ask us what personal data we hold about you, how it has been used, and to correct it. You may withdraw consent to our use of your data, subject to the consequences we will explain, such as being unable to continue your case. Write to [[DPO name]] at [${SITE.email}](${SITE.emailUrl}) and we will respond within [[x]] days.` },
         { h3: "Data protection contact" },
-        { p: `[[DPO name]] · [[Email]] · +65 8934 0818 · ${SITE.address}` },
+        { p: `[[DPO name]] · [${SITE.email}](${SITE.emailUrl}) · +65 8934 0818 · ${SITE.address}` },
         { p: "We do not transfer personal data outside Singapore." },
         { p: "We retain personal data only as long as necessary for service delivery, legal, or business purposes." },
       ],

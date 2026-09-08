@@ -9,6 +9,8 @@ describe("site facts", () => {
     expect(SITE.uen).toBe("53408306D");
     expect(SITE.address).toBe("18 Boon Lay Way, #04-118, Tradehub 21, Singapore 609966");
     expect(SITE.whatsappUrl).toBe("https://wa.me/6589340818");
+    expect(SITE.email).toBe("info@getsgpr.com");
+    expect(SITE.openingHours).toBe("9 AM–6 PM");
   });
   it("lists published routes and excludes case studies", () => {
     const expected = ["/", "/pr-readiness-review", "/services", "/permanent-resident-sg",

@@ -8,13 +8,15 @@ describe("Footer", () => {
   it("carries the independence disclaimer verbatim", () => {
     expect(html.replace(/&amp;/g, "&")).toContain(SITE.disclaimer);
   });
-  it("shows legal name, UEN, address and phone, and placeholders for email and hours", () => {
+  it("shows legal name, UEN, address, phone, email and opening hours", () => {
     expect(html).toContain("SGPR Immigration Singapore");
     expect(html).toContain("UEN 53408306D");
     expect(html).toContain("18 Boon Lay Way, #04-118, Tradehub 21, Singapore 609966");
     expect(html).toContain("+65 8934 0818");
-    expect(html).toContain('data-ph="Email"');
-    expect(html).toContain('data-ph="Opening hours"');
+    expect(html).toContain('href="mailto:info@getsgpr.com"');
+    expect(html).toContain("info@getsgpr.com");
+    expect(html).toContain("9 AM–6 PM");
+    expect(html).toContain("By appointment only");
   });
   it("renders the supplied GetSGPR logo", () => {
     expect(html).toContain("getsgpr-logo.png");

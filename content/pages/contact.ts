@@ -32,8 +32,8 @@ export const contact: PageContent = {
           kv: [
             { k: "Address", v: `${SITE.address} · By appointment.` },
             { k: "Phone", v: "+65 8934 0818" },
-            { k: "Email", v: "[[Email]]" },
-            { k: "Hours", v: "9 AM to 6 PM\nBy appointment only" },
+            { k: "Email", v: `[${SITE.email}](${SITE.emailUrl})` },
+            { k: "Hours", v: `${SITE.openingHours}\n${SITE.appointmentNote}` },
           ],
         },
         { small: "Languages: English, Mandarin, Malay, Tamil" },

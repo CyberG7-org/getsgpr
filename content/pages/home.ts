@@ -174,7 +174,7 @@ export const home: PageContent = {
         { title: "Secure client workspace", text: "Every client document goes into a controlled workspace, not into chat threads or personal inboxes." },
         { title: "Role-based access", text: "Only the people working on your case can open your files, and access is revoked when the case closes." },
         { title: "Stated retention", text: "We keep files for [[x months]] after your outcome, then delete them, unless you ask us to keep them longer." },
-        { title: "A named data protection contact", text: "[[Name]] answers questions about your data at [[email]]." },
+        { title: "A named data protection contact", text: `[[Name]] answers questions about your data at [${SITE.email}](${SITE.emailUrl}).` },
       ],
       foot: {
         text: "**We will never ask you to send passports or NRIC/FIN numbers over WhatsApp or during a free consultation.**",

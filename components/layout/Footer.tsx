@@ -1,7 +1,6 @@
 import Link from "next/link";
 import { SITE } from "@/content/site";
 import { NAV, type Link as NavLink } from "@/content/nav";
-import { Ph } from "@/components/ui/Ph";
 import { Brand } from "./Brand";
 
 function Col({ title, links }: { title: string; links: readonly NavLink[] }) {
@@ -29,7 +28,7 @@ export function Footer() {
           <div className="grid gap-2.5">
             <Brand large gradientId="gm-footer" />
             <p>Independent Singapore immigration consultancy for PR, citizenship and Long Term Visit Pass applications. Evidence-led preparation, published prices, no approval guarantees.</p>
-            <p>{SITE.legalName} · UEN {SITE.uen}<br />{SITE.address}<br />{SITE.phoneDisplay} · <Ph label={SITE.placeholders.email} /><br /><Ph label={SITE.placeholders.hours} /></p>
+            <p>{SITE.legalName} · UEN {SITE.uen}<br />{SITE.address}<br />{SITE.phoneDisplay} · <a href={SITE.emailUrl} className="text-blue-100 hover:text-on-dark hover:underline">{SITE.email}</a><br />{SITE.openingHours} · {SITE.appointmentNote}</p>
           </div>
           <Col title="Services" links={NAV.footer.services} />
           <Col title="Company" links={NAV.footer.company} />
