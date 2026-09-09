@@ -3,7 +3,10 @@ import type { Btn } from "@/content/types";
 import { ReadinessButton } from "./ReadinessButton";
 
 export function Button({ label, href, style, small }: Btn & { small?: boolean }) {
-  if (href === "/pr-readiness-review" || href === "/citizenship-readiness-review") {
+  const readinessDestination = href === "/pr-readiness-review" || href === "/citizenship-readiness-review";
+  const readinessFormAction = href === "#form" && /review|check/i.test(label);
+
+  if (readinessDestination || readinessFormAction) {
     return <ReadinessButton label={label} href={href} small={small} />;
   }
 
