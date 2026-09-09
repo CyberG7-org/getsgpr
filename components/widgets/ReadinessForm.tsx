@@ -91,8 +91,8 @@ export function ReadinessForm({ mode = "pr" }: { mode?: Mode }) {
   const completion = Math.round((answeredCount / questions.length) * 100);
 
   return (
-    <div className="readiness-form max-w-[1080px] rounded-[28px] border p-10 max-[640px]:rounded-[20px] max-[640px]:p-4" data-mode={mode}>
-      <div className="readiness-progress-panel grid gap-5 rounded-[20px] p-7 text-white max-[640px]:p-5">
+    <div className="readiness-form max-w-[1080px] rounded-[28px] border p-10 backdrop-blur-2xl backdrop-saturate-150 max-[640px]:rounded-[20px] max-[640px]:p-4" data-mode={mode}>
+      <div className="readiness-progress-panel grid gap-5 rounded-[20px] p-7 text-white backdrop-blur-lg backdrop-saturate-125 max-[640px]:p-5">
         <div className="flex items-center justify-between gap-4">
           <div>
             <p className="text-[12px] font-semibold uppercase tracking-[.14em] text-white/65">Your readiness assessment</p>
@@ -121,7 +121,7 @@ export function ReadinessForm({ mode = "pr" }: { mode?: Mode }) {
         const groupName = group.replace(/^Group [A-Z] — /, "");
         const groupComplete = groupAnswered === groupQuestions.length;
         return (
-        <fieldset key={group} className="readiness-group grid gap-6 rounded-[22px] border p-7 max-[640px]:gap-5 max-[640px]:p-4">
+        <fieldset key={group} className="readiness-group grid gap-6 rounded-[22px] border p-7 backdrop-blur-lg max-[640px]:gap-5 max-[640px]:p-4">
           <legend className="sr-only">{group}</legend>
           <div className="flex items-center justify-between gap-4">
             <div className="flex items-center gap-3">
@@ -132,7 +132,7 @@ export function ReadinessForm({ mode = "pr" }: { mode?: Mode }) {
           </div>
           <div className="grid grid-cols-2 gap-5 max-[1050px]:grid-cols-1">
           {groupQuestions.map(({ q, qi }) => (
-            <div key={q.q} className="readiness-question grid content-start gap-4 rounded-[16px] border p-5 max-[640px]:p-4">
+            <div key={q.q} className="readiness-question grid content-start gap-4 rounded-[16px] border p-5 backdrop-blur-md max-[640px]:p-4">
               <div className="flex items-start gap-3">
                 <span className="readiness-question-number mt-0.5 grid size-7 shrink-0 place-items-center rounded-full text-[11px] font-bold">{qi + 1}</span>
                 <p className="font-semibold text-[15px] leading-snug text-navy-900">{q.q.replace(/^\d+\.\s*/, "")}</p>
@@ -141,7 +141,7 @@ export function ReadinessForm({ mode = "pr" }: { mode?: Mode }) {
                 {q.options.map((o, oi) => (
                   <button key={o} type="button" onClick={() => setAnswer(qi, oi)}
                     aria-pressed={answers[qi] === oi}
-                    className={`readiness-option inline-flex min-h-[46px] items-center gap-2 rounded-[11px] border px-4 py-2.5 text-left text-[14px] font-medium transition-[border-color,background-color,transform,box-shadow] focus-visible:outline-2 focus-visible:outline-offset-2 ${answers[qi] === oi ? "is-selected shadow-sm" : "text-navy-900 hover:-translate-y-0.5"}`}>
+                    className={`readiness-option inline-flex min-h-[46px] items-center gap-2 rounded-[11px] border px-4 py-2.5 text-left text-[14px] font-medium backdrop-blur-sm transition-[border-color,background-color,transform,box-shadow] focus-visible:outline-2 focus-visible:outline-offset-2 ${answers[qi] === oi ? "is-selected shadow-sm" : "text-navy-900 hover:-translate-y-0.5"}`}>
                     <span>{o}</span>{answers[qi] === oi && <span aria-hidden="true" className="ml-auto grid size-5 shrink-0 place-items-center rounded-full bg-current/10 text-[12px]">✓</span>}
                   </button>
                 ))}
@@ -152,7 +152,7 @@ export function ReadinessForm({ mode = "pr" }: { mode?: Mode }) {
         </fieldset>
       )})}
       </div>
-      <div className="readiness-contact-panel rounded-[18px] p-7 text-white max-[640px]:p-5">
+      <div className="readiness-contact-panel rounded-[18px] p-7 text-white backdrop-blur-lg backdrop-saturate-125 max-[640px]:p-5">
       <h3 className="text-[23px] text-white mb-2">Where should we send your result?</h3>
       <p className="text-[14px] text-white/70 mb-5">Enter your details after answering all {questions.length} questions.</p>
       <div className="grid grid-cols-2 max-[640px]:grid-cols-1 gap-4">
