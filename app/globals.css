@@ -200,6 +200,55 @@
     --readiness-shadow: rgba(43,155,166,.72);
   }
 
+  /* Readiness questionnaire */
+  .readiness-form {
+    --form-accent: #69cfd5;
+    --form-accent-soft: #dff8f8;
+    --form-accent-deep: #176d78;
+  }
+  .readiness-form[data-mode="citizenship"] {
+    --form-accent: #ed2939;
+    --form-accent-soft: #fdebed;
+    --form-accent-deep: #a90f25;
+  }
+  .readiness-progress-panel {
+    box-shadow: inset 0 1px 0 rgba(255,255,255,.08), 0 16px 30px -24px rgba(10,18,35,.8);
+  }
+  .readiness-progress-fill { background: var(--form-accent); }
+  .readiness-group { position: relative; overflow: hidden; }
+  .readiness-group::before {
+    content: "";
+    position: absolute;
+    inset: 0 auto 0 0;
+    width: 4px;
+    background: var(--form-accent);
+  }
+  .readiness-group-number,
+  .readiness-question-number {
+    background: var(--form-accent-soft);
+    color: var(--form-accent-deep);
+  }
+  .readiness-complete {
+    background: var(--form-accent-soft);
+    color: var(--form-accent-deep);
+  }
+  .readiness-question {
+    box-shadow: 0 1px 2px rgba(10,18,35,.025);
+    transition: border-color 180ms ease, box-shadow 180ms ease;
+  }
+  .readiness-question:focus-within {
+    border-color: color-mix(in srgb, var(--form-accent) 72%, white);
+    box-shadow: 0 10px 24px -20px var(--form-accent-deep);
+  }
+  .readiness-option { cursor: pointer; }
+  .readiness-option.is-selected {
+    border-color: var(--form-accent-deep);
+    background: var(--form-accent-soft);
+    color: var(--form-accent-deep);
+    box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--form-accent-deep) 15%, transparent);
+  }
+  .readiness-option:focus-visible { outline-color: var(--form-accent-deep); }
+
   @keyframes readiness-angle { to { --readiness-angle: 360deg; } }
   @keyframes readiness-shimmer { to { rotate: 360deg; } }
 

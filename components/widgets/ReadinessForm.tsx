@@ -25,10 +25,6 @@ export function ReadinessForm({ mode = "pr" }: { mode?: Mode }) {
   const [result, setResult] = useState<FormResult | null>(null);
   const resultRef = useRef<HTMLDivElement>(null);
 
-  const groupOn = useMemo(
-    () => groups.map((g) => questions.some((q, i) => q.group === g && answers[i] !== undefined)),
-    [answers, groups, questions],
-  );
   const answeredCount = answers.filter((answer) => answer !== undefined).length;
 
   const setAnswer = (qi: number, oi: number) =>
@@ -92,44 +88,61 @@ export function ReadinessForm({ mode = "pr" }: { mode?: Mode }) {
     );
   }
 
+  const completion = Math.round((answeredCount / questions.length) * 100);
+
   return (
-    <div className="bg-white border border-line rounded-[24px] p-10 max-[640px]:p-5 max-w-[1040px] grid gap-8 shadow-form">
-      <div className="grid gap-3 border-b border-line pb-7">
+    <div className="readiness-form max-w-[1080px] rounded-[28px] border border-line bg-white p-10 shadow-[0_24px_70px_-38px_rgba(10,18,35,.4)] max-[640px]:rounded-[20px] max-[640px]:p-4" data-mode={mode}>
+      <div className="readiness-progress-panel grid gap-5 rounded-[20px] bg-navy-900 p-7 text-white max-[640px]:p-5">
         <div className="flex items-center justify-between gap-4">
           <div>
-            <p className="text-[12px] font-semibold uppercase tracking-[.12em] text-navy-700">Your progress</p>
-            <p className="mt-1 text-[14px] text-slate-500">Complete each group in order. You can change any answer.</p>
+            <p className="text-[12px] font-semibold uppercase tracking-[.14em] text-white/65">Your readiness assessment</p>
+            <h3 className="mt-1 text-[24px] text-white">Complete four short sections</h3>
+            <p className="mt-1 text-[14px] text-white/65">Choose the closest answer. You can change it at any time.</p>
           </div>
-          <span className="shrink-0 rounded-full bg-[#edf1f8] px-3 py-1.5 text-[13px] font-semibold text-navy-900">{answeredCount} of {questions.length}</span>
+          <div className="grid size-[70px] shrink-0 place-items-center rounded-full border-4 border-white/15 bg-white/5 max-[480px]:size-[58px]">
+            <span className="text-[15px] font-semibold text-white">{completion}%</span>
+          </div>
         </div>
-        <div className="flex gap-2" role="progressbar" aria-label="Questionnaire progress" aria-valuemin={0} aria-valuemax={questions.length} aria-valuenow={answeredCount}>
-          {groups.map((g, i) => <span key={g} className={`flex-1 h-2 rounded-full transition-colors ${groupOn[i] ? "bg-navy-700" : "bg-line-soft"}`} />)}
+        <div className="grid grid-cols-4 gap-2.5" role="progressbar" aria-label="Questionnaire progress" aria-valuemin={0} aria-valuemax={questions.length} aria-valuenow={answeredCount}>
+          {groups.map((g) => {
+            const groupQuestions = questions.map((q, qi) => ({ q, qi })).filter(({ q }) => q.group === g);
+            const completed = groupQuestions.filter(({ qi }) => answers[qi] !== undefined).length;
+            return <span key={g} className="h-2 overflow-hidden rounded-full bg-white/12"><span className="readiness-progress-fill block h-full rounded-full transition-[width] duration-300" style={{ width: `${(completed / groupQuestions.length) * 100}%` }} /></span>;
+          })}
+        </div>
+        <div className="grid grid-cols-4 gap-2.5 text-[11px] font-medium text-white/55 max-[640px]:hidden">
+          {groups.map((g, i) => <span key={g}>{String(i + 1).padStart(2, "0")} · {g.replace(/^Group [A-Z] — /, "")}</span>)}
         </div>
       </div>
+      <div className="mt-8 grid gap-7">
       {groups.map((group, groupIndex) => {
         const groupQuestions = questions.map((q, qi) => ({ q, qi })).filter(({ q }) => q.group === group);
         const groupAnswered = groupQuestions.filter(({ qi }) => answers[qi] !== undefined).length;
         const groupName = group.replace(/^Group [A-Z] — /, "");
+        const groupComplete = groupAnswered === groupQuestions.length;
         return (
-        <fieldset key={group} className="grid gap-5 rounded-[18px] border border-line bg-paper-alt/55 p-6 max-[640px]:p-4">
+        <fieldset key={group} className="readiness-group grid gap-6 rounded-[22px] border border-line bg-paper-alt/45 p-7 max-[640px]:gap-5 max-[640px]:p-4">
           <legend className="sr-only">{group}</legend>
           <div className="flex items-center justify-between gap-4">
             <div className="flex items-center gap-3">
-              <span className="flex size-9 items-center justify-center rounded-full bg-navy-900 text-[13px] font-semibold text-white">{String(groupIndex + 1).padStart(2, "0")}</span>
-              <div><p className="text-[11px] font-semibold uppercase tracking-[.12em] text-slate-400">Group {String.fromCharCode(65 + groupIndex)}</p><h3 className="text-[21px]">{groupName}</h3></div>
+              <span className="readiness-group-number flex size-11 items-center justify-center rounded-[13px] text-[13px] font-bold">{groupComplete ? "✓" : String(groupIndex + 1).padStart(2, "0")}</span>
+              <div><p className="text-[11px] font-semibold uppercase tracking-[.13em] text-slate-400">Section {String.fromCharCode(65 + groupIndex)}</p><h3 className="text-[22px]">{groupName}</h3></div>
             </div>
-            <span className="text-[13px] font-medium text-slate-500">{groupAnswered}/{groupQuestions.length} answered</span>
+            <span className={`rounded-full px-3 py-1.5 text-[12px] font-semibold ${groupComplete ? "readiness-complete" : "bg-white text-slate-500"}`}>{groupComplete ? "Complete" : `${groupAnswered}/${groupQuestions.length} answered`}</span>
           </div>
-          <div className="grid grid-cols-2 gap-4 max-[820px]:grid-cols-1">
+          <div className="grid grid-cols-2 gap-5 max-[1050px]:grid-cols-1">
           {groupQuestions.map(({ q, qi }) => (
-            <div key={q.q} className="grid content-start gap-3 rounded-xl border border-line bg-white p-5 min-h-[150px] max-[640px]:min-h-0 max-[640px]:p-4">
-              <label className="font-semibold text-[15px] leading-snug text-navy-900">{q.q}</label>
-              <div className="flex flex-wrap gap-2">
+            <div key={q.q} className="readiness-question grid content-start gap-4 rounded-[16px] border border-line bg-white p-5 max-[640px]:p-4">
+              <div className="flex items-start gap-3">
+                <span className="readiness-question-number mt-0.5 grid size-7 shrink-0 place-items-center rounded-full text-[11px] font-bold">{qi + 1}</span>
+                <p className="font-semibold text-[15px] leading-snug text-navy-900">{q.q.replace(/^\d+\.\s*/, "")}</p>
+              </div>
+              <div className="flex flex-wrap gap-2.5 pl-10 max-[640px]:pl-0">
                 {q.options.map((o, oi) => (
                   <button key={o} type="button" onClick={() => setAnswer(qi, oi)}
                     aria-pressed={answers[qi] === oi}
-                    className={`border rounded-full px-4 py-2.5 text-[14px] font-medium min-h-[44px] cursor-pointer transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-navy-700 ${answers[qi] === oi ? "bg-navy-700 text-on-dark border-navy-700 shadow-sm" : "bg-white text-navy-900 border-input-line hover:border-navy-700 hover:bg-[#f7f9fc]"}`}>
-                    {o}
+                    className={`readiness-option inline-flex min-h-[46px] items-center gap-2 rounded-[11px] border px-4 py-2.5 text-left text-[14px] font-medium transition-[border-color,background-color,transform,box-shadow] focus-visible:outline-2 focus-visible:outline-offset-2 ${answers[qi] === oi ? "is-selected shadow-sm" : "border-input-line bg-white text-navy-900 hover:-translate-y-0.5 hover:border-slate-300 hover:bg-paper"}`}>
+                    <span>{o}</span>{answers[qi] === oi && <span aria-hidden="true" className="ml-auto grid size-5 shrink-0 place-items-center rounded-full bg-current/10 text-[12px]">✓</span>}
                   </button>
                 ))}
               </div>
@@ -138,6 +151,7 @@ export function ReadinessForm({ mode = "pr" }: { mode?: Mode }) {
           </div>
         </fieldset>
       )})}
+      </div>
       <div className="rounded-[18px] bg-navy-900 p-7 max-[640px]:p-5 text-white">
       <h3 className="text-[23px] text-white mb-2">Where should we send your result?</h3>
       <p className="text-[14px] text-white/70 mb-5">Enter your details after answering all {questions.length} questions.</p>
