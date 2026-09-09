@@ -118,9 +118,11 @@
     inherits: false;
   }
   .readiness-cta {
-    --readiness-red: #ed2939;
-    --readiness-red-deep: #b80f24;
-    --readiness-red-bright: #ff5b68;
+    --readiness-main: #ed2939;
+    --readiness-deep: #b80f24;
+    --readiness-bright: #ff5b68;
+    --readiness-fg: #fff;
+    --readiness-shadow: rgba(184,15,36,.72);
     --readiness-duration: 3s;
     isolation: isolate;
     position: relative;
@@ -133,17 +135,17 @@
     border-radius: var(--radius-btn);
     padding: 12px 24px;
     background:
-      linear-gradient(135deg, var(--readiness-red), var(--readiness-red-deep)) padding-box,
+      linear-gradient(135deg, var(--readiness-main), var(--readiness-deep)) padding-box,
       conic-gradient(
         from calc(var(--readiness-angle) - var(--readiness-offset)),
         transparent,
-        var(--readiness-red-bright) var(--readiness-spread),
+        var(--readiness-bright) var(--readiness-spread),
         #fff calc(var(--readiness-spread) * 2),
-        var(--readiness-red-bright) calc(var(--readiness-spread) * 3),
+        var(--readiness-bright) calc(var(--readiness-spread) * 3),
         transparent calc(var(--readiness-spread) * 4)
       ) border-box;
-    box-shadow: inset 0 0 0 1px rgba(255,255,255,.16), 0 10px 24px -12px rgba(184,15,36,.72);
-    color: #fff;
+    box-shadow: inset 0 0 0 1px rgba(255,255,255,.22), 0 10px 24px -12px var(--readiness-shadow);
+    color: var(--readiness-fg);
     font-family: var(--font-body);
     font-size: 16px;
     font-weight: 700;
@@ -184,11 +186,19 @@
     --readiness-spread: 20%;
     --readiness-offset: 95deg;
     transform: translateY(-2px);
-    box-shadow: inset 0 0 0 1px rgba(255,255,255,.24), 0 15px 28px -12px rgba(184,15,36,.82);
-    color: #fff;
+    box-shadow: inset 0 0 0 1px rgba(255,255,255,.3), 0 15px 28px -12px var(--readiness-shadow);
+    color: var(--readiness-fg);
   }
   .readiness-cta:active { transform: translateY(0) scale(.98); }
   .readiness-cta-sm { min-height: 44px; padding: 9px 18px; font-size: 15px; }
+
+  .readiness-cta-pr {
+    --readiness-main: #a8eef0;
+    --readiness-deep: #69cfd5;
+    --readiness-bright: #e7ffff;
+    --readiness-fg: #102d3a;
+    --readiness-shadow: rgba(43,155,166,.72);
+  }
 
   @keyframes readiness-angle { to { --readiness-angle: 360deg; } }
   @keyframes readiness-shimmer { to { rotate: 360deg; } }

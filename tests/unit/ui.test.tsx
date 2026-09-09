@@ -15,8 +15,8 @@ describe("ui primitives", () => {
   it("Button applies the readiness treatment to page and in-page readiness actions", () => {
     const destination = renderToStaticMarkup(<Button label="Get my PR readiness report" href="/pr-readiness-review" style="light" />);
     const formAction = renderToStaticMarkup(<Button label="Start my citizenship check" href="#form" style="primary" />);
-    expect(destination).toContain('class="readiness-cta"');
-    expect(formAction).toContain('class="readiness-cta"');
+    expect(destination).toContain("readiness-cta-pr");
+    expect(formAction).toContain("readiness-cta-citizenship");
   });
   it("Badge applies tone classes", () => {
     expect(renderToStaticMarkup(<Badge tone="teal">PR</Badge>)).toContain("bg-teal-bg text-teal");

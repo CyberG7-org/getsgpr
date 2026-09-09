@@ -7,7 +7,8 @@ export function Button({ label, href, style, small }: Btn & { small?: boolean })
   const readinessFormAction = href === "#form" && /review|check/i.test(label);
 
   if (readinessDestination || readinessFormAction) {
-    return <ReadinessButton label={label} href={href} small={small} />;
+    const variant = href === "/citizenship-readiness-review" || /citizenship/i.test(label) ? "citizenship" : "pr";
+    return <ReadinessButton label={label} href={href} variant={variant} small={small} />;
   }
 
   const cls = `btn btn-${style}${small ? " btn-sm" : ""}`;
