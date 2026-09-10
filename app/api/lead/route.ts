@@ -11,7 +11,10 @@ export async function POST(req: Request) {
     return NextResponse.json({ ok: false, error: "consent required" }, { status: 400 });
 
   const receivedAt = new Date().toISOString();
-  const submissionId = crypto.randomUUID();
+  const suppliedId = typeof body.submissionId === "string" && /^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$/i.test(body.submissionId)
+    ? body.submissionId
+    : null;
+  const submissionId = suppliedId ?? crypto.randomUUID();
   const record = buildLeadRecord(body as LeadSubmission, receivedAt, submissionId);
   const url = process.env.GHL_LEAD_WEBHOOK_URL;
   let forwarded = false;

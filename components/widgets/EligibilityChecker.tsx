@@ -21,8 +21,8 @@ export function EligibilityChecker() {
     const v = emailInput.trim();
     if (!EMAIL_RE.test(v)) { setS((prev) => ({ ...prev, emailError: true })); return; }
     setS((prev) => ({ ...prev, email: v, emailError: false, emailStage: false, delivery: "sending" }));
-    const delivered = await postLead({ source: "checker", email: v, answers: s.answers });
-    setS((prev) => ({ ...prev, delivery: delivered ? "sent" : "failed" }));
+    const receipt = await postLead({ source: "checker", email: v, answers: s.answers });
+    setS((prev) => ({ ...prev, delivery: receipt?.forwarded ? "sent" : "failed" }));
   };
   const onSkip = () => setS((prev) => ({ ...prev, emailStage: false }));
   const onReset = () => { setS(INITIAL); setEmailInput(""); };

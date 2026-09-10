@@ -5,6 +5,7 @@ import { POST } from "@/app/api/lead/route";
 const checkerBody = { source: "checker", email: "a@b.co", answers: [0, 1, 0, 0, 2, 1] };
 const prBody = { source: "readiness", email: "alex@example.com", firstName: "Alex", answers: Array(15).fill(0), consent: true };
 const citizenshipBody = { source: "citizenship-readiness", email: "alex@example.com", firstName: "Alex", answers: Array(18).fill(0), consent: true };
+const submissionId = "53a0c77f-6bd6-4a89-a48d-b4018fb2f41f";
 afterEach(() => { vi.unstubAllEnvs(); vi.restoreAllMocks(); });
 
 describe("POST /api/lead", () => {
@@ -33,11 +34,13 @@ describe("POST /api/lead", () => {
   it("forwards when GHL_LEAD_WEBHOOK_URL is set", async () => {
     vi.stubEnv("GHL_LEAD_WEBHOOK_URL", "https://hook.example/x");
     const spy = vi.spyOn(globalThis, "fetch").mockResolvedValue(new Response("ok", { status: 200 }));
-    const res = await POST(new Request("http://x/api/lead", { method: "POST", body: JSON.stringify(prBody) }));
+    const res = await POST(new Request("http://x/api/lead", { method: "POST", body: JSON.stringify({ ...prBody, submissionId }) }));
     expect(spy).toHaveBeenCalledWith("https://hook.example/x", expect.objectContaining({ method: "POST" }));
     const forwardedBody = JSON.parse(String(spy.mock.calls[0][1]?.body));
     expect(forwardedBody).toEqual(expect.objectContaining({
-      submissionId: expect.any(String),
+      submissionId,
+      eventType: "readiness_completed",
+      bookingStatus: "Not started",
       schemaVersion: "pr-readiness-v1",
       checkerType: "PR readiness",
       email: "alex@example.com",
@@ -51,6 +54,6 @@ describe("POST /api/lead", () => {
       consentAt: expect.any(String),
     }));
     expect(forwardedBody.answers).toHaveLength(15);
-    expect(await res.json()).toEqual(expect.objectContaining({ ok: true, forwarded: true, submissionId: expect.any(String) }));
+    expect(await res.json()).toEqual(expect.objectContaining({ ok: true, forwarded: true, submissionId }));
   });
 });

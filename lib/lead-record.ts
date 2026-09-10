@@ -14,6 +14,7 @@ export type LeadAnswerRecord = {
 };
 
 export type LeadRecord = {
+  eventType: "eligibility_completed" | "readiness_completed";
   submissionId: string;
   schemaVersion: string;
   receivedAt: string;
@@ -22,6 +23,8 @@ export type LeadRecord = {
   email: string;
   firstName: string;
   consentAt: string;
+  bookingStatus: "Not started";
+  bookingClickedAt: string;
   pageUrl: string;
   referrer: string;
   utmSource: string;
@@ -110,6 +113,7 @@ export function buildLeadRecord(lead: LeadSubmission, receivedAt: string, submis
   }
 
   return {
+    eventType: lead.source === "checker" ? "eligibility_completed" : "readiness_completed",
     submissionId,
     schemaVersion: config.schemaVersion,
     receivedAt,
@@ -118,6 +122,8 @@ export function buildLeadRecord(lead: LeadSubmission, receivedAt: string, submis
     email: lead.email.trim().toLowerCase(),
     firstName: lead.firstName?.trim() ?? "",
     consentAt: lead.consent ? receivedAt : "",
+    bookingStatus: "Not started",
+    bookingClickedAt: "",
     pageUrl: lead.pageUrl ?? "",
     referrer: lead.referrer ?? "",
     utmSource: lead.utmSource ?? "",

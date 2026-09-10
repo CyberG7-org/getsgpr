@@ -3,7 +3,7 @@ import { useMemo, useRef, useState } from "react";
 import Link from "next/link";
 import { READINESS_QUESTIONS, assess, type ReadinessResult } from "@/lib/readiness";
 import { CITIZENSHIP_QUESTIONS, assessCitizenship, type CitizenshipReadinessResult } from "@/lib/citizenship-readiness";
-import { postLead, EMAIL_RE } from "@/lib/lead";
+import { createSubmissionId, postBookingIntent, postLead, EMAIL_RE } from "@/lib/lead";
 import { PACKAGES } from "@/content/packages";
 import { ReadinessButton } from "@/components/ui/ReadinessButton";
 import { CITIZENSHIP_RECOMMENDATION, helpStatement, presentationAreas } from "@/lib/readiness-presentation";
@@ -25,6 +25,7 @@ export function ReadinessForm({ mode = "pr" }: { mode?: Mode }) {
   const [consent, setConsent] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [result, setResult] = useState<FormResult | null>(null);
+  const [submissionId, setSubmissionId] = useState<string | null>(null);
   const resultRef = useRef<HTMLDivElement>(null);
 
   const answeredCount = answers.filter((answer) => answer !== undefined).length;
@@ -43,9 +44,22 @@ export function ReadinessForm({ mode = "pr" }: { mode?: Mode }) {
     setError(null);
     const finalAnswers = answers.map((a) => a ?? 0);
     const r = mode === "citizenship" ? assessCitizenship(finalAnswers) : assess(finalAnswers);
+    const id = createSubmissionId();
+    const packageName = isPrResult(r) ? r.pkg.name : CITIZENSHIP_RECOMMENDATION.name;
     setResult(r);
+    setSubmissionId(id);
+    try {
+      sessionStorage.setItem("getsgpr-booking-context", JSON.stringify({
+        submissionId: id,
+        firstName: firstName.trim(),
+        email: email.trim().toLowerCase(),
+        checkerType: mode === "citizenship" ? "Citizenship readiness" : "PR readiness",
+        recommendedPackage: packageName,
+      }));
+    } catch { /* Booking still works when browser storage is unavailable. */ }
     void postLead({
       source: mode === "citizenship" ? "citizenship-readiness" : "readiness",
+      submissionId: id,
       email: email.trim(),
       firstName: firstName.trim() || undefined,
       answers: finalAnswers,
@@ -63,6 +77,10 @@ export function ReadinessForm({ mode = "pr" }: { mode?: Mode }) {
       ? result.pkg
       : CITIZENSHIP_RECOMMENDATION;
     const { visibleStrong, visibleWeak } = presentationAreas(result.strong, result.weak, result.actions, recommendation.name);
+    const bookingHref = submissionId ? `/book-a-call?rid=${encodeURIComponent(submissionId)}` : "/book-a-call";
+    const trackBooking = () => {
+      if (submissionId) void postBookingIntent(submissionId, email.trim());
+    };
     return (
       <article ref={resultRef} className="readiness-result max-w-[1080px] scroll-mt-[110px] overflow-hidden rounded-[26px] border border-line bg-white shadow-card" data-mode={mode} aria-live="polite">
         <header className="readiness-result-header px-8 py-7 text-white max-[640px]:px-5 max-[640px]:py-6">
@@ -82,10 +100,11 @@ export function ReadinessForm({ mode = "pr" }: { mode?: Mode }) {
               <p className="mt-1 text-[14px] leading-relaxed"><strong>{recommendation.price}</strong> · {recommendation.why}</p>
             </div>
             <ReadinessButton
-              href={recommendation.href}
+              href={mode === "citizenship" ? bookingHref : recommendation.href}
               label={mode === "citizenship" ? "View consultation details" : cta ?? "View recommended package"}
               variant={mode}
               small
+              onClick={mode === "citizenship" ? trackBooking : undefined}
             />
           </section>
 
@@ -125,9 +144,10 @@ export function ReadinessForm({ mode = "pr" }: { mode?: Mode }) {
 
           <div className="flex justify-center">
             <ReadinessButton
-              href="/book-a-call"
+              href={bookingHref}
               label={mode === "citizenship" ? "Book a citizenship consultation" : "Book a 20-minute strategy call"}
               variant={mode}
+              onClick={trackBooking}
             />
           </div>
 
