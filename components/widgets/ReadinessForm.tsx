@@ -6,7 +6,7 @@ import { CITIZENSHIP_QUESTIONS, assessCitizenship, type CitizenshipReadinessResu
 import { postLead, EMAIL_RE } from "@/lib/lead";
 import { PACKAGES } from "@/content/packages";
 import { ReadinessButton } from "@/components/ui/ReadinessButton";
-import { CITIZENSHIP_RECOMMENDATION, helpStatement, recommendationFit } from "@/lib/readiness-presentation";
+import { CITIZENSHIP_RECOMMENDATION, helpStatement, presentationAreas } from "@/lib/readiness-presentation";
 
 type Mode = "pr" | "citizenship";
 type FormResult = ReadinessResult | CitizenshipReadinessResult;
@@ -62,7 +62,7 @@ export function ReadinessForm({ mode = "pr" }: { mode?: Mode }) {
     const recommendation = isPrResult(result)
       ? result.pkg
       : CITIZENSHIP_RECOMMENDATION;
-    const recommendationReason = recommendationFit(result.weak, recommendation.why);
+    const { visibleStrong, visibleWeak } = presentationAreas(result.strong, result.weak, result.actions, recommendation.name);
     return (
       <article ref={resultRef} className="readiness-result max-w-[1080px] scroll-mt-[110px] overflow-hidden rounded-[26px] border border-line bg-white shadow-card" data-mode={mode} aria-live="polite">
         <header className="readiness-result-header px-8 py-7 text-white max-[640px]:px-5 max-[640px]:py-6">
@@ -75,14 +75,18 @@ export function ReadinessForm({ mode = "pr" }: { mode?: Mode }) {
         </header>
 
         <div className="grid gap-6 p-8 max-[640px]:p-5">
-          <section className="readiness-recommendation rounded-[18px] border px-5 py-5">
-            <p className="mb-1 text-[11px] font-semibold uppercase tracking-[.13em]">Recommended package</p>
-            <h3 className="text-[24px]">{recommendation.name}</h3>
-            <p className="mt-1 text-[14px] font-semibold">{recommendation.price}</p>
-            <div className="mt-4 border-t border-current/15 pt-4">
-              <p className="text-[12px] font-semibold uppercase tracking-[.1em]">Why this fits your result</p>
-              <p className="mt-1 text-[14px] leading-relaxed">{recommendationReason}</p>
+          <section className="readiness-recommendation flex flex-wrap items-center justify-between gap-5 rounded-[18px] border px-5 py-5">
+            <div className="max-w-[700px]">
+              <p className="mb-1 text-[11px] font-semibold uppercase tracking-[.13em]">Recommended package</p>
+              <h3 className="text-[22px]">{recommendation.name}</h3>
+              <p className="mt-1 text-[14px] leading-relaxed"><strong>{recommendation.price}</strong> · {recommendation.why}</p>
             </div>
+            <ReadinessButton
+              href={recommendation.href}
+              label={mode === "citizenship" ? "Book a citizenship consultation" : cta ?? "View recommended package"}
+              variant={mode}
+              small
+            />
           </section>
 
           <div className="grid grid-cols-2 gap-4 max-[760px]:grid-cols-1">
@@ -92,7 +96,7 @@ export function ReadinessForm({ mode = "pr" }: { mode?: Mode }) {
               <h3 className="text-[17px] text-[#235c49]">Strong areas</h3>
             </div>
             <ul className="grid gap-2 pl-[19px] text-[15px] leading-relaxed text-[#235c49] list-disc">
-              {result.strong.length ? result.strong.map((s) => <li key={s}>{s}</li>) : <li>None stood out from your answers.</li>}
+              {visibleStrong.length ? visibleStrong.map((s) => <li key={s}>{s}</li>) : <li>None stood out from your answers.</li>}
             </ul>
           </section>
           <section className="rounded-[16px] border border-[#f1dfb7] bg-[#fff7e7] p-5">
@@ -101,7 +105,7 @@ export function ReadinessForm({ mode = "pr" }: { mode?: Mode }) {
               <h3 className="text-[17px] text-[#795313]">Areas to strengthen</h3>
             </div>
             <ul className="grid gap-2 pl-[19px] text-[15px] leading-relaxed text-[#795313] list-disc">
-              {result.weak.length ? result.weak.map((w) => <li key={w}>{w}</li>) : <li>None stood out from your answers.</li>}
+              {visibleWeak.map((w) => <li key={w}>{w}</li>)}
             </ul>
           </section>
           </div>
@@ -119,13 +123,6 @@ export function ReadinessForm({ mode = "pr" }: { mode?: Mode }) {
             </ul>
           </section>
 
-          <div className="flex justify-center">
-            <ReadinessButton
-              href={recommendation.href}
-              label={mode === "citizenship" ? "Book a citizenship consultation" : cta ?? "View recommended package"}
-              variant={mode}
-            />
-          </div>
           <p className="small">This result is a GetSGPR preparation diagnostic. It is not an ICA score or a prediction of ICA&apos;s decision. ICA assesses every application on its own merits.</p>
         </div>
       </article>
