@@ -83,7 +83,7 @@ export function ReadinessForm({ mode = "pr" }: { mode?: Mode }) {
             </div>
             <ReadinessButton
               href={recommendation.href}
-              label={mode === "citizenship" ? "Book a citizenship consultation" : cta ?? "View recommended package"}
+              label={mode === "citizenship" ? "View consultation details" : cta ?? "View recommended package"}
               variant={mode}
               small
             />
@@ -122,6 +122,14 @@ export function ReadinessForm({ mode = "pr" }: { mode?: Mode }) {
               ))}
             </ul>
           </section>
+
+          <div className="flex justify-center">
+            <ReadinessButton
+              href="/book-a-call"
+              label={mode === "citizenship" ? "Book a citizenship consultation" : "Book a 20-minute strategy call"}
+              variant={mode}
+            />
+          </div>
 
           <p className="small">This result is a GetSGPR preparation diagnostic. It is not an ICA score or a prediction of ICA&apos;s decision. ICA assesses every application on its own merits.</p>
         </div>
