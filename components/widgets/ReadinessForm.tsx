@@ -135,7 +135,7 @@ export function ReadinessForm({ mode = "pr" }: { mode?: Mode }) {
   return (
     <div className="readiness-form max-w-[1080px] rounded-[28px] border p-10 backdrop-blur-2xl backdrop-saturate-150 max-[640px]:rounded-[20px] max-[640px]:p-4" data-mode={mode}>
       <div className="readiness-progress-panel grid gap-5 rounded-[20px] p-7 text-white backdrop-blur-lg backdrop-saturate-125 max-[640px]:p-5">
-        <div className="flex items-center justify-between gap-4">
+        <div className="flex flex-col items-center gap-4 text-center">
           <div>
             <p className="text-[12px] font-semibold uppercase tracking-[.14em] text-white/65">Your readiness assessment</p>
             <h3 className="mt-1 text-[24px] text-white">Complete four short sections</h3>
@@ -152,7 +152,7 @@ export function ReadinessForm({ mode = "pr" }: { mode?: Mode }) {
             return <span key={g} className="h-2 overflow-hidden rounded-full bg-white/12"><span className="readiness-progress-fill block h-full rounded-full transition-[width] duration-300" style={{ width: `${(completed / groupQuestions.length) * 100}%` }} /></span>;
           })}
         </div>
-        <div className="grid grid-cols-4 gap-2.5 text-[11px] font-medium text-white/55 max-[640px]:hidden">
+        <div className="grid grid-cols-4 gap-2.5 text-center text-[11px] font-medium text-white/55 max-[640px]:hidden">
           {groups.map((g, i) => <span key={g}>{String(i + 1).padStart(2, "0")} · {g.replace(/^Group [A-Z] — /, "")}</span>)}
         </div>
       </div>
@@ -194,28 +194,28 @@ export function ReadinessForm({ mode = "pr" }: { mode?: Mode }) {
         </fieldset>
       )})}
       </div>
-      <div className="readiness-contact-panel rounded-[18px] p-7 text-white backdrop-blur-lg backdrop-saturate-125 max-[640px]:p-5">
+      <div className="readiness-contact-panel rounded-[18px] p-7 text-center text-white backdrop-blur-lg backdrop-saturate-125 max-[640px]:p-5">
       <h3 className="text-[23px] text-white mb-2">Where should we send your result?</h3>
       <p className="text-[14px] text-white/70 mb-5">Enter your details after answering all {questions.length} questions.</p>
       <div className="grid grid-cols-2 max-[640px]:grid-cols-1 gap-4">
         <div className="grid content-start gap-1.5">
           <label className="font-semibold text-[14px] text-white">First name</label>
           <input type="text" placeholder="First name" value={firstName} onChange={(e) => setFirstName(e.target.value)}
-            className="[font:inherit] min-h-[52px] px-3.5 py-3 border border-white/20 bg-white text-navy-900 rounded-btn w-full" />
+            className="[font:inherit] min-h-[52px] px-3.5 py-3 text-center border border-white/20 bg-white text-navy-900 rounded-btn w-full" />
         </div>
         <div className="grid content-start gap-1.5">
           <label className="font-semibold text-[14px] text-white">Email</label>
           <input type="email" placeholder="you@example.com" value={email} onChange={(e) => setEmail(e.target.value)}
-            className="[font:inherit] min-h-[52px] px-3.5 py-3 border border-white/20 bg-white text-navy-900 rounded-btn w-full" />
+            className="[font:inherit] min-h-[52px] px-3.5 py-3 text-center border border-white/20 bg-white text-navy-900 rounded-btn w-full" />
           <span className="text-[13px] text-white/60">We use your email to send your result and follow-up guidance.</span>
         </div>
       </div>
-      <label className="flex gap-3 items-start text-[14px] leading-relaxed text-white/75 mt-5">
+      <label className="flex justify-center gap-3 items-start text-center text-[14px] leading-relaxed text-white/75 mt-5">
         <input type="checkbox" className="mt-1 size-4 accent-blue-300" checked={consent} onChange={(e) => setConsent(e.target.checked)} />
         <span>I agree to GetSGPR storing my answers and contacting me about my {label} readiness result. <Link className="text-white underline" href="/privacy-data-security">Privacy policy</Link></span>
       </label>
       {error && <p role="alert" className="mt-4 rounded-lg bg-white/10 p-3 text-[13.5px] text-white">{error}</p>}
-      <div className="mt-5"><button type="button" onClick={onSubmit} className="btn btn-light">See my result</button></div>
+      <div className="mt-5 flex justify-center"><button type="button" onClick={onSubmit} className="btn btn-light">See my result</button></div>
       <p className="mt-4 text-[12.5px] leading-relaxed text-white/60">No NRIC, FIN, passport numbers or documents are requested at this stage.</p>
       </div>
     </div>
