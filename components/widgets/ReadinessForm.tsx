@@ -6,7 +6,7 @@ import { CITIZENSHIP_QUESTIONS, assessCitizenship, type CitizenshipReadinessResu
 import { postLead, EMAIL_RE } from "@/lib/lead";
 import { PACKAGES } from "@/content/packages";
 import { ReadinessButton } from "@/components/ui/ReadinessButton";
-import { CITIZENSHIP_RECOMMENDATION, helpStatement } from "@/lib/readiness-presentation";
+import { CITIZENSHIP_RECOMMENDATION, helpStatement, recommendationFit } from "@/lib/readiness-presentation";
 
 type Mode = "pr" | "citizenship";
 type FormResult = ReadinessResult | CitizenshipReadinessResult;
@@ -62,6 +62,7 @@ export function ReadinessForm({ mode = "pr" }: { mode?: Mode }) {
     const recommendation = isPrResult(result)
       ? result.pkg
       : CITIZENSHIP_RECOMMENDATION;
+    const recommendationReason = recommendationFit(result.weak, recommendation.why);
     return (
       <article ref={resultRef} className="readiness-result max-w-[1080px] scroll-mt-[110px] overflow-hidden rounded-[26px] border border-line bg-white shadow-card" data-mode={mode} aria-live="polite">
         <header className="readiness-result-header px-8 py-7 text-white max-[640px]:px-5 max-[640px]:py-6">
@@ -74,6 +75,16 @@ export function ReadinessForm({ mode = "pr" }: { mode?: Mode }) {
         </header>
 
         <div className="grid gap-6 p-8 max-[640px]:p-5">
+          <section className="readiness-recommendation rounded-[18px] border px-5 py-5">
+            <p className="mb-1 text-[11px] font-semibold uppercase tracking-[.13em]">Recommended package</p>
+            <h3 className="text-[24px]">{recommendation.name}</h3>
+            <p className="mt-1 text-[14px] font-semibold">{recommendation.price}</p>
+            <div className="mt-4 border-t border-current/15 pt-4">
+              <p className="text-[12px] font-semibold uppercase tracking-[.1em]">Why this fits your result</p>
+              <p className="mt-1 text-[14px] leading-relaxed">{recommendationReason}</p>
+            </div>
+          </section>
+
           <div className="grid grid-cols-2 gap-4 max-[760px]:grid-cols-1">
           <section className="rounded-[16px] border border-[#cce8dc] bg-[#edf7f3] p-5">
             <div className="mb-3 flex items-center gap-2.5">
@@ -108,19 +119,10 @@ export function ReadinessForm({ mode = "pr" }: { mode?: Mode }) {
             </ul>
           </section>
 
-          <section className="readiness-recommendation flex flex-wrap items-center justify-between gap-5 rounded-[18px] border px-5 py-5">
-            <div className="max-w-[680px]">
-              <p className="mb-1 text-[11px] font-semibold uppercase tracking-[.13em]">Recommended package</p>
-              <h3 className="text-[22px]">{recommendation.name}</h3>
-              <p className="mt-1 text-[14px] leading-relaxed"><strong>{recommendation.price}</strong> · {recommendation.why}</p>
-            </div>
-            {isPrResult(result) && <Link href={recommendation.href} className="btn btn-ghost">{cta}</Link>}
-          </section>
-
-          <div className="flex flex-wrap items-center gap-3">
+          <div className="flex justify-center">
             <ReadinessButton
-              href="/book-a-call"
-              label={mode === "citizenship" ? "Book a citizenship consultation" : "Book a 20-minute strategy call"}
+              href={recommendation.href}
+              label={mode === "citizenship" ? "Book a citizenship consultation" : cta ?? "View recommended package"}
               variant={mode}
             />
           </div>

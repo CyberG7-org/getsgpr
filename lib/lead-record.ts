@@ -1,7 +1,7 @@
 import { QUESTIONS, verdict } from "@/lib/checker";
 import { READINESS_QUESTIONS, assess } from "@/lib/readiness";
 import { CITIZENSHIP_QUESTIONS, assessCitizenship } from "@/lib/citizenship-readiness";
-import { CITIZENSHIP_RECOMMENDATION, helpStatement } from "@/lib/readiness-presentation";
+import { CITIZENSHIP_RECOMMENDATION, helpStatement, recommendationFit } from "@/lib/readiness-presentation";
 import type { LeadSubmission } from "@/lib/lead";
 
 type Question = { q: string; options: readonly string[] };
@@ -88,7 +88,7 @@ export function buildLeadRecord(lead: LeadSubmission, receivedAt: string, submis
     resultSummary = result.intro;
     recommendedPackage = result.pkg.name;
     recommendedPackagePrice = result.pkg.price;
-    recommendedPackageReason = result.pkg.why;
+    recommendedPackageReason = recommendationFit(result.weak, result.pkg.why);
     strongAreas = result.strong;
     areasToStrengthen = result.weak;
     howWeCanHelp = result.actions.map(helpStatement);
@@ -98,7 +98,7 @@ export function buildLeadRecord(lead: LeadSubmission, receivedAt: string, submis
     resultSummary = result.intro;
     recommendedPackage = CITIZENSHIP_RECOMMENDATION.name;
     recommendedPackagePrice = CITIZENSHIP_RECOMMENDATION.price;
-    recommendedPackageReason = CITIZENSHIP_RECOMMENDATION.why;
+    recommendedPackageReason = recommendationFit(result.weak, CITIZENSHIP_RECOMMENDATION.why);
     strongAreas = result.strong;
     areasToStrengthen = result.weak;
     howWeCanHelp = result.actions.map(helpStatement);

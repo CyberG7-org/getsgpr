@@ -37,6 +37,11 @@ export function SampleResult({ title, sub, variant = "pr" }: Omit<SampleResultBl
           <p className="text-[14px] leading-relaxed text-white/80">A few focused improvements before you prepare your application.</p>
         </div>
         <div className="p-7 max-[480px]:p-5">
+          <div className="mb-6 rounded-xl border border-blue-100 bg-paper p-4 text-[14px]">
+            <span className="block text-[11px] font-semibold uppercase tracking-[.12em] text-slate-500">Recommended package</span>
+            <span className="mt-1 block text-[17px] font-semibold text-navy-900">{citizenship ? "Citizenship Consultation" : "SGPR Partnered"}</span>
+            <span className="mt-2 block text-slate-500">Why this fits your result: focused guidance on the areas highlighted by your answers.</span>
+          </div>
           <div className="grid grid-cols-2 gap-3 max-[600px]:grid-cols-1 mb-6">
             <div className="rounded-xl bg-[#edf7f3] p-4">
               <h4 className="text-[13px] font-semibold text-[#235c49] mb-2">Strong areas</h4>
@@ -51,7 +56,6 @@ export function SampleResult({ title, sub, variant = "pr" }: Omit<SampleResultBl
           <ol className="grid gap-4">
             {actions.map((action, i) => <li key={action} className="flex gap-3 text-[14px] leading-relaxed text-slate-500"><span aria-hidden="true" className="flex size-6 shrink-0 items-center justify-center rounded-full bg-[#edf1f8] text-[12px] font-semibold text-navy-900">{i + 1}</span><span>{action}</span></li>)}
           </ol>
-          <div className="mt-6 rounded-xl border border-blue-100 bg-paper p-4 flex flex-wrap items-center justify-between gap-2 text-[14px]"><span className="text-slate-500">Recommended package</span><span className="font-semibold text-navy-900">{citizenship ? "Citizenship Consultation" : "SGPR Partnered"}</span></div>
           <p className="mt-4 text-[12px] leading-relaxed text-slate-500">Illustrative example. Your result is based on your answers and is not an ICA decision or approval prediction.</p>
         </div>
       </article>
