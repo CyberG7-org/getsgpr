@@ -291,6 +291,40 @@
     backdrop-filter: blur(18px) saturate(125%);
     -webkit-backdrop-filter: blur(18px) saturate(125%);
   }
+  .readiness-result {
+    --result-accent: #69cfd5;
+    --result-accent-soft: #dff8f8;
+    --result-accent-deep: #176d78;
+  }
+  .readiness-result[data-mode="citizenship"] {
+    --result-accent: #ed2939;
+    --result-accent-soft: #fdebed;
+    --result-accent-deep: #a90f25;
+  }
+  .readiness-result-header {
+    position: relative;
+    background:
+      radial-gradient(circle at 88% 0, color-mix(in srgb, var(--result-accent) 30%, transparent), transparent 35%),
+      linear-gradient(135deg, #0a1223, #1b2b57);
+  }
+  .readiness-result-header::after {
+    content: "";
+    position: absolute;
+    inset: auto 0 0;
+    height: 4px;
+    background: var(--result-accent);
+  }
+  .readiness-result-status,
+  .readiness-help-number {
+    background: var(--result-accent-soft);
+    color: var(--result-accent-deep);
+  }
+  .readiness-recommendation {
+    border-color: color-mix(in srgb, var(--result-accent) 42%, white);
+    background: linear-gradient(135deg, var(--result-accent-soft), rgba(255,255,255,.92));
+    color: var(--result-accent-deep);
+  }
+  .readiness-recommendation h3 { color: var(--result-accent-deep); }
 
   @keyframes readiness-angle { to { --readiness-angle: 360deg; } }
   @keyframes readiness-shimmer { to { rotate: 360deg; } }

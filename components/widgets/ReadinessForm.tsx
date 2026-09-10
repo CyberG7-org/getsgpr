@@ -5,6 +5,8 @@ import { READINESS_QUESTIONS, assess, type ReadinessResult } from "@/lib/readine
 import { CITIZENSHIP_QUESTIONS, assessCitizenship, type CitizenshipReadinessResult } from "@/lib/citizenship-readiness";
 import { postLead, EMAIL_RE } from "@/lib/lead";
 import { PACKAGES } from "@/content/packages";
+import { ReadinessButton } from "@/components/ui/ReadinessButton";
+import { CITIZENSHIP_RECOMMENDATION, helpStatement } from "@/lib/readiness-presentation";
 
 type Mode = "pr" | "citizenship";
 type FormResult = ReadinessResult | CitizenshipReadinessResult;
@@ -42,7 +44,13 @@ export function ReadinessForm({ mode = "pr" }: { mode?: Mode }) {
     const finalAnswers = answers.map((a) => a ?? 0);
     const r = mode === "citizenship" ? assessCitizenship(finalAnswers) : assess(finalAnswers);
     setResult(r);
-    void postLead({ source: mode === "citizenship" ? "citizenship-readiness" : "readiness", email: email.trim(), firstName: firstName.trim() || undefined, answers: finalAnswers, outcome: r.outcome, pkg: isPrResult(r) ? r.pkg.name : "Citizenship consultation" });
+    void postLead({
+      source: mode === "citizenship" ? "citizenship-readiness" : "readiness",
+      email: email.trim(),
+      firstName: firstName.trim() || undefined,
+      answers: finalAnswers,
+      consent: true,
+    });
     requestAnimationFrame(() => {
       const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
       resultRef.current?.scrollIntoView({ behavior: reduce ? "auto" : "smooth" });
@@ -51,40 +59,74 @@ export function ReadinessForm({ mode = "pr" }: { mode?: Mode }) {
 
   if (result) {
     const cta = isPrResult(result) ? PACKAGES.find((p) => p.slug === result.pkg.href)?.cta.label ?? "See packages" : null;
+    const recommendation = isPrResult(result)
+      ? result.pkg
+      : CITIZENSHIP_RECOMMENDATION;
     return (
-      <div ref={resultRef} className="bg-white border border-line rounded-card p-[30px] max-w-[760px] grid gap-4 shadow-card">
-        <h2 className="text-[27px]">Your {label} readiness result: {result.outcome}</h2>
-        <p className="lead">{result.intro}</p>
-        <div className="grid grid-cols-2 max-[980px]:grid-cols-1 gap-5">
-          <div>
-            <h4 className="text-[12.5px] uppercase tracking-[.08em] text-slate-400 font-semibold mb-1.5">Strong areas</h4>
-            <ul className="pl-[18px] text-[15px] text-slate-500 grid gap-1.5 list-disc">
+      <article ref={resultRef} className="readiness-result max-w-[1080px] scroll-mt-[110px] overflow-hidden rounded-[26px] border border-line bg-white shadow-card" data-mode={mode} aria-live="polite">
+        <header className="readiness-result-header px-8 py-7 text-white max-[640px]:px-5 max-[640px]:py-6">
+          <p className="mb-2 text-[11px] font-semibold uppercase tracking-[.15em] text-white/65">Your {label} readiness report</p>
+          <div className="flex flex-wrap items-center justify-between gap-3">
+            <h2 className="text-[clamp(27px,4vw,38px)] text-white">{result.outcome}</h2>
+            <span className="readiness-result-status rounded-full px-3.5 py-1.5 text-[12px] font-semibold">Personalised result</span>
+          </div>
+          <p className="mt-3 max-w-[72ch] text-[16px] leading-relaxed text-white/75">{result.intro}</p>
+        </header>
+
+        <div className="grid gap-6 p-8 max-[640px]:p-5">
+          <div className="grid grid-cols-2 gap-4 max-[760px]:grid-cols-1">
+          <section className="rounded-[16px] border border-[#cce8dc] bg-[#edf7f3] p-5">
+            <div className="mb-3 flex items-center gap-2.5">
+              <span aria-hidden="true" className="grid size-7 place-items-center rounded-full bg-[#d4eee2] text-[13px] font-bold text-[#235c49]">✓</span>
+              <h3 className="text-[17px] text-[#235c49]">Strong areas</h3>
+            </div>
+            <ul className="grid gap-2 pl-[19px] text-[15px] leading-relaxed text-[#235c49] list-disc">
               {result.strong.length ? result.strong.map((s) => <li key={s}>{s}</li>) : <li>None stood out from your answers.</li>}
             </ul>
-          </div>
-          <div>
-            <h4 className="text-[12.5px] uppercase tracking-[.08em] text-slate-400 font-semibold mb-1.5">Areas to strengthen</h4>
-            <ul className="pl-[18px] text-[15px] text-slate-500 grid gap-1.5 list-disc">
+          </section>
+          <section className="rounded-[16px] border border-[#f1dfb7] bg-[#fff7e7] p-5">
+            <div className="mb-3 flex items-center gap-2.5">
+              <span aria-hidden="true" className="grid size-7 place-items-center rounded-full bg-[#f6e7c5] text-[13px] font-bold text-[#795313]">!</span>
+              <h3 className="text-[17px] text-[#795313]">Areas to strengthen</h3>
+            </div>
+            <ul className="grid gap-2 pl-[19px] text-[15px] leading-relaxed text-[#795313] list-disc">
               {result.weak.length ? result.weak.map((w) => <li key={w}>{w}</li>) : <li>None stood out from your answers.</li>}
             </ul>
+          </section>
           </div>
+
+          <section className="rounded-[18px] border border-line bg-paper px-5 py-5">
+            <p className="mb-1 text-[11px] font-semibold uppercase tracking-[.13em] text-slate-400">Guidance based on your answers</p>
+            <h3 className="mb-4 text-[22px]">How we can help</h3>
+            <ul className="grid gap-3">
+              {result.actions.map((action, index) => (
+                <li key={action} className="flex gap-3 text-[15px] leading-relaxed text-slate-500">
+                  <span aria-hidden="true" className="readiness-help-number grid size-7 shrink-0 place-items-center rounded-full text-[12px] font-bold">{index + 1}</span>
+                  <span>{helpStatement(action)}</span>
+                </li>
+              ))}
+            </ul>
+          </section>
+
+          <section className="readiness-recommendation flex flex-wrap items-center justify-between gap-5 rounded-[18px] border px-5 py-5">
+            <div className="max-w-[680px]">
+              <p className="mb-1 text-[11px] font-semibold uppercase tracking-[.13em]">Recommended package</p>
+              <h3 className="text-[22px]">{recommendation.name}</h3>
+              <p className="mt-1 text-[14px] leading-relaxed"><strong>{recommendation.price}</strong> · {recommendation.why}</p>
+            </div>
+            {isPrResult(result) && <Link href={recommendation.href} className="btn btn-ghost">{cta}</Link>}
+          </section>
+
+          <div className="flex flex-wrap items-center gap-3">
+            <ReadinessButton
+              href="/book-a-call"
+              label={mode === "citizenship" ? "Book a citizenship consultation" : "Book a 20-minute strategy call"}
+              variant={mode}
+            />
+          </div>
+          <p className="small">This result is a GetSGPR preparation diagnostic. It is not an ICA score or a prediction of ICA&apos;s decision. ICA assesses every application on its own merits.</p>
         </div>
-        <div>
-          <h4 className="text-[12.5px] uppercase tracking-[.08em] text-slate-400 font-semibold mb-1.5">Your three next actions</h4>
-          <ol className="pl-[18px] text-[15px] text-slate-500 grid gap-1.5 list-decimal">
-            {result.actions.map((a) => <li key={a}>{a}</li>)}
-          </ol>
-        </div>
-        {isPrResult(result) && <div>
-          <h4 className="text-[12.5px] uppercase tracking-[.08em] text-slate-400 font-semibold mb-1.5">Recommended package</h4>
-          <p className="text-[15px] text-slate-500">{result.pkg.name} · {result.pkg.price} · {result.pkg.why}</p>
-        </div>}
-        <div className="flex flex-wrap gap-3 items-center">
-          <Link href="/book-a-call" className="btn btn-primary">Book a {mode === "citizenship" ? "citizenship consultation" : "20-minute strategy call"}</Link>
-          {isPrResult(result) && <Link href={result.pkg.href} className="btn btn-ghost">{cta}</Link>}
-        </div>
-        <p className="small">This result is a GetSGPR preparation diagnostic. It is not an ICA score or a prediction of ICA&apos;s decision. ICA assesses every application on its own merits.</p>
-      </div>
+      </article>
     );
   }
 

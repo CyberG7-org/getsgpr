@@ -24,7 +24,7 @@ Routing, `sitemap.xml` and `robots.txt` are generated from `content/nav.ts` (`NA
 
 Copy `.env.example` to `.env.local` and fill in as needed:
 
-- `GHL_LEAD_WEBHOOK_URL` — optional. When set, `POST /api/lead` forwards checker and readiness-review submissions to this URL (a GoHighLevel inbound webhook) as JSON with a `receivedAt` timestamp appended. When unset, the API still validates and accepts the lead (`forwarded: false` in the response) but nothing is sent anywhere.
+- `GHL_LEAD_WEBHOOK_URL` — optional. When set, `POST /api/lead` validates the submission, recalculates the result on the server, and forwards a complete record to this URL (a GoHighLevel inbound webhook). The record includes a unique submission ID, timestamp, readable question-and-answer data, result, strengths, areas to strengthen, recommended support, consent time, and available campaign attribution. When unset, the API still validates and accepts the lead (`forwarded: false` in the response) but nothing is sent anywhere.
 - `NEXT_PUBLIC_SITE_URL` — the public origin used for `metadataBase`, canonical URLs and the sitemap. Defaults to `https://getsgpr.com` if unset (see `app/layout.tsx`).
 
 GoHighLevel form id `z6a7dZmxkVc4lU8nayfJ` and chat widget id `685385ad2eeadb3322507b55` are set directly in `content/site.ts` (`SITE.ghl`), not as env vars — confirm both are still correct before launch.

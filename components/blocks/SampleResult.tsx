@@ -2,15 +2,15 @@ import type { SampleResult as SampleResultBlock } from "@/content/types";
 import { Button } from "@/components/ui/Button";
 
 const prActions = [
-  "Obtain a current employment letter dated within the last month.",
-  "Reconcile employment dates across your CV, payslips and CPF statements.",
-  "Gather evidence of community involvement from the last two years.",
+  "We can help you obtain a current employment letter dated within the last month.",
+  "We can review and reconcile employment dates across your CV, payslips and CPF statements.",
+  "We can help you organise evidence of community involvement from the last two years.",
 ];
 
 const citizenshipActions = [
-  "Confirm the ICA eligibility route and qualifying period that applies.",
-  "Reconcile CPF, employment and income records across the PR period.",
-  "Prepare evidence of family ties, residence and ongoing commitments in Singapore.",
+  "We can confirm the ICA eligibility route and qualifying period that applies.",
+  "We can review and reconcile CPF, employment and income records across the PR period.",
+  "We can help you prepare evidence of family ties, residence and ongoing commitments in Singapore.",
 ];
 
 export function SampleResult({ title, sub, variant = "pr" }: Omit<SampleResultBlock, "kind">) {
@@ -47,11 +47,11 @@ export function SampleResult({ title, sub, variant = "pr" }: Omit<SampleResultBl
               <ul className="list-disc pl-4 text-[14px] leading-relaxed text-[#795313] space-y-1"><li>{citizenship ? "Economic record consistency" : "Evidence quality and timing"}</li><li>{citizenship ? "Community involvement evidence" : "Integration and roots"}</li></ul>
             </div>
           </div>
-          <h4 className="text-[15px] font-semibold text-navy-900 mb-4">Your next three actions</h4>
+          <h4 className="text-[15px] font-semibold text-navy-900 mb-4">How we can help</h4>
           <ol className="grid gap-4">
             {actions.map((action, i) => <li key={action} className="flex gap-3 text-[14px] leading-relaxed text-slate-500"><span aria-hidden="true" className="flex size-6 shrink-0 items-center justify-center rounded-full bg-[#edf1f8] text-[12px] font-semibold text-navy-900">{i + 1}</span><span>{action}</span></li>)}
           </ol>
-          <div className="mt-6 border-t border-line pt-4 flex flex-wrap items-center justify-between gap-2 text-[14px]"><span className="text-slate-500">Suggested support</span><span className="font-semibold text-navy-900">{citizenship ? "Citizenship consultation" : "SGPR Partnered"}</span></div>
+          <div className="mt-6 rounded-xl border border-blue-100 bg-paper p-4 flex flex-wrap items-center justify-between gap-2 text-[14px]"><span className="text-slate-500">Recommended package</span><span className="font-semibold text-navy-900">{citizenship ? "Citizenship Consultation" : "SGPR Partnered"}</span></div>
           <p className="mt-4 text-[12px] leading-relaxed text-slate-500">Illustrative example. Your result is based on your answers and is not an ICA decision or approval prediction.</p>
         </div>
       </article>

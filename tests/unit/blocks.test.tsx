@@ -42,7 +42,9 @@ describe("Blocks", () => {
   it("renders the readiness worked example from SampleResult", () => {
     expect(html).toContain("Sample readiness report");
     expect(html).toContain("not an ICA decision or approval prediction");
-    expect(html).toContain("Obtain a current employment letter dated within the last month.");
+    expect(html).toContain("How we can help");
+    expect(html).toContain("We can help you obtain a current employment letter dated within the last month.");
+    expect(html).toContain("Recommended package");
   });
   it("staggers entrance animation delays on tiles and steps", () => {
     expect((html.match(/animation-delay:0\.06s/g) ?? []).length).toBeGreaterThanOrEqual(1);
