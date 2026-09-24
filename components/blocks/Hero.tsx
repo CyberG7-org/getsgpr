@@ -39,7 +39,7 @@ export function Hero(b: HeroBlock) {
           <h1 className={`mb-5 max-w-[18ch] text-on-dark [text-shadow:0_2px_28px_rgba(0,0,0,.34)] ${centered ? "mx-auto" : ""}`}><RichText value={b.title} /></h1>
           {b.badge && <p className="small mb-4"><Badge><RichText value={b.badge} /></Badge></p>}
           {b.sub && <RichText as="p" className="lead mb-[18px] text-on-dark" value={b.sub} />}
-          {b.small && <RichText as="p" className="small mb-[26px] max-w-[60ch] text-on-dark-muted" value={b.small} />}
+          {b.small && <RichText as="p" className={`small mb-[26px] max-w-[60ch] text-on-dark-muted ${centered ? "mx-auto" : ""}`} value={b.small} />}
           <ButtonRow buttons={b.buttons} className={centered ? "justify-center" : ""} />
           {b.under && <RichText as="p" className="small mt-3.5 text-on-dark-muted" value={b.under} />}
         </div>

@@ -22,9 +22,8 @@
 ## Interaction and accessibility
 
 - Hover reveals `Start your` and `SG journey` without layout shift.
-- Keyboard focus retains a visible focus ring without opening the decorative drawers.
-- On the booking page, the current CTA is marked with `aria-current` and the decorative drawers remain hidden.
-- The header link navigates to `/book-a-call`.
+- Keyboard focus reveals the same state and retains a visible focus ring.
+- The link navigates to `/contact`.
 - At 1081px there is no horizontal overflow.
 - The animated desktop treatment is hidden with the existing mobile navigation.
 - Reduced-motion users receive a stable, non-popout state.
