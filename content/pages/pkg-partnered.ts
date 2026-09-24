@@ -78,13 +78,13 @@ export const pkgPartnered: PageContent = {
       items: [
         { q: "How many calls are included?", a: "One 60-minute strategy consultation. Additional calls are S$[[x]] each." },
         { q: "What counts as a review round?", a: "One complete pass by us over your forms, cover letter and supporting statements, with written comments returned to you." },
-        { q: "Can I upgrade to Concierge?", a: "Yes. The Partnered fee is credited in full against Concierge within [[90]] days." },
+        { q: "Can I upgrade to Concierge?", a: "Yes. The Partnered fee is credited in full against Concierge within 30 days." },
       ],
     },
     {
       kind: "text", tone: "alt", tight: true,
       paragraphs: [
-        "Prices in SGD, [[include / exclude]] GST. ICA application fees and third-party costs are shown separately. No hidden consultancy fees. No approval guarantees.",
+        "Prices in SGD. ICA application fees and third-party costs are shown separately. No hidden consultancy fees. No approval guarantees.",
         `**Not suitable for:** ${pkg.notFor.join("; ")}`,
         `**Refunds:** ${REFUND_POLICY}`,
       ],

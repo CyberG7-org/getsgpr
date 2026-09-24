@@ -5,7 +5,7 @@ export type Package = {
   price: string; priceNote: string; tagline: string; bullets: string[]; bestFor: string; notFor: string[]; cta: Btn; featured?: boolean;
 };
 
-export const REFUND_POLICY = "Once consultancy services have started, fees are non-refundable, even if applications are rejected.";
+export const REFUND_POLICY = "Partnered and Concierge are fully refundable if you cancel before the strategy consultation. Once consultancy services have started, fees are non-refundable, including if an application is rejected.";
 
 export const PACKAGES: Package[] = [
   {

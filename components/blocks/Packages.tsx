@@ -6,7 +6,7 @@ import { Button } from "@/components/ui/Button";
 import { RichText } from "@/components/ui/RichText";
 
 const DEFAULT_NOTE =
-  "Prices in SGD, [[include / exclude]] GST. ICA application fees and third-party costs are shown separately. No hidden consultancy fees. No approval guarantees. [Compare everything →](/packages)";
+  "Prices in SGD. ICA application fees and third-party costs are shown separately. No hidden consultancy fees. No approval guarantees. [Compare everything →](/packages)";
 
 export function PackageCard({ p, i, showNotFor, cta }: { p: Package; i: number; showNotFor?: boolean; cta?: Btn }) {
   return (

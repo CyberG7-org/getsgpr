@@ -77,14 +77,14 @@ export const pkgLite: PageContent = {
       openFirst: true,
       items: [
         { q: "How do I receive it?", a: "Instantly after purchase, as a download link plus a private page that stays updated for 90 days." },
-        { q: "Is it refundable?", a: "Lite is a digital product and is non-refundable once downloaded. Its fee is credited in full against Partnered or Concierge within [[90]] days." },
+        { q: "Is it refundable?", a: "Lite is a digital product and is non-refundable once downloaded. Its fee is credited in full against Partnered or Concierge within 30 days." },
         { q: "Does it cover family applications?", a: "Yes. The toolkit includes family checklists at the single price." },
       ],
     },
     {
       kind: "text", tone: "alt", tight: true,
       paragraphs: [
-        "Prices in SGD, [[include / exclude]] GST. ICA application fees and third-party costs are shown separately. No hidden consultancy fees. No approval guarantees.",
+        "Prices in SGD. ICA application fees and third-party costs are shown separately. No hidden consultancy fees. No approval guarantees.",
         `**Not suitable for:** ${pkg.notFor.join("; ")}`,
         `**Refunds:** ${REFUND_POLICY}`,
       ],

@@ -58,7 +58,7 @@ export const pkgConcierge: PageContent = {
     {
       kind: "honest", tone: "alt", tight: true,
       title: "What it does not include.",
-      text: "Family members are priced per additional adult and child. Appeal drafting is [[included / an add-on — confirm]]. Concierge never includes a promise of approval.",
+      text: "Each additional family member is S$300. Appeal drafting is not included. Concierge never includes a promise of approval.",
     },
     {
       kind: "steps", tone: "dark",
@@ -78,13 +78,13 @@ export const pkgConcierge: PageContent = {
       items: [
         { q: "Who will I actually work with?", a: "A named case manager, assigned at the strategy consultation, and a second person who checks the application before submission." },
         { q: "What happens if I am rejected?", a: "You receive a post-outcome strategy review. We assess whether there is a real basis to appeal or whether strengthening and reapplying later is better, and we say so in writing." },
-        { q: "How is it paid?", a: "Invoiced after the scope is agreed, before work begins. [[Payment terms.]]" },
+        { q: "How is it paid?", a: "PayNow or bank transfer. We invoice after the scope is agreed and before work begins." },
       ],
     },
     {
       kind: "text", tone: "alt", tight: true,
       paragraphs: [
-        "Prices in SGD, [[include / exclude]] GST. ICA application fees and third-party costs are shown separately. No hidden consultancy fees. No approval guarantees.",
+        "Prices in SGD. ICA application fees and third-party costs are shown separately. No hidden consultancy fees. No approval guarantees.",
         `**Not suitable for:** ${pkg.notFor.join("; ")}`,
         `**Refunds:** ${REFUND_POLICY}`,
       ],
