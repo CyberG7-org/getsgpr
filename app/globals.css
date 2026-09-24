@@ -461,29 +461,32 @@
   .sg-call-corner:nth-of-type(2) { top: 0; right: 0; transform: translate(var(--sg-corner-distance), calc(-1 * var(--sg-corner-distance))) rotate(180deg); }
   .sg-call-corner:nth-of-type(3) { right: 0; bottom: 0; transform: translate(var(--sg-corner-distance), var(--sg-corner-distance)) rotate(-90deg); }
   .sg-call-corner:nth-of-type(4) { bottom: 0; left: 0; transform: translate(calc(-1 * var(--sg-corner-distance)), var(--sg-corner-distance)); }
-  .sg-call-button:hover .sg-call-link,
-  .sg-call-button:focus-within .sg-call-link {
+  .sg-call-button:hover .sg-call-link {
     transform: scale(1.035);
     background: #fff;
     box-shadow: 0 1px 0 rgba(255,255,255,.9) inset, 0 10px 20px rgba(0,0,0,.2);
   }
-  .sg-call-button:hover .sg-call-drawer-top,
-  .sg-call-button:focus-within .sg-call-drawer-top {
+  .sg-call-button:hover .sg-call-drawer-top {
     transform: translate(-18px, 46px) rotate(-3deg);
     opacity: 1;
     filter: blur(0);
   }
-  .sg-call-button:hover .sg-call-drawer-bottom,
-  .sg-call-button:focus-within .sg-call-drawer-bottom {
+  .sg-call-button:hover .sg-call-drawer-bottom {
     transform: translate(18px, 28px) rotate(3deg);
     opacity: 1;
     filter: blur(0);
   }
-  .sg-call-button:hover .sg-call-corner,
-  .sg-call-button:focus-within .sg-call-corner {
+  .sg-call-button:hover .sg-call-corner {
     --sg-corner-distance: 12px;
     stroke: rgba(237,41,57,.55);
     filter: drop-shadow(-5px 5px 1px rgba(237,41,57,.16));
+  }
+  .sg-call-button-current .sg-call-drawer,
+  .sg-call-button-current .sg-call-corner {
+    display: none;
+  }
+  .sg-call-button-current:hover .sg-call-link {
+    transform: none;
   }
   .sg-call-link:focus-visible {
     outline: 3px solid rgba(255,255,255,.95);
@@ -498,10 +501,8 @@
     .sg-call-link,
     .sg-call-drawer,
     .sg-call-corner { transition: none; }
-    .sg-call-button:hover .sg-call-drawer,
-    .sg-call-button:focus-within .sg-call-drawer { opacity: 0; }
-    .sg-call-button:hover .sg-call-corner,
-    .sg-call-button:focus-within .sg-call-corner { --sg-corner-distance: 10px; filter: none; }
+    .sg-call-button:hover .sg-call-drawer { opacity: 0; }
+    .sg-call-button:hover .sg-call-corner { --sg-corner-distance: 10px; filter: none; }
   }
 
   /* decorative shapes */
