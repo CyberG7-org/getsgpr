@@ -37,6 +37,14 @@ export function GhlCalendar() {
         : null;
     } catch { return null; }
   }, [rawContext]);
+  const calendarSrc = useMemo(() => {
+    const base = `https://api.leadconnectorhq.com/widget/booking/${SITE.ghl.calendarId}`;
+    if (!context) return base;
+    const params = new URLSearchParams();
+    if (context.firstName) params.set("first_name", context.firstName);
+    params.set("email", context.email);
+    return `${base}?${params.toString()}`;
+  }, [context]);
 
   return (
     <>
@@ -47,7 +55,7 @@ export function GhlCalendar() {
         </div>
       )}
       <iframe
-        src={`https://api.leadconnectorhq.com/widget/booking/${SITE.ghl.calendarId}`}
+        src={calendarSrc}
         title="Book a consultation with GetSGPR"
         allow="payment"
         scrolling="no"
