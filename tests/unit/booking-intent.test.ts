@@ -2,7 +2,11 @@
 import { afterEach, describe, expect, it, vi } from "vitest";
 import { POST } from "@/app/api/lead/booking-intent/route";
 
-const body = { submissionId: "53a0c77f-6bd6-4a89-a48d-b4018fb2f41f", email: "alex@example.com" };
+const body = {
+  submissionId: "53a0c77f-6bd6-4a89-a48d-b4018fb2f41f",
+  email: "alex@example.com",
+  recommendedPackage: "SGPR Partnered",
+};
 
 afterEach(() => { vi.unstubAllEnvs(); vi.restoreAllMocks(); });
 
@@ -33,6 +37,7 @@ describe("POST /api/lead/booking-intent", () => {
       email: body.email,
       bookingStatus: "Booking started",
       bookingClickedAt: expect.any(String),
+      recommendedPackage: body.recommendedPackage,
     });
     expect(response.status).toBe(202);
   });

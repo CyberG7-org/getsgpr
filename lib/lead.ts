@@ -39,12 +39,12 @@ export async function postLead(lead: Lead): Promise<LeadReceipt | null> {
   } catch { return null; }
 }
 
-export async function postBookingIntent(submissionId: string, email: string): Promise<boolean> {
+export async function postBookingIntent(submissionId: string, email: string, recommendedPackage: string): Promise<boolean> {
   try {
     const res = await fetch("/api/lead/booking-intent", {
       method: "POST",
       headers: { "content-type": "application/json" },
-      body: JSON.stringify({ submissionId, email }),
+      body: JSON.stringify({ submissionId, email, recommendedPackage }),
       keepalive: true,
     });
     return res.ok;

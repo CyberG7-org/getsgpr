@@ -79,7 +79,7 @@ export function ReadinessForm({ mode = "pr" }: { mode?: Mode }) {
     const { visibleStrong, visibleWeak } = presentationAreas(result.strong, result.weak, result.actions, recommendation.name);
     const bookingHref = submissionId ? `/book-a-call?rid=${encodeURIComponent(submissionId)}` : "/book-a-call";
     const trackBooking = () => {
-      if (submissionId) void postBookingIntent(submissionId, email.trim());
+      if (submissionId) void postBookingIntent(submissionId, email.trim(), recommendation.name);
     };
     return (
       <article ref={resultRef} className="readiness-result max-w-[1080px] scroll-mt-[110px] overflow-hidden rounded-[26px] border border-line bg-white shadow-card" data-mode={mode} aria-live="polite">

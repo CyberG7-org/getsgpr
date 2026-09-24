@@ -39,7 +39,7 @@ Create these contact custom fields before mapping the workflow:
 4. Add a contact note containing `resultSummary`, `strongAreasText`, `areasToStrengthenText`, `howWeCanHelpText`, and `answersSummary`.
 5. Add a `readiness-pr` or `readiness-citizenship` tag based on `checkerType`.
 6. Use **Google Sheets: Lookup Spreadsheet Row** with `submissionId`. Enable row creation when no match exists and map the columns below.
-7. For `booking_started`, find or update the contact using `email`, then set Booking Status and Booking Clicked At from the webhook.
+7. For `booking_started`, find or update the contact using `email`, then map Submission ID, Booking Status, Booking Clicked At, and Recommended Package from the webhook. Page URL is optional and can be skipped.
 
 ## Workflow B: completed calendar booking
 
