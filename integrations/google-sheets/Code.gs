@@ -63,6 +63,13 @@ function doPost(e) {
       return jsonResponse({ ok: true, action: "updated", row: existingRow });
     }
 
+    if (data.eventType === "appointment_booked") {
+      if (!existingRow) return jsonResponse({ ok: false, error: "submission not found" });
+      sheet.getRange(existingRow, 16).setValue(safeCell(data.bookingStatus || "Booked"));
+      sheet.getRange(existingRow, 18).setValue(safeCell(data.appointmentStart));
+      return jsonResponse({ ok: true, action: "updated", row: existingRow });
+    }
+
     const values = readinessRow(data);
     const row = existingRow || sheet.getLastRow() + 1;
     sheet.getRange(row, 1, 1, HEADERS.length).setValues([values]);

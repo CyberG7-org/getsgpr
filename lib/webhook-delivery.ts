@@ -26,3 +26,11 @@ export async function deliverLeadPayload(payload: WebhookPayload) {
 
   return { ghlForwarded, sheetForwarded };
 }
+
+export async function deliverSheetPayload(payload: WebhookPayload) {
+  const sheetSecret = process.env.GOOGLE_SHEETS_WEBHOOK_SECRET;
+  return deliver(
+    process.env.GOOGLE_SHEETS_WEBHOOK_URL,
+    sheetSecret ? { ...payload, webhookSecret: sheetSecret } : payload,
+  );
+}
