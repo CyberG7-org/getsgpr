@@ -1,5 +1,6 @@
 import { NextResponse } from "next/server";
 import { EMAIL_RE } from "@/lib/lead";
+import { deliverLeadPayload } from "@/lib/webhook-delivery";
 
 const UUID_RE = /^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$/i;
 
@@ -19,25 +20,15 @@ export async function POST(req: Request) {
     return NextResponse.json({ ok: false, error: "invalid booking intent" }, { status: 400 });
 
   const bookingClickedAt = new Date().toISOString();
-  const url = process.env.GHL_LEAD_WEBHOOK_URL;
-  let forwarded = false;
-  if (url) {
-    try {
-      const response = await fetch(url, {
-        method: "POST",
-        headers: { "content-type": "application/json" },
-        body: JSON.stringify({
-          eventType: "booking_started",
-          submissionId: body.submissionId,
-          email: body.email.trim().toLowerCase(),
-          bookingStatus: "Booking started",
-          bookingClickedAt,
-          recommendedPackage: body.recommendedPackage.trim(),
-        }),
-      });
-      forwarded = response.ok;
-    } catch { forwarded = false; }
-  }
+  const event = {
+    eventType: "booking_started",
+    submissionId: body.submissionId,
+    email: body.email.trim().toLowerCase(),
+    bookingStatus: "Booking started",
+    bookingClickedAt,
+    recommendedPackage: body.recommendedPackage.trim(),
+  };
+  const { ghlForwarded, sheetForwarded } = await deliverLeadPayload(event);
 
-  return NextResponse.json({ ok: true, forwarded }, { status: 202 });
+  return NextResponse.json({ ok: true, forwarded: ghlForwarded, sheetForwarded }, { status: 202 });
 }

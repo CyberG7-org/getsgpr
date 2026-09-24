@@ -22,7 +22,7 @@ describe("POST /api/lead/booking-intent", () => {
   it("accepts booking intent when no webhook is configured", async () => {
     const response = await POST(new Request("http://x/api/lead/booking-intent", { method: "POST", body: JSON.stringify(body) }));
     expect(response.status).toBe(202);
-    expect(await response.json()).toEqual({ ok: true, forwarded: false });
+    expect(await response.json()).toEqual({ ok: true, forwarded: false, sheetForwarded: false });
   });
 
   it("forwards a booking-started event to GHL", async () => {
@@ -40,5 +40,21 @@ describe("POST /api/lead/booking-intent", () => {
       recommendedPackage: body.recommendedPackage,
     });
     expect(response.status).toBe(202);
+  });
+
+  it("forwards booking intent to the sheet webhook with its secret", async () => {
+    vi.stubEnv("GOOGLE_SHEETS_WEBHOOK_URL", "https://script.example/x");
+    vi.stubEnv("GOOGLE_SHEETS_WEBHOOK_SECRET", "sheet-secret");
+    const spy = vi.spyOn(globalThis, "fetch").mockResolvedValue(new Response("ok", { status: 200 }));
+    const response = await POST(new Request("http://x/api/lead/booking-intent", { method: "POST", body: JSON.stringify(body) }));
+    const forwardedBody = JSON.parse(String(spy.mock.calls[0][1]?.body));
+
+    expect(spy.mock.calls[0][0]).toBe("https://script.example/x");
+    expect(forwardedBody).toEqual(expect.objectContaining({
+      eventType: "booking_started",
+      submissionId: body.submissionId,
+      webhookSecret: "sheet-secret",
+    }));
+    expect(await response.json()).toEqual({ ok: true, forwarded: false, sheetForwarded: true });
   });
 });

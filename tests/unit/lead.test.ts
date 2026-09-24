@@ -56,4 +56,26 @@ describe("POST /api/lead", () => {
     expect(forwardedBody.answers).toHaveLength(15);
     expect(await res.json()).toEqual(expect.objectContaining({ ok: true, forwarded: true, submissionId }));
   });
+
+  it("forwards the complete readiness record to the sheet webhook", async () => {
+    vi.stubEnv("GOOGLE_SHEETS_WEBHOOK_URL", "https://script.example/x");
+    vi.stubEnv("GOOGLE_SHEETS_WEBHOOK_SECRET", "sheet-secret");
+    const spy = vi.spyOn(globalThis, "fetch").mockResolvedValue(new Response("ok", { status: 200 }));
+    const res = await POST(new Request("http://x/api/lead", { method: "POST", body: JSON.stringify({ ...prBody, submissionId }) }));
+    const forwardedBody = JSON.parse(String(spy.mock.calls[0][1]?.body));
+
+    expect(spy.mock.calls[0][0]).toBe("https://script.example/x");
+    expect(forwardedBody).toEqual(expect.objectContaining({
+      eventType: "readiness_completed",
+      submissionId,
+      answersSummary: expect.stringContaining("pr-q01:"),
+      webhookSecret: "sheet-secret",
+    }));
+    expect(await res.json()).toEqual(expect.objectContaining({
+      ok: true,
+      forwarded: false,
+      sheetForwarded: true,
+      submissionId,
+    }));
+  });
 });

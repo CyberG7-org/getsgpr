@@ -1,6 +1,7 @@
 import { NextResponse } from "next/server";
 import { EMAIL_RE, type LeadSubmission } from "@/lib/lead";
 import { buildLeadRecord, validAnswers } from "@/lib/lead-record";
+import { deliverLeadPayload } from "@/lib/webhook-delivery";
 
 export async function POST(req: Request) {
   let body: Partial<LeadSubmission>;
@@ -16,13 +17,6 @@ export async function POST(req: Request) {
     : null;
   const submissionId = suppliedId ?? crypto.randomUUID();
   const record = buildLeadRecord(body as LeadSubmission, receivedAt, submissionId);
-  const url = process.env.GHL_LEAD_WEBHOOK_URL;
-  let forwarded = false;
-  if (url) {
-    try {
-      const res = await fetch(url, { method: "POST", headers: { "content-type": "application/json" }, body: JSON.stringify(record) });
-      forwarded = res.ok;
-    } catch { forwarded = false; }
-  }
-  return NextResponse.json({ ok: true, forwarded, submissionId }, { status: 202 });
+  const { ghlForwarded, sheetForwarded } = await deliverLeadPayload(record);
+  return NextResponse.json({ ok: true, forwarded: ghlForwarded, sheetForwarded, submissionId }, { status: 202 });
 }
