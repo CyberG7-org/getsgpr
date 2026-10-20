@@ -1,3 +1,5 @@
+import { SITE } from "@/content/site";
+
 export type Link = { label: string; href: string; external?: boolean; small?: string };
 
 export const NAV = {
@@ -34,7 +36,7 @@ export const NAV = {
       { label: "Knowledge Centre", href: "/guides" },
       { label: "PR FAQ", href: "/guides/singapore-pr-faq" },
       { label: "Contact", href: "/contact" },
-      { label: "WhatsApp +65 8934 0818", href: "https://wa.me/6589340818", external: true },
+      { label: "WhatsApp +65 8934 0818", href: SITE.whatsappUrl, external: true },
     ] as Link[],
     legal: [
       { label: "Privacy & data security", href: "/privacy-data-security" },

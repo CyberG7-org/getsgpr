@@ -201,7 +201,7 @@ export const home: PageContent = {
       sub: "Speak with a consultant about your snapshot or your situation. Free, non-obligatory, and no documents needed for the first call. We reply within 24 hours.",
       prose: [
         { h3: "Or reach us directly" },
-        { p: "[WhatsApp +65 8934 0818](https://wa.me/6589340818)" },
+        { p: `[WhatsApp +65 8934 0818](${SITE.whatsappUrl})` },
         { p: "Consultations in English, Mandarin, Malay and Tamil. Book one to two weeks ahead where you can; reschedule free with 24 hours' notice." },
         { p: "**Please do not send passports, NRIC or FIN numbers or other documents by email or WhatsApp.** If you become a client we will open a secure workspace for your files." },
       ],

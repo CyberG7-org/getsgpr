@@ -5,7 +5,7 @@ export const SITE = {
   address: "18 Boon Lay Way, #04-118, Tradehub 21, Singapore 609966",
   addressShort: "Tradehub 21, Boon Lay Way",
   phoneDisplay: "+65 8934 0818",
-  whatsappUrl: "https://wa.me/6589340818",
+  whatsappUrl: "https://wa.me/6589340818?text=Hi%20GetSGPR%2C%20I%20would%20like%20to%20enquire%20about%20my%20Singapore%20PR%20application",
   email: "info@getsgpr.com",
   emailUrl: "mailto:info@getsgpr.com",
   openingHours: "9 AM–6 PM",

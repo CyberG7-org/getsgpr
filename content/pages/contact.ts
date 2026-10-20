@@ -27,7 +27,7 @@ export const contact: PageContent = {
       },
       prose: [
         { h3: "Or reach us directly" },
-        { p: "[WhatsApp +65 8934 0818](https://wa.me/6589340818)" },
+        { p: `[WhatsApp +65 8934 0818](${SITE.whatsappUrl})` },
         {
           kv: [
             { k: "Address", v: `${SITE.address} · By appointment.` },
