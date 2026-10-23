@@ -1,6 +1,6 @@
 import { describe, expect, it } from "vitest";
 import { buildLeadRecord } from "@/lib/lead-record";
-import { buildResultEmail } from "@/lib/result-email";
+import { buildResultEmail, buildTeamEmail } from "@/lib/emails";
 import { findViolations } from "@/lib/compliance";
 import { SITE } from "@/content/site";
 import type { LeadSubmission } from "@/lib/lead";
@@ -38,5 +38,19 @@ describe("customer result email", () => {
     expect(email.html).toContain("Hi there,");
     expect(email.html).toContain("/guides/pr-document-checklist");
     expect(email.html).not.toContain("Strong areas");
+  });
+});
+
+describe("team notification email", () => {
+  const email = buildTeamEmail(record({ source: "readiness", firstName: "<Alex>", answers: [105, ...Array(15).fill(0)] }));
+
+  it("uses the branded layout with the lead's details and answers", () => {
+    expect(email.subject).toMatch(/^New PR readiness submission: <Alex> \(/);
+    expect(email.html).toContain("https://www.getsgpr.com/email/getsgpr-logo.png");
+    expect(email.html).toContain("PR readiness: &lt;Alex&gt;");
+    expect(email.html).not.toContain("<Alex>");
+    expect(email.html).toContain("What is your nationality? <b>Malaysia</b>");
+    expect(email.html).toContain('href="mailto:alex@example.com"');
+    expect(email.html).toContain("Internal notification");
   });
 });

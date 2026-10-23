@@ -92,8 +92,8 @@ Two Make scenarios in team "My Team" send the notifications from the getsgpr@gma
 
 - Webhook: **GetSGPR - checker submissions**. Its URL is stored in the Vercel variable `MAKE_LEAD_WEBHOOK_URL`.
 - `/api/lead` posts every new PR readiness, citizenship readiness and eligibility record there. Booking clicks and appointment updates do not, so they never send email.
-- The email uses the record's `checkerType`, `firstName`, `email`, `outcome`, `recommendedPackage`, `strongAreasText`, `areasToStrengthenText` and `answersText` (one "Question: Answer" line per question).
-- Scenario **GetSGPR - checker submission emails** then sends the customer their result. The website builds that branded email (`lib/result-email.ts`: logo, result, recommended package, WhatsApp and "Book a free call" buttons) and posts it as `customerEmail.subject` / `customerEmail.html`; Make only delivers it. The booking button links to `/book-a-call?rid=<submissionId>` so the appointment joins the same record. Edit the email in `lib/result-email.ts`, not in Make.
+- The website builds both emails in `lib/emails.ts` with one branded layout (logo, name, footer) and posts them as `teamEmail` and `customerEmail` (each `{ subject, html }`). Make only delivers them, so edit the emails in code, not in Make.
+- Scenario **GetSGPR - checker submission emails** then sends the customer their result. It has the result, recommended package, and WhatsApp and "Book a free call" buttons; the booking button links to `/book-a-call?rid=<submissionId>` so the appointment joins the same record.
 
 ### Contact Us form
 
