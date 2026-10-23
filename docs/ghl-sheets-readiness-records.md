@@ -113,3 +113,8 @@ The contact page embeds GHL form `z6a7dZmxkVc4lU8nayfJ` ("Contact Us Form"), so 
    ```
 
 4. Save and **Publish**, then submit a test enquiry and check the getsgpr@gmail.com inbox.
+
+Make scenario **GetSGPR - contact form** then:
+
+1. Adds a row to the **Contact Us** tab of the "GetSGPR | Review Form" spreadsheet (columns: Submitted at (SGT), Name, Email, Phone, Message), using the cyberg7.llp@gmail.com Google connection. Values are written as raw text, so a message starting with `=` is never run as a formula. Keep that tab's name and column order, or update the scenario's Add a Row step to match.
+2. Sends the branded notification to getsgpr@gmail.com. Its HTML is generated from `brandedEmail()` in `lib/emails.ts`; regenerate it in Make if the shared layout changes.
