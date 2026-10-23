@@ -1,5 +1,5 @@
 import { describe, it, expect } from "vitest";
-import { QUESTIONS, verdict } from "@/lib/checker";
+import { QUESTIONS, nextChecker, verdict } from "@/lib/checker";
 
 describe("eligibility checker", () => {
   it("has six questions", () => expect(QUESTIONS).toHaveLength(6));
@@ -20,5 +20,9 @@ describe("eligibility checker", () => {
   });
   it("default → conversation → partnered", () => {
     expect(verdict([0, 1, 0, 0, 0, 0])).toMatchObject({ v: "Worth a conversation.", href: "/sgpr-partnered-do-with-you" });
+  });
+  it("sends existing PRs to the citizenship checker and everyone else to PR readiness", () => {
+    expect(nextChecker([3, 2, 0, 0, 2, 0]).href).toBe("/citizenship-readiness-review");
+    for (const status of [0, 1, 2]) expect(nextChecker([status, 2, 0, 0, 2, 0]).href).toBe("/pr-readiness-review");
   });
 });

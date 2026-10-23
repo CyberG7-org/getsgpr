@@ -11,6 +11,13 @@ const CONCIERGE = { p: "Premium Concierge — S$1,997", href: "/sgpr-premium-con
 const PARTNERED = { p: "SGPR Partnered — S$497", href: "/sgpr-partnered-do-with-you" };
 const LITE = { p: "SGPR Lite — S$197", href: "/sgpr-lite-diy-tier" };
 
+/** The full readiness checker this snapshot leads to: citizenship for existing PRs, PR readiness for everyone else. */
+export function nextChecker(a: number[]) {
+  return a[0] === 3
+    ? { kind: "citizenship" as const, href: "/citizenship-readiness-review", label: "Citizenship Readiness Checker" }
+    : { kind: "pr" as const, href: "/pr-readiness-review", label: "PR Readiness Review" };
+}
+
 export function verdict(a: number[]) {
   if (a[3] === 1) return { v: "An appeal may be viable.", b: "A rejection is a decision on one application, not on you. What matters now is what has materially changed since you applied. We review the previous submission with you and advise on appeal or re-submission on the merits.", ...CONCIERGE };
   if (a[1] === 0) return { v: "Waiting is probably smarter.", b: "ICA weighs length of residence and a stable employment record. With under a year in Singapore, most applicants are better served building that record first. SGPR Lite gets your documents in order now, so you are ready when the time is right.", ...LITE };
