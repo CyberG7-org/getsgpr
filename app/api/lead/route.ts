@@ -2,6 +2,7 @@ import { NextResponse } from "next/server";
 import { EMAIL_RE, type LeadSubmission } from "@/lib/lead";
 import { buildLeadRecord, validAnswers } from "@/lib/lead-record";
 import { deliverLeadPayload, deliverNotificationPayload } from "@/lib/webhook-delivery";
+import { buildResultEmail } from "@/lib/result-email";
 
 export async function POST(req: Request) {
   let body: Partial<LeadSubmission>;
@@ -17,6 +18,6 @@ export async function POST(req: Request) {
     : null;
   const submissionId = suppliedId ?? crypto.randomUUID();
   const record = buildLeadRecord(body as LeadSubmission, receivedAt, submissionId);
-  const [{ ghlForwarded, sheetForwarded }] = await Promise.all([deliverLeadPayload(record), deliverNotificationPayload(record)]);
+  const [{ ghlForwarded, sheetForwarded }] = await Promise.all([deliverLeadPayload(record), deliverNotificationPayload({ ...record, customerEmail: buildResultEmail(record) })]);
   return NextResponse.json({ ok: true, forwarded: ghlForwarded, sheetForwarded, submissionId }, { status: 202 });
 }

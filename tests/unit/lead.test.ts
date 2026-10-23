@@ -67,6 +67,7 @@ describe("POST /api/lead", () => {
     expect(spy.mock.calls[0][0]).toBe("https://hook.make.example/x");
     expect(JSON.parse(String(spy.mock.calls[0][1]?.body))).toEqual(expect.objectContaining({
       eventType: "readiness_completed", submissionId, checkerType: "PR readiness", email: "alex@example.com",
+      customerEmail: { subject: expect.stringMatching(/^Your PR readiness result: /), html: expect.stringContaining("Book a free call") },
       answersText: expect.stringMatching(/^1\. What is your nationality\?: Afghanistan\n2\. Which pass do you hold now\?: Employment Pass\n/),
     }));
   });

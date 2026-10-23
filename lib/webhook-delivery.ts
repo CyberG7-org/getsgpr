@@ -35,7 +35,7 @@ export async function deliverSheetPayload(payload: WebhookPayload) {
   );
 }
 
-// New checker submissions only: Make emails the team. Booking events must not call this.
+// New checker submissions only: Make emails the team and sends the customer their result. Booking events must not call this.
 export function deliverNotificationPayload(payload: WebhookPayload) {
   return deliver(process.env.MAKE_LEAD_WEBHOOK_URL, payload);
 }
