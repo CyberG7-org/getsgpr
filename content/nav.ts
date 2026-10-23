@@ -1,21 +1,34 @@
 import { SITE } from "@/content/site";
 
 export type Link = { label: string; href: string; external?: boolean; small?: string };
+// A primary item with a menu opens a dropdown; one without an href exists only as a dropdown.
+export type NavItem =
+  | { label: string; href: string; menu?: readonly Link[] }
+  | { label: string; href?: undefined; menu: readonly Link[] };
+
+const services: Link[] = [
+  { label: "Permanent Residence", href: "/permanent-resident-sg", small: "First-time, family, EP/S Pass, founders" },
+  { label: "Singapore Citizenship", href: "/singapore-citizen", small: "For PR holders and families" },
+  { label: "Long Term Visit Pass", href: "/ltvp", small: "Family of citizens and PRs" },
+  { label: "PR Rejection Appeal", href: "/pr-appeal", small: "Appeal or reapply, on evidence" },
+];
+
+const checkers: Link[] = [
+  { label: "PR Readiness", href: "/pr-readiness-review", small: "15 questions, free result and next steps" },
+  { label: "Citizen Readiness", href: "/citizenship-readiness-review", small: "18 questions for PR holders" },
+];
 
 export const NAV = {
-  services: [
-    { label: "Permanent Residence", href: "/permanent-resident-sg", small: "First-time, family, EP/S Pass, founders" },
-    { label: "Singapore Citizenship", href: "/singapore-citizen", small: "For PR holders and families" },
-    { label: "Long Term Visit Pass", href: "/ltvp", small: "Family of citizens and PRs" },
-    { label: "PR Rejection Appeal", href: "/pr-appeal", small: "Appeal or reapply, on evidence" },
-  ] as Link[],
+  services,
+  checkers,
   primary: [
     { label: "About", href: "/about" },
-    { label: "Services", href: "/services" },
+    { label: "Services", href: "/services", menu: services },
     { label: "Packages", href: "/packages" },
-    { label: "Knowledge Centre", href: "/guides" },
+    { label: "Checker", menu: checkers },
+    { label: "Guides", href: "/guides" },
     { label: "Contact Us", href: "/contact" },
-  ] as Link[],
+  ] as NavItem[],
   cta: { label: "Book a free call", href: "/book-a-call" },
   compact: [
     { label: "Services", href: "/services" },

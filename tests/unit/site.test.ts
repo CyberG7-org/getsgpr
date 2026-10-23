@@ -24,7 +24,7 @@ describe("site facts", () => {
     expect(NAV.cta.href).toBe("/book-a-call");
   });
   it("uses the requested primary navigation order", () => {
-    expect(NAV.primary.map((link) => link.label)).toEqual(["About", "Services", "Packages", "Knowledge Centre", "Contact Us"]);
+    expect(NAV.primary.map((link) => link.label)).toEqual(["About", "Services", "Packages", "Checker", "Guides", "Contact Us"]);
     expect(NAV.cta.label).toBe("Book a free call");
   });
   it("flags all nine testimonials as unverified", () => {

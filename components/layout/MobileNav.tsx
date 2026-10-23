@@ -34,16 +34,20 @@ export function MobileNav() {
         </summary>
         <div className="fixed top-[62px] inset-x-0 max-h-[calc(100dvh-148px)] overflow-y-auto bg-ink border-t border-[rgba(147,174,220,.18)] shadow-[0_24px_60px_rgba(3,8,20,.35)] px-[18px] py-5">
           <div className="grid grid-cols-2 gap-2 mb-5">
-            {NAV.primary.map((l) => <Link key={l.href} href={l.href} className="min-h-11 inline-flex items-center px-3.5 rounded-[9px] text-blue-100 no-underline text-[14px] font-medium hover:bg-[rgba(147,174,220,.1)]">{l.label}</Link>)}
+            {NAV.primary.map((l) => l.href && <Link key={l.href} href={l.href} className="min-h-11 inline-flex items-center px-3.5 rounded-[9px] text-blue-100 no-underline text-[14px] font-medium hover:bg-[rgba(147,174,220,.1)]">{l.label}</Link>)}
           </div>
-          <p className="text-[11px] uppercase tracking-[.12em] font-semibold text-blue-300 mb-2">Immigration services</p>
-          <div className="grid grid-cols-2 gap-2 max-[520px]:grid-cols-1">
-            {NAV.services.map((s) => (
-              <Link key={s.href} href={s.href} className="min-h-14 px-3.5 py-2.5 rounded-[10px] bg-[rgba(147,174,220,.08)] border border-[rgba(147,174,220,.12)] text-on-dark no-underline text-[14px] font-semibold">
-                {s.label}<small className="block text-on-dark-muted text-[11.5px] font-normal leading-[1.35] mt-0.5">{s.small}</small>
-              </Link>
-            ))}
-          </div>
+          {[{ title: "Immigration services", items: NAV.services }, { title: "Checker", items: NAV.checkers }].map((group) => (
+            <div key={group.title} className="mb-5 last:mb-0">
+              <p className="text-[11px] uppercase tracking-[.12em] font-semibold text-blue-300 mb-2">{group.title}</p>
+              <div className="grid grid-cols-2 gap-2 max-[520px]:grid-cols-1">
+                {group.items.map((s) => (
+                  <Link key={s.href} href={s.href} className="min-h-14 px-3.5 py-2.5 rounded-[10px] bg-[rgba(147,174,220,.08)] border border-[rgba(147,174,220,.12)] text-on-dark no-underline text-[14px] font-semibold">
+                    {s.label}<small className="block text-on-dark-muted text-[11.5px] font-normal leading-[1.35] mt-0.5">{s.small}</small>
+                  </Link>
+                ))}
+              </div>
+            </div>
+          ))}
         </div>
       </details>
       <Link href="/book-a-call" className="min-h-11 inline-flex items-center bg-blue-300 text-navy-900 font-semibold no-underline text-[14px] px-3.5 rounded-[9px]">Book a<span className="max-[359px]:hidden">&nbsp;free</span>&nbsp;call</Link>
