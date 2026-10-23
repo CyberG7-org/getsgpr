@@ -83,3 +83,28 @@ Use `submissionId` as the deduplication key when a webhook is retried.
 | Schema version | `schemaVersion` |
 
 The fields ending in `Text` are flat strings designed for GHL custom fields and spreadsheet cells. The array fields and `answersJson` preserve the structured record for later reporting or migration.
+
+## Email notifications to getsgpr@gmail.com
+
+### Checker submissions (Apps Script)
+
+`integrations/google-sheets/Code.gs` emails `NOTIFY_EMAIL` each time it creates a new row for a PR readiness, citizenship readiness or eligibility submission. Updates to an existing row (booking started, appointment booked, webhook retries) do not send email. Reply-to is set to the lead's email address. If the email fails, the row is still saved and the response reports `emailed: false`.
+
+To deploy a change to `Code.gs`:
+
+1. Open the spreadsheet, then **Extensions → Apps Script**.
+2. Replace the contents of `Code.gs` with the file from this repository and save.
+3. Choose `sendTestNotification` in the function menu and press **Run**. Approve the Gmail permission prompt. A test email should arrive at getsgpr@gmail.com.
+4. **Deploy → Manage deployments**, edit the existing web app deployment, set **Version** to **New version**, and **Deploy**. Keep the same deployment so the URL in `GOOGLE_SHEETS_WEBHOOK_URL` does not change.
+
+Apps Script on a consumer Gmail account can send about 100 emails a day.
+
+### Contact Us form (GHL)
+
+The contact page embeds GHL form `z6a7dZmxkVc4lU8nayfJ` ("Contact Us Form"), so its submissions go to GHL, not the website or Apps Script. Notify from GHL:
+
+1. In the GetSGPR sub-account, open **Automation → Workflows → Create Workflow → Start from scratch**.
+2. Trigger: **Form Submitted**, filter **Form is Contact Us Form**.
+3. Action: **Send Internal Notification**, type **Email**, recipient **Custom email** `getsgpr@gmail.com`. Subject: `New Contact Us enquiry: {{contact.name}}`. Include `{{contact.name}}`, `{{contact.email}}`, `{{contact.phone}}` and the form's message field in the body.
+4. Optional: add **Google Sheets → Create Spreadsheet Row** if contact enquiries should also be stored in a sheet.
+5. Save and **Publish**.
