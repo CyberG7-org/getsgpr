@@ -58,6 +58,19 @@ describe("POST /api/lead", () => {
     expect(await res.json()).toEqual(expect.objectContaining({ ok: true, forwarded: true, submissionId }));
   });
 
+  it("sends new submissions to the Make notification webhook", async () => {
+    vi.stubEnv("MAKE_LEAD_WEBHOOK_URL", "https://hook.make.example/x");
+    const spy = vi.spyOn(globalThis, "fetch").mockResolvedValue(new Response("ok", { status: 200 }));
+    await POST(new Request("http://x/api/lead", { method: "POST", body: JSON.stringify({ ...prBody, submissionId }) }));
+
+    expect(spy).toHaveBeenCalledTimes(1);
+    expect(spy.mock.calls[0][0]).toBe("https://hook.make.example/x");
+    expect(JSON.parse(String(spy.mock.calls[0][1]?.body))).toEqual(expect.objectContaining({
+      eventType: "readiness_completed", submissionId, checkerType: "PR readiness", email: "alex@example.com",
+      answersText: expect.stringMatching(/^1\. What is your nationality\?: Afghanistan\n2\. Which pass do you hold now\?: Employment Pass\n/),
+    }));
+  });
+
   it("forwards the complete readiness record to the sheet webhook", async () => {
     vi.stubEnv("GOOGLE_SHEETS_WEBHOOK_URL", "https://script.example/x");
     vi.stubEnv("GOOGLE_SHEETS_WEBHOOK_SECRET", "sheet-secret");

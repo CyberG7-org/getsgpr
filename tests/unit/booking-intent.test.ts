@@ -42,6 +42,13 @@ describe("POST /api/lead/booking-intent", () => {
     expect(response.status).toBe(202);
   });
 
+  it("does not send booking clicks to the Make notification webhook", async () => {
+    vi.stubEnv("MAKE_LEAD_WEBHOOK_URL", "https://hook.make.example/x");
+    const spy = vi.spyOn(globalThis, "fetch").mockResolvedValue(new Response("ok", { status: 200 }));
+    await POST(new Request("http://x/api/lead/booking-intent", { method: "POST", body: JSON.stringify(body) }));
+    expect(spy).not.toHaveBeenCalled();
+  });
+
   it("forwards booking intent to the sheet webhook with its secret", async () => {
     vi.stubEnv("GOOGLE_SHEETS_WEBHOOK_URL", "https://script.example/x");
     vi.stubEnv("GOOGLE_SHEETS_WEBHOOK_SECRET", "sheet-secret");

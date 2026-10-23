@@ -1,6 +1,5 @@
 const SPREADSHEET_ID = "1bBFcDY2ZL-1vx39r__kPeNvXdtciy91ERMJMGZ7XXKo";
 const SHEET_NAME = "Sheet1";
-const NOTIFY_EMAIL = "getsgpr@gmail.com";
 
 const HEADERS = [
   "Submission ID", "Submitted at", "Checker", "First name", "Email", "Outcome",
@@ -42,53 +41,6 @@ function readinessRow(data) {
   ].map(safeCell);
 }
 
-function answerLines(data) {
-  if (Array.isArray(data.answers)) return data.answers.map((a, i) => `${i + 1}. ${a.question}: ${a.answer}`);
-  return String(data.answersSummary || "").split(" | ");
-}
-
-// Emails the team about a newly created row. Failures are reported, never thrown, so the row is kept.
-function notifyNewSubmission(data, sheet, row) {
-  try {
-    const name = data.firstName || "(no name)";
-    const rowUrl = `https://docs.google.com/spreadsheets/d/${SPREADSHEET_ID}/edit#gid=${sheet.getSheetId()}&range=A${row}`;
-    const body = [
-      `New ${data.checkerType} submission`,
-      "",
-      `Name: ${name}`,
-      `Email: ${data.email}`,
-      `Outcome: ${data.outcome}`,
-      `Recommended package: ${data.recommendedPackage}${data.recommendedPackagePrice ? ` (${data.recommendedPackagePrice})` : ""}`,
-      data.strongAreasText ? `Strong areas: ${data.strongAreasText}` : "",
-      data.areasToStrengthenText ? `Areas to strengthen: ${data.areasToStrengthenText}` : "",
-      "",
-      "Answers:",
-      ...answerLines(data),
-      "",
-      `Submitted at: ${data.receivedAt}`,
-      `Page: ${data.pageUrl || "-"}`,
-      `Sheet row: ${rowUrl}`,
-    ].join("\n").replace(/\n{3,}/g, "\n\n");
-    const message = { to: NOTIFY_EMAIL, subject: `New ${data.checkerType} submission: ${name} (${data.outcome})`, body };
-    if (data.email) message.replyTo = data.email;
-    MailApp.sendEmail(message);
-    return true;
-  } catch (error) {
-    console.error(`Notification email failed for ${data.submissionId}: ${error}`);
-    return false;
-  }
-}
-
-// Run once from the Apps Script editor to grant email permission and confirm delivery.
-function sendTestNotification() {
-  const sheet = SpreadsheetApp.openById(SPREADSHEET_ID).getSheetByName(SHEET_NAME);
-  const sent = notifyNewSubmission({
-    checkerType: "Test", submissionId: "setup-test", firstName: "Setup test", outcome: "Notification works",
-    recommendedPackage: "-", receivedAt: new Date().toISOString(), answersSummary: "No answers: this is a setup test",
-  }, sheet, 1);
-  if (!sent) throw new Error("Test email failed. Check the execution log.");
-}
-
 function doPost(e) {
   const lock = LockService.getScriptLock();
   lock.waitLock(10000);
@@ -121,10 +73,7 @@ function doPost(e) {
     const values = readinessRow(data);
     const row = existingRow || sheet.getLastRow() + 1;
     sheet.getRange(row, 1, 1, HEADERS.length).setValues([values]);
-    if (existingRow) return jsonResponse({ ok: true, action: "updated", row });
-    SpreadsheetApp.flush();
-    const emailed = notifyNewSubmission(data, sheet, row);
-    return jsonResponse({ ok: true, action: "created", row, emailed });
+    return jsonResponse({ ok: true, action: existingRow ? "updated" : "created", row });
   } catch (error) {
     return jsonResponse({ ok: false, error: String(error && error.message ? error.message : error) });
   } finally {

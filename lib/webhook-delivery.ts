@@ -34,3 +34,8 @@ export async function deliverSheetPayload(payload: WebhookPayload) {
     sheetSecret ? { ...payload, webhookSecret: sheetSecret } : payload,
   );
 }
+
+// New checker submissions only: Make emails the team. Booking events must not call this.
+export function deliverNotificationPayload(payload: WebhookPayload) {
+  return deliver(process.env.MAKE_LEAD_WEBHOOK_URL, payload);
+}

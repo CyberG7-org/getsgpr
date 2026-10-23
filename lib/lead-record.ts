@@ -44,6 +44,7 @@ export type LeadRecord = {
   answers: LeadAnswerRecord[];
   answersJson: string;
   answersSummary: string;
+  answersText: string;
 };
 
 const configurations = {
@@ -143,5 +144,6 @@ export function buildLeadRecord(lead: LeadSubmission, receivedAt: string, submis
     answers,
     answersJson: JSON.stringify(answers),
     answersSummary: answers.map((answer) => `${answer.questionId}: ${answer.answer}`).join(" | "),
+    answersText: answers.map((answer, index) => `${index + 1}. ${answer.question}: ${answer.answer}`).join("\n"),
   };
 }
