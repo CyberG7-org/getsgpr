@@ -20,7 +20,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   const guide = getGuide(slug);
   if (!guide) return {};
   return pageMetadata({
-    title: `${guide.title} — GetSGPR Knowledge Centre`,
+    title: `${guide.title} — GetSGPR Guides`,
     description: guide.summary,
     path: `/guides/${guide.slug}`,
   });
@@ -33,7 +33,7 @@ export default async function GuidePage({ params }: { params: Promise<{ slug: st
 
   const crumbs = [
     { label: "Home", href: "/" },
-    { label: "Knowledge Centre", href: "/guides" },
+    { label: "Guides", href: "/guides" },
     { label: guide.title },
   ];
 

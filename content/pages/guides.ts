@@ -1,7 +1,7 @@
 import type { Block, PageMeta } from "@/content/types";
 
 export const guidesMeta: PageMeta = {
-  title: "Singapore PR Guides, Checked Against ICA | GetSGPR Knowledge Centre",
+  title: "Singapore PR Guides, Checked Against ICA | GetSGPR",
   description: "Guides written by our team and checked against ICA's published information. Each one names who wrote it, who reviewed it and when.",
   path: "/guides",
 };
@@ -22,7 +22,7 @@ export const GUIDES_FILTER_CHIPS = [
 export const guidesBefore: Block[] = [
   {
     kind: "hero", variant: "plain",
-    eyebrow: "Knowledge Centre",
+    eyebrow: "Guides",
     title: "Decide with ICA-sourced information.",
     sub: "Guides written by our team and checked against ICA's published information. Each one names who wrote it, who reviewed it and when. Where ICA's page is the answer, we link to it rather than copy it.",
   },

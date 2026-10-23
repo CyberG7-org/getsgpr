@@ -46,7 +46,7 @@ export const NAV = {
     ] as Link[],
     company: [
       { label: "About GetSGPR", href: "/about" },
-      { label: "Knowledge Centre", href: "/guides" },
+      { label: "Guides", href: "/guides" },
       { label: "PR FAQ", href: "/guides/singapore-pr-faq" },
       { label: "Contact", href: "/contact" },
       { label: "WhatsApp +65 8934 0818", href: SITE.whatsappUrl, external: true },

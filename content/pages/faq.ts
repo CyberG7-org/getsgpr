@@ -18,7 +18,7 @@ export const faq: PageContent = {
       kind: "crumbs",
       items: [
         { label: "Home", href: "/" },
-        { label: "Knowledge Centre", href: "/guides" },
+        { label: "Guides", href: "/guides" },
         { label: "Singapore PR FAQ" },
       ],
     },
