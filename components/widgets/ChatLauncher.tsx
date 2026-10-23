@@ -5,9 +5,37 @@ import { useEffect, useRef, useState } from "react";
 import { usePathname } from "next/navigation";
 import { SITE } from "@/content/site";
 
-// WhatsApp does not allow its chat to be embedded, so this popup hands visitors to WhatsApp,
-// where the GHL WhatsApp assistant replies.
+// One launcher, two channels: GHL live chat on the page, or WhatsApp (which cannot be embedded).
+// Both reach the same GHL inbox, where the GHL assistant replies.
 const WHATSAPP_GREEN = "#25D366";
+const GHL_LOADER = "https://widgets.leadconnectorhq.com/loader.js";
+// globals.css hides GHL's own <chat-widget> bubble unless <html> has this class.
+const LIVE_CHAT_CLASS = "lc-chat-open";
+
+type GhlChatWidget = { openWidget: () => void; isActive: () => boolean };
+declare global { interface Window { leadConnector?: { chatWidget?: GhlChatWidget } } }
+
+let ghlReady: Promise<GhlChatWidget> | null = null;
+
+/** Loads the GHL chat widget once, on first use. Rejects if it does not load within 10 seconds. */
+function loadGhlChat(): Promise<GhlChatWidget> {
+  // A load that finished after an earlier timeout is still usable.
+  if (window.leadConnector?.chatWidget) return Promise.resolve(window.leadConnector.chatWidget);
+  ghlReady ??= new Promise<GhlChatWidget>((resolve, reject) => {
+    const timer = setTimeout(() => { ghlReady = null; reject(new Error("GHL chat did not load")); }, 10_000);
+    window.addEventListener("LC_chatWidgetLoaded", () => {
+      clearTimeout(timer);
+      if (window.leadConnector?.chatWidget) resolve(window.leadConnector.chatWidget);
+      else { ghlReady = null; reject(new Error("GHL chat API missing")); }
+    }, { once: true });
+    const script = document.createElement("script");
+    script.src = GHL_LOADER;
+    script.dataset.resourcesUrl = "https://widgets.leadconnectorhq.com/chat-widget/loader.js";
+    script.dataset.widgetId = SITE.ghl.chatWidgetId;
+    document.body.appendChild(script);
+  });
+  return ghlReady;
+}
 
 function WhatsAppIcon({ className }: { className?: string }) {
   return (
@@ -17,13 +45,14 @@ function WhatsAppIcon({ className }: { className?: string }) {
   );
 }
 
-export function WhatsAppChat() {
+export function ChatLauncher() {
   const pathname = usePathname();
   const [open, setOpen] = useState(false);
+  const [liveChat, setLiveChat] = useState<"idle" | "loading" | "open" | "failed">("idle");
   const launcherRef = useRef<HTMLButtonElement>(null);
-  const startRef = useRef<HTMLAnchorElement>(null);
+  const firstActionRef = useRef<HTMLButtonElement>(null);
 
-  useEffect(() => { if (open) startRef.current?.focus(); }, [open]);
+  useEffect(() => { if (open) firstActionRef.current?.focus(); }, [open]);
 
   useEffect(() => {
     if (!open) return;
@@ -34,41 +63,72 @@ export function WhatsAppChat() {
     return () => window.removeEventListener("keydown", closeOnEscape);
   }, [open]);
 
+  // GHL has no "closed" event, so watch isActive() and hand the corner back to our launcher when it closes.
+  useEffect(() => {
+    if (liveChat !== "open") return;
+    const watch = setInterval(() => {
+      if (window.leadConnector?.chatWidget?.isActive()) return;
+      document.documentElement.classList.remove(LIVE_CHAT_CLASS);
+      setLiveChat("idle");
+    }, 500);
+    return () => clearInterval(watch);
+  }, [liveChat]);
+
+  const openLiveChat = async () => {
+    setLiveChat("loading");
+    try {
+      const chat = await loadGhlChat();
+      document.documentElement.classList.add(LIVE_CHAT_CLASS);
+      chat.openWidget();
+      setOpen(false);
+      setLiveChat("open");
+    } catch {
+      setLiveChat("failed");
+    }
+  };
+
   if (pathname === "/contact") return null;
-  // On tablets and phones the bottom ActionBar already has a WhatsApp button; it hides on /book-a-call.
-  const visibility = pathname === "/book-a-call" ? "flex" : "hidden min-[1201px]:flex";
+  // Sit above the tablet/phone ActionBar, which shows on every page except /book-a-call.
+  const offset = pathname === "/book-a-call" ? "bottom-5" : "bottom-[88px] min-[1201px]:bottom-5";
 
   return (
-    <div className={`${visibility} fixed bottom-5 right-5 z-[95] flex-col items-end gap-3`}>
+    <div className={`fixed ${offset} right-5 z-[95] flex flex-col items-end gap-3 ${liveChat === "open" ? "hidden" : ""}`}>
       {open && (
-        <div id="whatsapp-chat-panel" role="dialog" aria-label="Chat with GetSGPR on WhatsApp"
+        <div id="chat-launcher-panel" role="dialog" aria-label="Chat with GetSGPR"
           className="w-[320px] max-w-[calc(100vw-40px)] overflow-hidden rounded-[18px] bg-white shadow-[0_24px_60px_rgba(3,8,20,.28)] border border-line">
           <div className="flex items-center gap-3 bg-ink px-4 py-3.5 text-white">
             <Image src="/email/getsgpr-logo.png" alt="" width={46} height={30} />
             <div className="min-w-0 flex-1">
               <p className="font-semibold text-[15px] leading-tight">GetSGPR</p>
-              <p className="text-[12px] text-on-dark-muted">Replies on WhatsApp</p>
+              <p className="text-[12px] text-on-dark-muted">Chat here or on WhatsApp</p>
             </div>
-            <button type="button" onClick={() => { setOpen(false); launcherRef.current?.focus(); }} aria-label="Close chat"
+            <button type="button" onClick={() => { setOpen(false); launcherRef.current?.focus(); }} aria-label="Close chat options"
               className="grid size-8 place-items-center rounded-full text-on-dark-muted hover:bg-white/10 hover:text-white cursor-pointer">✕</button>
           </div>
           <div className="bg-paper-alt px-4 py-4">
             <p className="max-w-[250px] rounded-[14px] rounded-tl-[4px] bg-white px-3.5 py-2.5 text-[14.5px] leading-snug text-navy-900 shadow-sm">
-              Hi there! Ask us anything about your Singapore PR or citizenship application. Our WhatsApp assistant can answer your questions and help you book a free call.
+              Hi there! Ask us anything about your Singapore PR or citizenship application. Chat with us right here, or continue on WhatsApp.
             </p>
           </div>
-          <div className="px-4 pb-4 pt-1 bg-paper-alt">
-            <a ref={startRef} href={SITE.whatsappUrl} target="_blank" rel="noopener noreferrer"
+          <div className="grid gap-2 px-4 pb-4 pt-1 bg-paper-alt">
+            <button ref={firstActionRef} type="button" onClick={openLiveChat} disabled={liveChat === "loading"}
+              className="flex min-h-[48px] items-center justify-center rounded-btn bg-ink font-semibold text-[15px] text-white cursor-pointer disabled:cursor-wait disabled:opacity-80">
+              {liveChat === "loading" ? "Opening chat…" : "Chat here now"}
+            </button>
+            <a href={SITE.whatsappUrl} target="_blank" rel="noopener noreferrer"
               className="flex min-h-[48px] items-center justify-center gap-2 rounded-btn font-semibold text-[15px] text-ink no-underline"
               style={{ background: WHATSAPP_GREEN }}>
-              <WhatsAppIcon className="size-5" />Start chat on WhatsApp
+              <WhatsAppIcon className="size-5" />Continue on WhatsApp
             </a>
-            <p className="mt-2 text-center text-[11.5px] text-slate-400">Opens WhatsApp. Please do not send passport, NRIC or FIN numbers.</p>
+            {liveChat === "failed" && (
+              <p role="alert" className="text-center text-[12.5px] text-red">Live chat could not open right now. Please continue on WhatsApp.</p>
+            )}
+            <p className="mt-1 text-center text-[11.5px] text-slate-400">Please do not send passport, NRIC or FIN numbers.</p>
           </div>
         </div>
       )}
       <button ref={launcherRef} type="button" onClick={() => setOpen((value) => !value)}
-        aria-label={open ? "Close WhatsApp chat" : "Chat with GetSGPR on WhatsApp"} aria-expanded={open} aria-controls="whatsapp-chat-panel"
+        aria-label={open ? "Close chat options" : "Chat with GetSGPR"} aria-expanded={open} aria-controls="chat-launcher-panel"
         className="grid size-[58px] place-items-center rounded-full text-white shadow-[0_12px_30px_rgba(3,8,20,.3)] cursor-pointer transition-transform hover:scale-105"
         style={{ background: WHATSAPP_GREEN }}>
         <WhatsAppIcon className="size-8" />

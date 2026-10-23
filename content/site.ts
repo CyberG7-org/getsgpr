@@ -17,6 +17,7 @@ export const SITE = {
   ghl: {
     formId: "z6a7dZmxkVc4lU8nayfJ",
     calendarId: "BmjSgje9UxMhSTAWMR9b",
+    chatWidgetId: "685385ad2eeadb3322507b55",
   },
   // Facts the live site does not publish. Rendered through <Ph>.
   placeholders: { googleRating: "Google rating", reviewCount: "Number of reviews", dpo: "DPO name", checkedOn: "date checked" },

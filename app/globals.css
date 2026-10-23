@@ -359,6 +359,8 @@
   .cta-actions { @apply justify-end; }
 
   /* nav dropdown (details) */
+  /* GHL live chat: its own bubble stays hidden; ChatLauncher adds this class while the chat window is open. */
+  html:not(.lc-chat-open) chat-widget { display: none !important; }
   .nav-details > summary { list-style: none; }
   .nav-details > summary::-webkit-details-marker { display: none; }
   .nav-details > summary::after { content: " ▾"; font-size: 11px; opacity: .7; }
