@@ -5,7 +5,7 @@ import { SITE } from "@/content/site";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { ActionBar } from "@/components/layout/ActionBar";
-import { ChatWidget } from "@/components/widgets/ChatWidget";
+import { WhatsAppChat } from "@/components/widgets/WhatsAppChat";
 import { Reveal } from "@/components/ui/Reveal";
 import { ReviewedDateHydrator } from "@/components/ui/ReviewedDateHydrator";
 
@@ -44,7 +44,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         {children}
         <Footer />
         <ActionBar />
-        <ChatWidget />
+        <WhatsAppChat />
       </body>
     </html>
   );
