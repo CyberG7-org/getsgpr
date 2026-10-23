@@ -48,8 +48,8 @@ export type LeadRecord = {
 
 const configurations = {
   checker: { questions: QUESTIONS, prefix: "eligibility", schemaVersion: "eligibility-v1", checkerType: "Eligibility" },
-  readiness: { questions: READINESS_QUESTIONS, prefix: "pr", schemaVersion: "pr-readiness-v1", checkerType: "PR readiness" },
-  "citizenship-readiness": { questions: CITIZENSHIP_QUESTIONS, prefix: "citizenship", schemaVersion: "citizenship-readiness-v1", checkerType: "Citizenship readiness" },
+  readiness: { questions: READINESS_QUESTIONS, prefix: "pr", schemaVersion: "pr-readiness-v2", checkerType: "PR readiness" },
+  "citizenship-readiness": { questions: CITIZENSHIP_QUESTIONS, prefix: "citizenship", schemaVersion: "citizenship-readiness-v2", checkerType: "Citizenship readiness" },
 } as const;
 
 export function questionsFor(source: LeadSubmission["source"]): readonly Question[] {

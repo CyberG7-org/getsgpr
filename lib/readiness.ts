@@ -1,22 +1,25 @@
+import { NATIONALITIES } from "@/lib/nationalities";
+
 export type Outcome = "Ready to Prepare" | "Strengthen First" | "More Information Needed";
 export type ReadinessResult = { outcome: Outcome; intro: string; strong: string[]; weak: string[]; actions: string[]; pkg: { name: string; price: string; why: string; href: string } };
 
 export const READINESS_QUESTIONS = [
-  { group: "Group A — Profile", q: "1. Which pass do you hold now?", options: ["Employment Pass", "S Pass", "Work Permit", "Dependant's Pass", "LTVP", "Student Pass", "Other"] },
-  { group: "Group A — Profile", q: "2. What is your age band?", options: ["Under 25", "25–29", "30–34", "35–39", "40–44", "45–49", "50 and above"] },
-  { group: "Group A — Profile", q: "3. What is your highest completed qualification?", options: ["Secondary", "Diploma", "Bachelor's", "Master's", "Doctorate", "Professional qualification"] },
-  { group: "Group A — Profile", q: "4. Was that qualification obtained in Singapore?", options: ["Yes", "No"] },
-  { group: "Group B — Residence and work", q: "5. How long have you lived in Singapore continuously?", options: ["Under 1 year", "1–2", "2–4", "4–6", "6–10", "Over 10 years"] },
-  { group: "Group B — Residence and work", q: "6. How long have you been with your current employer or business?", options: ["Under 6 months", "6–12 months", "1–3 years", "Over 3 years"] },
-  { group: "Group B — Residence and work", q: "7. What is your monthly salary band?", options: ["Under S$4,000", "S$4,000–6,999", "S$7,000–9,999", "S$10,000–14,999", "S$15,000 and above", "Self-employed, variable"] },
-  { group: "Group B — Residence and work", q: "8. Are you employed or self-employed?", options: ["Employed", "Self-employed or business owner", "Both"] },
-  { group: "Group C — Family and ties", q: "9. Are you married to, or the child or parent of, a Singapore citizen or PR?", options: ["Yes", "No"] },
-  { group: "Group C — Family and ties", q: "10. Will family members be included in your application?", options: ["No", "Spouse", "Spouse and children", "Children only", "Parents"] },
-  { group: "Group C — Family and ties", q: "11. Do you have Singapore-based evidence of community involvement, such as volunteering, associations or professional bodies?", options: ["Yes, within the last two years", "Yes, but older", "No"] },
-  { group: "Group D — Evidence and timing", q: "12. Do you have an employment letter dated within the last month and six months of payslips?", options: ["Both", "One", "Neither"] },
-  { group: "Group D — Evidence and timing", q: "13. Do the dates and job titles on your CV, payslips, CPF and employment letters all tally?", options: ["Yes", "Mostly", "Not sure", "Known differences"] },
-  { group: "Group D — Evidence and timing", q: "14. Have you applied for Singapore PR before?", options: ["No", "Yes, withdrawn", "Yes, rejected once", "Yes, rejected more than once"] },
-  { group: "Group D — Evidence and timing", q: "15. If rejected: what has materially changed since your last application?", options: ["New job or promotion", "Salary increase", "Marriage or child", "Longer residence", "New qualification", "Nothing significant", "Not sure"] },
+  { group: "Group A — Profile", q: "1. What is your nationality?", options: NATIONALITIES, select: true },
+  { group: "Group A — Profile", q: "2. Which pass do you hold now?", options: ["Employment Pass", "S Pass", "Work Permit", "Dependant's Pass", "LTVP", "Student Pass", "Other"] },
+  { group: "Group A — Profile", q: "3. What is your age band?", options: ["Under 25", "25–29", "30–34", "35–39", "40–44", "45–49", "50 and above"] },
+  { group: "Group A — Profile", q: "4. What is your highest completed qualification?", options: ["Secondary", "Diploma", "Bachelor's", "Master's", "Doctorate", "Professional qualification"] },
+  { group: "Group A — Profile", q: "5. Was that qualification obtained in Singapore?", options: ["Yes", "No"] },
+  { group: "Group B — Residence and work", q: "6. How long have you lived in Singapore continuously?", options: ["Under 1 year", "1–2", "2–4", "4–6", "6–10", "Over 10 years"] },
+  { group: "Group B — Residence and work", q: "7. How long have you been with your current employer or business?", options: ["Under 6 months", "6–12 months", "1–3 years", "Over 3 years"] },
+  { group: "Group B — Residence and work", q: "8. What is your monthly salary band?", options: ["Under S$4,000", "S$4,000–6,999", "S$7,000–9,999", "S$10,000–14,999", "S$15,000 and above", "Self-employed, variable"] },
+  { group: "Group B — Residence and work", q: "9. Are you employed or self-employed?", options: ["Employed", "Self-employed or business owner", "Both"] },
+  { group: "Group C — Family and ties", q: "10. Are you married to, or the child or parent of, a Singapore citizen or PR?", options: ["Yes", "No"] },
+  { group: "Group C — Family and ties", q: "11. Will family members be included in your application?", options: ["No", "Spouse", "Spouse and children", "Children only", "Parents"] },
+  { group: "Group C — Family and ties", q: "12. Do you have Singapore-based evidence of community involvement, such as volunteering, associations or professional bodies?", options: ["Yes, within the last two years", "Yes, but older", "No"] },
+  { group: "Group D — Evidence and timing", q: "13. Do you have an employment letter dated within the last month and six months of payslips?", options: ["Both", "One", "Neither"] },
+  { group: "Group D — Evidence and timing", q: "14. Do the dates and job titles on your CV, payslips, CPF and employment letters all tally?", options: ["Yes", "Mostly", "Not sure", "Known differences"] },
+  { group: "Group D — Evidence and timing", q: "15. Have you applied for Singapore PR before?", options: ["No", "Yes, withdrawn", "Yes, rejected once", "Yes, rejected more than once"] },
+  { group: "Group D — Evidence and timing", q: "16. If rejected: what has materially changed since your last application?", options: ["New job or promotion", "Salary increase", "Marriage or child", "Longer residence", "New qualification", "Nothing significant", "Not sure"] },
 ];
 
 const INTRO: Record<Outcome, string> = {
@@ -25,7 +28,9 @@ const INTRO: Record<Outcome, string> = {
   "More Information Needed": "Your answers raise a question we cannot resolve without talking to you. That is not a bad sign; it means your situation needs a person, not a form.",
 };
 
-export function assess(a: number[]): ReadinessResult {
+export function assess(answers: number[]): ReadinessResult {
+  // answers[0] is nationality: collected for follow-up only and never scored.
+  const a = answers.slice(1);
   const strong: string[] = [], weak: string[] = [], actions: string[] = [];
   const rejected = a[13] >= 2;
   // factor reads

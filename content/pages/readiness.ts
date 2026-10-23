@@ -3,7 +3,7 @@ import type { PageContent } from "@/content/types";
 export const readiness: PageContent = {
   meta: {
     title: "Free Singapore PR Readiness Review | 8-Factor Diagnostic — GetSGPR",
-    description: "Answer 15 questions about your profile, residence and evidence. You get one of three outcomes and three concrete next actions, written for your situation.",
+    description: "Answer 16 questions about your profile, residence and evidence. You get one of three outcomes and three concrete next actions, written for your situation.",
     path: "/pr-readiness-review",
   },
   shapes: "service",
@@ -12,7 +12,7 @@ export const readiness: PageContent = {
       kind: "hero", variant: "light",
       eyebrow: "Free diagnostic",
       title: "Find out how ready your Singapore PR application is — before you spend a cent on it.",
-      sub: "Answer 15 questions about your profile, residence and evidence. You get one of three outcomes and three concrete next actions, written for your situation.",
+      sub: "Answer 16 questions about your profile, residence and evidence. You get one of three outcomes and three concrete next actions, written for your situation.",
       small: "No documents · No NRIC, FIN or passport numbers · Ranges only, such as salary band · About 10 minutes",
       buttons: [
         { label: "Start the review", href: "#form", style: "primary" },
@@ -88,7 +88,7 @@ export const readiness: PageContent = {
     {
       kind: "readinessForm", tone: "alt", id: "form",
       eyebrow: "The questionnaire",
-      title: "Fifteen questions, four groups, about ten minutes.",
+      title: "Sixteen questions, four groups, about ten minutes.",
       sub: "Use ranges where offered. Nothing here identifies you until you choose to leave your email at the end.",
     },
     {

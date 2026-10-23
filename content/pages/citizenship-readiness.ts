@@ -3,7 +3,7 @@ import type { PageContent } from "@/content/types";
 export const citizenshipReadiness: PageContent = {
   meta: {
     title: "Free Singapore Citizenship Readiness Checker — GetSGPR",
-    description: "Answer 18 questions about your PR history, economic record, family ties and commitment to Singapore. Receive a preparation result and three practical next steps.",
+    description: "Answer 19 questions about your PR history, economic record, family ties and commitment to Singapore. Receive a preparation result and three practical next steps.",
     path: "/citizenship-readiness-review",
   },
   shapes: "service",
@@ -12,7 +12,7 @@ export const citizenshipReadiness: PageContent = {
       kind: "hero", variant: "light",
       eyebrow: "Free citizenship diagnostic", eyebrowTone: "red",
       title: "Check how ready you are to prepare a Singapore citizenship application.",
-      sub: "Answer 18 questions about your PR history, economic record, family ties and commitment to Singapore. Your result identifies preparation strengths, areas to review and three useful next steps.",
+      sub: "Answer 19 questions about your PR history, economic record, family ties and commitment to Singapore. Your result identifies preparation strengths, areas to review and three useful next steps.",
       small: "No documents · No NRIC, FIN or passport numbers · Ranges only · About 10 minutes",
       buttons: [
         { label: "Start the citizenship checker", href: "#form", style: "primary" },
@@ -44,7 +44,7 @@ export const citizenshipReadiness: PageContent = {
     {
       kind: "citizenshipReadinessForm", tone: "alt", id: "form",
       eyebrow: "The questionnaire",
-      title: "Eighteen questions, four groups, about ten minutes.",
+      title: "Nineteen questions, four groups, about ten minutes.",
       sub: "Choose the closest answer. Your result assesses preparation readiness and flags questions that need a conversation.",
     },
     {

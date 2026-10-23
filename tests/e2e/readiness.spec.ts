@@ -8,6 +8,7 @@ test("readiness questionnaire completes and shows a result", async ({ page }) =>
   // Each question renders its options as a "flex flex-wrap gap-2" row of chip
   // buttons; clicking the first button in each such row answers every question
   // with its first option, in question order.
+  await page.getByRole("combobox", { name: "What is your nationality?" }).selectOption("Malaysia");
   const firstOptions = page.locator("div.flex.flex-wrap.gap-2 > button:first-child");
   await expect(firstOptions).toHaveCount(15);
   const count = await firstOptions.count();

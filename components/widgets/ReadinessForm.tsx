@@ -33,12 +33,12 @@ export function ReadinessForm({ mode = "pr" }: { mode?: Mode }) {
   const setAnswer = (qi: number, oi: number) =>
     setAnswers((prev) => { const next = [...prev]; next[qi] = oi; return next; });
 
-  const q14 = answers[13];
-  const q15Optional = mode === "pr" && (q14 === 0 || q14 === 1);
+  const q15 = answers[14];
+  const q16Optional = mode === "pr" && (q15 === 0 || q15 === 1);
 
   const onSubmit = () => {
-    const missing = answers.some((a, i) => a === undefined && !(i === 14 && q15Optional));
-    if (missing) { setError(mode === "pr" ? "Please answer every question above (question 15 may be left blank if you were never rejected)." : "Please answer every question above."); return; }
+    const missing = answers.some((a, i) => a === undefined && !(i === 15 && q16Optional));
+    if (missing) { setError(mode === "pr" ? "Please answer every question above (question 16 may be left blank if you were never rejected)." : "Please answer every question above."); return; }
     if (!EMAIL_RE.test(email.trim())) { setError("Please enter a valid email address."); return; }
     if (!consent) { setError("Please agree to the consent statement so we can send your result."); return; }
     setError(null);
@@ -204,8 +204,17 @@ export function ReadinessForm({ mode = "pr" }: { mode?: Mode }) {
             <div key={q.q} className="readiness-question grid content-start gap-4 rounded-[16px] border p-5 backdrop-blur-md max-[640px]:p-4">
               <div className="flex items-start gap-3">
                 <span className="readiness-question-number mt-0.5 grid size-7 shrink-0 place-items-center rounded-full text-[11px] font-bold">{qi + 1}</span>
-                <p className="font-semibold text-[15px] leading-snug text-navy-900">{q.q.replace(/^\d+\.\s*/, "")}</p>
+                <p id={`${mode}-q${qi + 1}`} className="font-semibold text-[15px] leading-snug text-navy-900">{q.q.replace(/^\d+\.\s*/, "")}</p>
               </div>
+              {"select" in q ? (
+                <div className="pl-10 max-[640px]:pl-0">
+                  <select aria-labelledby={`${mode}-q${qi + 1}`} value={answers[qi] ?? ""} onChange={(e) => setAnswer(qi, Number(e.target.value))}
+                    className="readiness-option [font:inherit] min-h-[46px] w-full rounded-[11px] border px-4 py-2.5 text-[14px] font-medium text-navy-900 focus-visible:outline-2 focus-visible:outline-offset-2">
+                    <option value="" disabled>Choose your nationality</option>
+                    {q.options.map((o, oi) => <option key={o} value={oi}>{o}</option>)}
+                  </select>
+                </div>
+              ) : (
               <div className="flex flex-wrap gap-2.5 pl-10 max-[640px]:pl-0">
                 {q.options.map((o, oi) => (
                   <button key={o} type="button" onClick={() => setAnswer(qi, oi)}
@@ -215,6 +224,7 @@ export function ReadinessForm({ mode = "pr" }: { mode?: Mode }) {
                   </button>
                 ))}
               </div>
+              )}
             </div>
           ))}
           </div>

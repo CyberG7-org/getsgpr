@@ -14,8 +14,8 @@ const services: Link[] = [
 ];
 
 const checkers: Link[] = [
-  { label: "PR Readiness", href: "/pr-readiness-review", small: "15 questions, free result and next steps" },
-  { label: "Citizen Readiness", href: "/citizenship-readiness-review", small: "18 questions for PR holders" },
+  { label: "PR Readiness", href: "/pr-readiness-review", small: "16 questions, free result and next steps" },
+  { label: "Citizen Readiness", href: "/citizenship-readiness-review", small: "19 questions for PR holders" },
 ];
 
 export const NAV = {

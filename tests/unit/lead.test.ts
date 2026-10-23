@@ -3,8 +3,8 @@ import { describe, it, expect, vi, afterEach } from "vitest";
 import { POST } from "@/app/api/lead/route";
 
 const checkerBody = { source: "checker", email: "a@b.co", answers: [0, 1, 0, 0, 2, 1] };
-const prBody = { source: "readiness", email: "alex@example.com", firstName: "Alex", answers: Array(15).fill(0), consent: true };
-const citizenshipBody = { source: "citizenship-readiness", email: "alex@example.com", firstName: "Alex", answers: Array(18).fill(0), consent: true };
+const prBody = { source: "readiness", email: "alex@example.com", firstName: "Alex", answers: Array(16).fill(0), consent: true };
+const citizenshipBody = { source: "citizenship-readiness", email: "alex@example.com", firstName: "Alex", answers: Array(19).fill(0), consent: true };
 const submissionId = "53a0c77f-6bd6-4a89-a48d-b4018fb2f41f";
 afterEach(() => { vi.unstubAllEnvs(); vi.restoreAllMocks(); });
 
@@ -41,7 +41,7 @@ describe("POST /api/lead", () => {
       submissionId,
       eventType: "readiness_completed",
       bookingStatus: "Not started",
-      schemaVersion: "pr-readiness-v1",
+      schemaVersion: "pr-readiness-v2",
       checkerType: "PR readiness",
       email: "alex@example.com",
       outcome: expect.any(String),
@@ -53,7 +53,8 @@ describe("POST /api/lead", () => {
       answersSummary: expect.stringContaining("pr-q01:"),
       consentAt: expect.any(String),
     }));
-    expect(forwardedBody.answers).toHaveLength(15);
+    expect(forwardedBody.answers).toHaveLength(16);
+    expect(forwardedBody.answers[0]).toEqual(expect.objectContaining({ questionId: "pr-q01", question: "What is your nationality?", answer: "Afghanistan" }));
     expect(await res.json()).toEqual(expect.objectContaining({ ok: true, forwarded: true, submissionId }));
   });
 
