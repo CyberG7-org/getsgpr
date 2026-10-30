@@ -14,7 +14,7 @@ export const about: PageContent = {
       eyebrow: "About",
       title: "An independent Singapore PR consultancy that shows its work.",
       sub: "Know where you stand. Strengthen what matters. Submit with confidence.",
-      aside: { kind: "image", ratio: "4-3", label: "Photo of the office at Tradehub 21, exterior or reception" },
+      aside: { kind: "image", ratio: "4-3", label: "Photo of the GetSGPR office at The Adelphi" },
     },
     { kind: "trust" },
     {
@@ -25,7 +25,7 @@ export const about: PageContent = {
           kv: [
             { k: "Legal name", v: "SGPR Immigration Singapore" },
             { k: "UEN", v: "53408306D" },
-            { k: "Office", v: `${SITE.address} · [Get directions](https://www.google.com/maps/search/?api=1&query=18%20Boon%20Lay%20Way%20%2304-118%20Singapore%20609966)` },
+            { k: "Office", v: `${SITE.address} · [Get directions](https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(SITE.address)})` },
             { k: "Established", v: "2020" },
             { k: "Languages", v: "English, Mandarin, Malay, Tamil" },
             { k: "Contact", v: `+65 8934 0818 · [${SITE.email}](${SITE.emailUrl}) · ${SITE.openingHours} · ${SITE.appointmentNote}` },
@@ -37,8 +37,8 @@ export const about: PageContent = {
         },
       ],
       map: {
-        address: "18 Boon Lay Way #04-118 Singapore 609966",
-        title: "Google Map showing the GetSGPR office at 18 Boon Lay Way",
+        address: SITE.address,
+        title: "Google Map showing the GetSGPR office at The Adelphi",
       },
     },
     {

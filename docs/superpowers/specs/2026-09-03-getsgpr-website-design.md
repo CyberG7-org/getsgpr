@@ -34,7 +34,7 @@ Fill these in; do not leave as placeholders.
 |---|---|
 | Legal entity | SGPR Immigration Singapore (copyright line also uses "Get SGPR") |
 | UEN | 53408306D |
-| Address | 18 Boon Lay Way, #04-118, Tradehub 21, Singapore 609966 |
+| Address | The Adelphi, 1 Coleman Street, #05-14 |
 | Phone / WhatsApp | +65 8934 0818 (`https://wa.me/6589340818`) |
 | Packages | SGPR Lite (DIY) SGD 197; SGPR Partnered (Do-With-You) SGD 497; SGPR Premium Concierge (Do-For-You) SGD 1,997 |
 | Refund policy (Terms of Use) | "Once consultancy services have started, fees are non-refundable, even if applications are rejected." |

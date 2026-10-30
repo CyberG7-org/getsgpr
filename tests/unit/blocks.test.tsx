@@ -25,7 +25,7 @@ describe("Blocks", () => {
   });
   it("renders trust facts and Google placeholders", () => {
     expect(html).toContain("UEN 53408306D");
-    expect(html).toContain("Tradehub 21");
+    expect(html).toContain("The Adelphi, 1 Coleman Street, #05-14");
     expect(html).toContain('data-ph="Google rating"');
   });
   it("renders all three packages with live prices", () => {

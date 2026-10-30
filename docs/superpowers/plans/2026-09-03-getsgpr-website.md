@@ -16,7 +16,7 @@
 - Node 24.15.0, npm 11.6.2. Use `npm`, not pnpm or yarn.
 - Routes are exactly the spec §4 list. The seven live URLs must never change: `/permanent-resident-sg`, `/singapore-citizen`, `/ltvp`, `/pr-appeal`, `/sgpr-lite-diy-tier`, `/sgpr-partnered-do-with-you`, `/sgpr-premium-concierge`.
 - Redirects (permanent): `/home→/`, `/about-us→/about`, `/contactus→/contact`, `/service→/services`, `/package→/packages`, `/privacy-policy→/privacy-data-security`, `/terms-of-use→/privacy-data-security#terms`.
-- Facts to fill everywhere (never placeholders): entity "SGPR Immigration Singapore"; UEN 53408306D; address "18 Boon Lay Way, #04-118, Tradehub 21, Singapore 609966"; phone/WhatsApp "+65 8934 0818" (`https://wa.me/6589340818`); prices S$197 / S$497 / S$1,997; refund policy "Once consultancy services have started, fees are non-refundable, even if applications are rejected."
+- Facts to fill everywhere (never placeholders): entity "SGPR Immigration Singapore"; UEN 53408306D; address "The Adelphi, 1 Coleman Street, #05-14"; phone/WhatsApp "+65 8934 0818" (`https://wa.me/6589340818`); prices S$197 / S$497 / S$1,997; refund policy "Once consultancy services have started, fees are non-refundable, even if applications are rejected."
 - Facts that stay placeholders: email, opening hours, consultant names/roles, founding year, Google rating and review count, DPO name, response-time promises other than the prototype's "24 hours", all "checked on" dates, case-study and guide bodies.
 - Placeholders are emitted ONLY through `<Ph>` (or `[[text]]` in rich strings, which renders `<Ph>`). Never write literal `[brackets]` in JSX.
 - Forbidden phrases outside `<Ph>` (build fails): "high success rate", "success rate", "guaranteed approval", "guarantee approval", "ICA approved", "ICA-approved", "ICA partner", "ICA-endorsed", and any `\d+%` adjacent to "approval" or "success". The prototype's "[90%] approval rate" stat is removed, not ported.
@@ -665,8 +665,8 @@ export const SITE = {
   name: "GetSGPR",
   legalName: "SGPR Immigration Singapore",
   uen: "53408306D",
-  address: "18 Boon Lay Way, #04-118, Tradehub 21, Singapore 609966",
-  addressShort: "Tradehub 21, Boon Lay Way",
+  address: "The Adelphi, 1 Coleman Street, #05-14",
+  addressShort: "The Adelphi, 1 Coleman Street, #05-14",
   phoneDisplay: "+65 8934 0818",
   whatsappUrl: "https://wa.me/6589340818",
   url: "https://getsgpr.com",
@@ -696,7 +696,7 @@ describe("site facts", () => {
   it("carries the live-site facts", () => {
     expect(SITE.legalName).toBe("SGPR Immigration Singapore");
     expect(SITE.uen).toBe("53408306D");
-    expect(SITE.address).toBe("18 Boon Lay Way, #04-118, Tradehub 21, Singapore 609966");
+    expect(SITE.address).toBe("The Adelphi, 1 Coleman Street, #05-14");
     expect(SITE.whatsappUrl).toBe("https://wa.me/6589340818");
   });
   it("lists the 22 static routes", () => {
@@ -912,7 +912,7 @@ describe("Footer", () => {
   it("shows legal name, UEN, address and phone, and placeholders for email and hours", () => {
     expect(html).toContain("SGPR Immigration Singapore");
     expect(html).toContain("UEN 53408306D");
-    expect(html).toContain("18 Boon Lay Way, #04-118, Tradehub 21, Singapore 609966");
+    expect(html).toContain("The Adelphi, 1 Coleman Street, #05-14");
     expect(html).toContain("+65 8934 0818");
     expect(html).toContain('data-ph="Email"');
     expect(html).toContain('data-ph="Opening hours"');
@@ -1138,7 +1138,7 @@ export function Shapes({ preset }: { preset: keyof typeof PRESETS }) {
   <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({
     "@context": "https://schema.org", "@type": "LocalBusiness", name: SITE.name, legalName: SITE.legalName,
     identifier: SITE.uen, url: SITE.url, telephone: SITE.phoneDisplay,
-    address: { "@type": "PostalAddress", streetAddress: "18 Boon Lay Way, #04-118, Tradehub 21", postalCode: "609966", addressCountry: "SG" },
+    address: { "@type": "PostalAddress", streetAddress: SITE.address, addressCountry: "SG" },
     areaServed: "Singapore",
   }) }} />
   <Header />
@@ -1624,7 +1624,7 @@ describe("Blocks", () => {
   });
   it("renders trust facts and Google placeholders", () => {
     expect(html).toContain("UEN 53408306D");
-    expect(html).toContain("Tradehub 21");
+    expect(html).toContain("The Adelphi, 1 Coleman Street, #05-14");
     expect(html).toContain('data-ph="Google rating"');
   });
   it("renders all three packages with live prices", () => {
@@ -2400,8 +2400,8 @@ Tasks 10–18 each port prototype pages. Every one follows this procedure; the t
 **Transcription rules (apply to every page):**
 1. Open `reference/prototype/<key>.html`. Work through `<main>` top to bottom; each `<section>` becomes one block (or the `hero` / `trust` / `cta` / `crumbs` block). `section.alt` → `tone: "alt"`, `section.dark` → `tone: "dark"`, `section.warm` → `tone: "warm"`, `section.tight` → `tight: true`, `id="…"` → `id`.
 2. Copy text verbatim. `<span class="ph">[X]</span>` → `[[X]]`. `<strong>` → `**…**`. `<a href="#key">` → `[label](/route)` using the spec §4 route map (`#pr` → `/permanent-resident-sg`, `#readiness` → `/pr-readiness-review`, `#contact` → `/contact`, `#packages` → `/packages`, `#pkg-lite` → `/sgpr-lite-diy-tier`, `#cases` → `/case-studies`, `#case` → `/case-studies/sample-reapplication`, `#guides` → `/guides`, `#faq` → `/guides/singapore-pr-faq`, `#privacy` → `/privacy-data-security`, `#home` → `/`; `#form` → `#form`, `#result` → `#result`, `#appeal` on the packages page → `#appeal`).
-3. Trust strip: the prototype's `[Tradehub 21, full address]` is replaced by the real address (the `trust` block does this itself).
-4. `[Legal entity name]` → "SGPR Immigration Singapore". `[Full address, Tradehub 21]` / `[Tradehub 21, full address]` / `[Address]` / `[Postal address]` → the full address. `[Phone]` → "+65 8934 0818". Every other bracket stays a placeholder.
+3. Trust strip: the prototype's address placeholder is replaced by the real address (the `trust` block does this itself).
+4. `[Legal entity name]` → "SGPR Immigration Singapore". Address placeholders → the full address. `[Phone]` → "+65 8934 0818". Every other bracket stays a placeholder.
 5. Drop builder notes (Global Constraints list). Drop the approval-rate stat wherever it appears.
 6. `img-ph` divs → `aside: { kind: "image", ratio, label }` in heroes, `image`/`images` in `prose` blocks, `outcome.imageLabel` in outcome cards.
 7. Page `meta.title` = the `data-title` on the reference file's line 2. `meta.description` = the hero `sub` trimmed to ≤ 160 characters. `meta.path` = the route.

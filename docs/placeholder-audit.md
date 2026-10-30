@@ -69,7 +69,6 @@
 | Insert amounts with the date checked. | 1 | content\pages\packages.ts |
 | state exactly whether drafting and submission assistance is included, or the add-on fee | 1 | content\pages\packages.ts |
 | one | 1 | content\pages\packages.ts |
-| Tradehub 21 | 1 | content\pages\packages.ts |
 | Monday to Friday, 9.30am to 6.30pm | 1 | content\pages\packages.ts |
 | state the policy, for example: a full refund if you cancel before the strategy consultation, and a pro-rated refund for unused stages thereafter | 1 | content\pages\packages.ts |
 | Card, PayNow or bank transfer. | 1 | content\pages\packages.ts |

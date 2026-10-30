@@ -7,7 +7,7 @@ describe("site facts", () => {
   it("carries the live-site facts", () => {
     expect(SITE.legalName).toBe("SGPR Immigration Singapore");
     expect(SITE.uen).toBe("53408306D");
-    expect(SITE.address).toBe("18 Boon Lay Way, #04-118, Tradehub 21, Singapore 609966");
+    expect(SITE.address).toBe("The Adelphi, 1 Coleman Street, #05-14");
     expect(SITE.whatsappUrl).toBe("https://wa.me/6589340818?text=Hi%20GetSGPR%2C%20I%20would%20like%20to%20enquire%20about%20my%20Singapore%20PR%20application");
     expect(SITE.email).toBe("info@getsgpr.com");
     expect(SITE.openingHours).toBe("9 AM–6 PM");

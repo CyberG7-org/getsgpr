@@ -1,5 +1,6 @@
 import type { PageContent } from "@/content/types";
 import { REFUND_POLICY } from "@/content/packages";
+import { SITE } from "@/content/site";
 
 export const packages: PageContent = {
   meta: {
@@ -143,7 +144,7 @@ export const packages: PageContent = {
       title: "What you can expect from us.",
       items: [
         { title: "Response time", text: "We reply to initial enquiries within 24 hours. Review dates and ongoing response times are agreed with you when work begins." },
-        { title: "Consultations", text: "By video call or at our Tradehub 21 office, by appointment. Available times are confirmed when you book." },
+        { title: "Consultations", text: `By video call or at our ${SITE.address} office, by appointment. Available times are confirmed when you book.` },
         { title: "Languages", text: "English, Mandarin, Malay and Tamil." },
         { title: "Cancellations", text: "Free with 24 hours' notice. Later cancellations count as one consultation." },
         { title: "Missing documents", text: "Where a document genuinely cannot be obtained, we draft a declaration letter explaining its absence at no extra charge." },

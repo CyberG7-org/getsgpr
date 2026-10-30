@@ -6,7 +6,7 @@ Reviewed 3 September 2026 from `https://getsgpr.com/` and its public About, serv
 
 - Legal name: SGPR Immigration Singapore
 - UEN: 53408306D
-- Address: 18 Boon Lay Way, #04-118, Tradehub 21, Singapore 609966
+- Address: The Adelphi, 1 Coleman Street, #05-14
 - WhatsApp and phone: +65 8934 0818
 - Packages: SGPR Lite at S$197, SGPR Partnered at S$497, and Premium Concierge at S$1,997
 - Nine testimonial names, quotes and service labels currently published on the About page

@@ -11,7 +11,7 @@ describe("Footer", () => {
   it("shows legal name, UEN, address, phone, email and opening hours", () => {
     expect(html).toContain("SGPR Immigration Singapore");
     expect(html).toContain("UEN 53408306D");
-    expect(html).toContain("18 Boon Lay Way, #04-118, Tradehub 21, Singapore 609966");
+    expect(html).toContain("The Adelphi, 1 Coleman Street, #05-14");
     expect(html).toContain("+65 8934 0818");
     expect(html).toContain('href="mailto:info@getsgpr.com"');
     expect(html).toContain("info@getsgpr.com");
