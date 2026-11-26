@@ -40,6 +40,21 @@ Nothing in `components/` holds copy. Every page is assembled in `components/Page
 - `content/site.ts` — sitewide facts: legal name, UEN, address, phone, disclaimer, GHL ids, and the `SITE.placeholders` label map.
 - `content/nav.ts` — header/footer navigation and `NAV.routes`, the single source of truth for every route that must exist, be in the sitemap, and be smoke-tested.
 
+### Scheduled guide publishing
+
+Add scheduling fields to a guide's frontmatter:
+
+```yaml
+status: scheduled
+publishAt: "2026-11-27T09:00:00+08:00"
+```
+
+`.github/workflows/publish-scheduled-guides.yml` runs daily at 09:00 Singapore time. When a guide is due, it changes `status` to `published`, commits that change to the default branch, and the normal Vercel Git integration deploys the new version. GitHub's scheduler and the Vercel build can add several minutes of delay. Use 09:00 Singapore time for scheduled guides so they are released by that day's run; a later time is picked up the next day.
+
+The site also checks `status` and `publishAt` before including a guide in the listing, detail route, static params or sitemap. This prevents a future guide from appearing early if its status is changed by mistake. Timestamps must include `Z` or a numeric timezone offset; use `+08:00` for Singapore time.
+
+Run `npm run publish:due` to process due guides locally. The repository is public, so scheduled Markdown remains visible in GitHub even while the website keeps it unpublished.
+
 **Rich-text syntax** — any copy string can use (parsed by `lib/rich.ts`, rendered by `components/ui/RichText.tsx`):
 
 - `[[placeholder]]` — an unresolved fact, rendered as a visibly-bracketed `<Ph>`-style placeholder (see below).
