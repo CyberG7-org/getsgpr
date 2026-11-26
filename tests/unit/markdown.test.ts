@@ -1,5 +1,8 @@
 // @vitest-environment node
 import { describe, it, expect } from "vitest";
+import fs from "node:fs";
+import path from "node:path";
+import matter from "gray-matter";
 import { renderMarkdown, getCaseStudies, getCaseStudy } from "@/lib/markdown";
 
 describe("renderMarkdown", () => {
@@ -58,5 +61,20 @@ describe("case studies", () => {
 
   it("returns undefined for an unknown slug", () => {
     expect(getCaseStudy("does-not-exist")).toBeUndefined();
+  });
+});
+
+describe("guides", () => {
+  it("loads a timezone-aware creation timestamp for every guide", () => {
+    const directory = path.join(process.cwd(), "content", "guides");
+    const guides = fs.readdirSync(directory)
+      .filter((file) => file.endsWith(".md"))
+      .map((file) => matter(fs.readFileSync(path.join(directory, file), "utf8")).data);
+
+    expect(guides).toHaveLength(7);
+    for (const guide of guides) {
+      expect(guide.createdAt).toMatch(/(?:Z|[+-]\d{2}:\d{2})$/);
+      expect(Number.isNaN(Date.parse(guide.createdAt))).toBe(false);
+    }
   });
 });

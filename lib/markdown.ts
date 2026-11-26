@@ -25,6 +25,7 @@ export type Guide = {
   summary: string;
   category: string;
   source: string;
+  createdAt: string;
   status?: string;
   publishAt?: string;
   image?: string;
@@ -126,6 +127,7 @@ export function getGuides(now = new Date()): Guide[] {
       summary: data.summary,
       category: data.category,
       source: data.source,
+      createdAt: data.createdAt,
       status: data.status,
       publishAt: data.publishAt,
       image: data.image,

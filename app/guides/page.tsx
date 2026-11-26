@@ -1,6 +1,7 @@
 import { Page } from "@/components/Page";
 import { pageMetadata } from "@/lib/metadata";
 import { getGuides } from "@/lib/markdown";
+import { formatGuideCreatedAt } from "@/lib/guide-dates";
 import { guidesMeta, guidesBefore } from "@/content/pages/guides";
 import type { Block, Card } from "@/content/types";
 
@@ -12,6 +13,7 @@ export default function GuidesPage() {
   const startHereCards: Card[] = guides.map((g) => ({
     badge: g.category,
     title: g.title,
+    meta: `Created ${formatGuideCreatedAt(g.createdAt)}`,
     text: g.summary,
     image: g.image && g.imageAlt ? { src: g.image, alt: g.imageAlt } : undefined,
     link: { label: "Read →", href: `/guides/${g.slug}` },

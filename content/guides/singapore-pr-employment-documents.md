@@ -3,6 +3,7 @@ title: "Singapore PR employment documents: a practical preparation guide"
 summary: "How to prepare the employer letter, payslips and related employment records listed in ICA's PR document checklist."
 category: "Documents"
 source: "ICA, Application for Permanent Residence document checklist"
+createdAt: "2026-11-26T13:47:18+08:00"
 status: scheduled
 publishAt: "2026-11-27T09:00:00+08:00"
 ---
