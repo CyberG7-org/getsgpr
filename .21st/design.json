@@ -1,0 +1,313 @@
+{
+  "version": 1,
+  "project": {
+    "name": "site",
+    "productType": null,
+    "stack": [
+      "nextjs",
+      "react",
+      "tailwind-v4"
+    ]
+  },
+  "sources": {
+    "tokens": [
+      "app/globals.css"
+    ],
+    "components": [
+      "components/ui"
+    ],
+    "assets": [],
+    "instructions": [
+      "AGENTS.md",
+      "CLAUDE.md"
+    ]
+  },
+  "design": {
+    "colorMode": "light",
+    "colors": {
+      "--color-ink": {
+        "value": "#0A1223",
+        "source": "app/globals.css"
+      },
+      "--color-navy-900": {
+        "value": "#111B33",
+        "source": "app/globals.css"
+      },
+      "--color-navy-700": {
+        "value": "#1B2B57",
+        "source": "app/globals.css"
+      },
+      "--color-navy-500": {
+        "value": "#111E42",
+        "source": "app/globals.css"
+      },
+      "--color-blue-300": {
+        "value": "#93AEDC",
+        "source": "app/globals.css"
+      },
+      "--color-blue-200": {
+        "value": "#A9BFE4",
+        "source": "app/globals.css"
+      },
+      "--color-blue-100": {
+        "value": "#C6D2E6",
+        "source": "app/globals.css"
+      },
+      "--color-blue-50": {
+        "value": "#CFDDF5",
+        "source": "app/globals.css"
+      },
+      "--color-slate-500": {
+        "value": "#4C5670",
+        "source": "app/globals.css"
+      },
+      "--color-slate-400": {
+        "value": "#7C879C",
+        "source": "app/globals.css"
+      },
+      "--color-slate-300": {
+        "value": "#9AA4B8",
+        "source": "app/globals.css"
+      },
+      "--color-line": {
+        "value": "#E7EBF3",
+        "source": "app/globals.css"
+      },
+      "--color-line-soft": {
+        "value": "#EDF1F8",
+        "source": "app/globals.css"
+      },
+      "--color-input-line": {
+        "value": "#DFE4EF",
+        "source": "app/globals.css"
+      },
+      "--color-paper": {
+        "value": "#F6F8FC",
+        "source": "app/globals.css"
+      },
+      "--color-paper-alt": {
+        "value": "#EEF2F9",
+        "source": "app/globals.css"
+      },
+      "--color-paper-warm": {
+        "value": "#F7F4EF",
+        "source": "app/globals.css"
+      },
+      "--color-paper-cool": {
+        "value": "#EDF1F8",
+        "source": "app/globals.css"
+      },
+      "--color-on-dark": {
+        "value": "#EFF3FA",
+        "source": "app/globals.css"
+      },
+      "--color-on-dark-muted": {
+        "value": "#B9C8E2",
+        "source": "app/globals.css"
+      },
+      "--color-teal": {
+        "value": "#0E7C86",
+        "source": "app/globals.css"
+      },
+      "--color-teal-bg": {
+        "value": "#DFF1F2",
+        "source": "app/globals.css"
+      },
+      "--color-red": {
+        "value": "#C0272D",
+        "source": "app/globals.css"
+      },
+      "--color-red-bg": {
+        "value": "#FBE9EA",
+        "source": "app/globals.css"
+      },
+      "--color-amber": {
+        "value": "#B26A00",
+        "source": "app/globals.css"
+      },
+      "--color-amber-bg": {
+        "value": "#FBF0DE",
+        "source": "app/globals.css"
+      },
+      "--color-violet": {
+        "value": "#5B4B9E",
+        "source": "app/globals.css"
+      },
+      "--color-violet-bg": {
+        "value": "#EAE7F5",
+        "source": "app/globals.css"
+      },
+      "--color-green": {
+        "value": "#1F7A4D",
+        "source": "app/globals.css"
+      },
+      "--color-green-bg": {
+        "value": "#E3F3EA",
+        "source": "app/globals.css"
+      },
+      "--color-gold": {
+        "value": "#9A6A0C",
+        "source": "app/globals.css"
+      },
+      "--color-gold-bg": {
+        "value": "#F7EAC9",
+        "source": "app/globals.css"
+      },
+      "--form-accent": {
+        "value": "#ed2939",
+        "source": "app/globals.css"
+      },
+      "--form-accent-soft": {
+        "value": "#fdebed",
+        "source": "app/globals.css"
+      },
+      "--form-accent-deep": {
+        "value": "#a90f25",
+        "source": "app/globals.css"
+      },
+      "--result-accent": {
+        "value": "#ed2939",
+        "source": "app/globals.css"
+      },
+      "--result-accent-soft": {
+        "value": "#fdebed",
+        "source": "app/globals.css"
+      },
+      "--result-accent-deep": {
+        "value": "#a90f25",
+        "source": "app/globals.css"
+      },
+      "--card-accent": {
+        "value": "var(--color-green)",
+        "source": "app/globals.css"
+      }
+    },
+    "typography": {
+      "--font-display": {
+        "value": "var(--font-bricolage), \"Segoe UI\", system-ui, sans-serif",
+        "source": "app/globals.css"
+      },
+      "--font-body": {
+        "value": "var(--font-work-sans), \"Segoe UI\", system-ui, sans-serif",
+        "source": "app/globals.css"
+      }
+    },
+    "spacing": {},
+    "radius": {
+      "--radius-btn": {
+        "value": "12px",
+        "source": "app/globals.css"
+      },
+      "--radius-chip": {
+        "value": "10px",
+        "source": "app/globals.css"
+      },
+      "--radius-card": {
+        "value": "20px",
+        "source": "app/globals.css"
+      },
+      "--radius-panel": {
+        "value": "26px",
+        "source": "app/globals.css"
+      }
+    },
+    "shadows": {
+      "--shadow-card": {
+        "value": "0 1px 3px rgba(17,27,51,.06), 0 18px 40px -24px rgba(17,27,51,.18)",
+        "source": "app/globals.css"
+      },
+      "--shadow-form": {
+        "value": "0 12px 30px -22px rgba(17,27,51,.4)",
+        "source": "app/globals.css"
+      },
+      "--readiness-shadow": {
+        "value": "rgba(43,155,166,.72)",
+        "source": "app/globals.css"
+      }
+    },
+    "motion": {
+      "--readiness-duration": {
+        "value": "3s",
+        "source": "app/globals.css"
+      },
+      "--sg-duration": {
+        "value": "240ms",
+        "source": "app/globals.css"
+      }
+    },
+    "density": "unknown"
+  },
+  "components": {
+    "installed": [
+      "Badge",
+      "BookCallButton",
+      "Button",
+      "CtaBand",
+      "DataTable",
+      "Eyebrow",
+      "FaqList",
+      "HeroBackgroundVideo",
+      "ImagePh",
+      "Kv",
+      "Ph",
+      "Prose",
+      "ReadinessButton",
+      "Reveal",
+      "ReviewedDateHydrator",
+      "RichText",
+      "Section",
+      "SectionHead",
+      "Shapes",
+      "SourceBlock",
+      "Today"
+    ],
+    "preferredPrimitives": [],
+    "patterns": []
+  },
+  "constraints": {
+    "must": [],
+    "avoid": []
+  },
+  "decisions": [
+    {
+      "area": "guide article contact CTA",
+      "decision": "Place a compact navy contact card after each long-form guide article, with email, WhatsApp and booking links in a responsive action strip.",
+      "rationale": "Adapts the supplied contact-card reference to the article width and GetSGPR tokens without changing the global footer or duplicating the existing full-width CTA band."
+    }
+  ],
+  "evidence": [
+    {
+      "fact": "components.installed",
+      "source": "components/ui"
+    },
+    {
+      "fact": "design.colorMode:light",
+      "source": "app/globals.css"
+    },
+    {
+      "fact": "design.tokens",
+      "source": "app/globals.css"
+    },
+    {
+      "fact": "project.instructions",
+      "source": "AGENTS.md"
+    },
+    {
+      "fact": "project.instructions",
+      "source": "CLAUDE.md"
+    },
+    {
+      "fact": "project.stack:nextjs",
+      "source": "package.json"
+    },
+    {
+      "fact": "project.stack:react",
+      "source": "package.json"
+    },
+    {
+      "fact": "project.stack:tailwind-v4",
+      "source": "package.json"
+    }
+  ],
+  "generatedAt": "2026-11-26T06:01:03.386Z"
+}
