@@ -3,7 +3,7 @@ import path from "node:path";
 import matter from "gray-matter";
 import { remark } from "remark";
 import remarkHtml from "remark-html";
-import { isGuidePublic } from "@/lib/guide-scheduling";
+import { isGuidePublic } from "@/lib/guide-scheduling.mjs";
 
 export type CaseStudy = {
   slug: string;

@@ -1,10 +1,10 @@
 import { readdirSync, readFileSync, writeFileSync } from "node:fs";
 import path from "node:path";
-import { pathToFileURL } from "node:url";
-import { promoteDueGuideSource } from "../lib/guide-scheduling";
+import { fileURLToPath } from "node:url";
+import { promoteDueGuideSource } from "../lib/guide-scheduling.mjs";
 
-export function publishDueGuides(directory: string, now = new Date()): string[] {
-  const promoted: string[] = [];
+export function publishDueGuides(directory, now = new Date()) {
+  const promoted = [];
 
   for (const file of readdirSync(directory).filter((name) => name.endsWith(".md")).sort()) {
     const filePath = path.join(directory, file);
@@ -29,5 +29,4 @@ function main() {
   console.log(`Published ${promoted.length} guide(s): ${promoted.join(", ")}`);
 }
 
-const entryPoint = process.argv[1] ? pathToFileURL(path.resolve(process.argv[1])).href : "";
-if (import.meta.url === entryPoint) main();
+if (process.argv[1] && path.resolve(process.argv[1]) === fileURLToPath(import.meta.url)) main();
