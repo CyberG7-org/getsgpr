@@ -3,8 +3,8 @@ import { afterEach, describe, expect, it } from "vitest";
 import { mkdtempSync, readFileSync, rmSync, writeFileSync } from "node:fs";
 import { tmpdir } from "node:os";
 import path from "node:path";
-import { isGuidePublic, promoteDueGuideSource } from "@/lib/guide-scheduling";
-import { publishDueGuides } from "@/scripts/publish-due-guides";
+import { isGuidePublic, promoteDueGuideSource } from "@/lib/guide-scheduling.mjs";
+import { publishDueGuides } from "@/scripts/publish-due-guides.mjs";
 
 const NOW = new Date("2026-11-26T04:30:00.000Z");
 const tempDirs: string[] = [];

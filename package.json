@@ -13,7 +13,7 @@
     "prebuild": "npm run lint:compliance",
     "lint:compliance": "tsx scripts/lint-compliance.ts",
     "audit:placeholders": "tsx scripts/audit-placeholders.ts",
-    "publish:due": "tsx scripts/publish-due-guides.ts"
+    "publish:due": "node scripts/publish-due-guides.mjs"
   },
   "dependencies": {
     "gray-matter": "^4.0.3",
