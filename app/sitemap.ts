@@ -1,9 +1,15 @@
 import type { MetadataRoute } from "next";
 import { NAV } from "@/content/nav";
 import { SITE } from "@/content/site";
+import { getGuides } from "@/lib/markdown";
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  return NAV.routes.map((path) => ({
+  const paths = new Set([
+    ...NAV.routes,
+    ...getGuides().map((guide) => `/guides/${guide.slug}`),
+  ]);
+
+  return [...paths].map((path) => ({
     url: `${SITE.url}${path}`,
     lastModified: new Date(),
     changeFrequency: "monthly",

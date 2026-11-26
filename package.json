@@ -12,7 +12,8 @@
     "e2e": "playwright test",
     "prebuild": "npm run lint:compliance",
     "lint:compliance": "tsx scripts/lint-compliance.ts",
-    "audit:placeholders": "tsx scripts/audit-placeholders.ts"
+    "audit:placeholders": "tsx scripts/audit-placeholders.ts",
+    "publish:due": "tsx scripts/publish-due-guides.ts"
   },
   "dependencies": {
     "gray-matter": "^4.0.3",

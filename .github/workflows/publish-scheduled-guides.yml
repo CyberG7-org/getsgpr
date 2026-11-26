@@ -1,0 +1,57 @@
+name: Publish scheduled guides
+
+on:
+  schedule:
+    # 09:00 Singapore time. GitHub may start scheduled jobs a few minutes late.
+    - cron: "0 1 * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: publish-scheduled-guides
+  cancel-in-progress: false
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Check out the default branch
+        uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4
+        with:
+          node-version: 24
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Promote due guides
+        id: promote
+        shell: bash
+        run: |
+          npm run publish:due
+          if git diff --quiet -- content/guides; then
+            echo "changed=false" >> "$GITHUB_OUTPUT"
+          else
+            echo "changed=true" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Check published content
+        if: steps.promote.outputs.changed == 'true'
+        run: npm run lint:compliance
+
+      - name: Commit and push published guides
+        if: steps.promote.outputs.changed == 'true'
+        shell: bash
+        run: |
+          git config user.name "GetSGPR Publisher"
+          git config user.email "publisher@getsgpr.com"
+          git add content/guides
+          git commit -m "content: publish scheduled guides"
+          git pull --rebase origin "$GITHUB_REF_NAME"
+          git push origin "HEAD:$GITHUB_REF_NAME"

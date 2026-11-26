@@ -3,6 +3,7 @@ import path from "node:path";
 import matter from "gray-matter";
 import { remark } from "remark";
 import remarkHtml from "remark-html";
+import { isGuidePublic } from "@/lib/guide-scheduling";
 
 export type CaseStudy = {
   slug: string;
@@ -24,6 +25,8 @@ export type Guide = {
   summary: string;
   category: string;
   source: string;
+  status?: string;
+  publishAt?: string;
   image?: string;
   imageAlt?: string;
   html: string;
@@ -113,24 +116,26 @@ export function getCaseStudy(slug: string): CaseStudy | undefined {
   return getCaseStudies().find((cs) => cs.slug === slug);
 }
 
-let guidesCache: Guide[] | null = null;
+let allGuidesCache: Guide[] | null = null;
 
-export function getGuides(): Guide[] {
-  if (!guidesCache) {
-    guidesCache = readMarkdownDir(GUIDES_DIR).map(({ slug, data, content }) => ({
+export function getGuides(now = new Date()): Guide[] {
+  if (!allGuidesCache) {
+    allGuidesCache = readMarkdownDir(GUIDES_DIR).map(({ slug, data, content }) => ({
       slug,
       title: data.title,
       summary: data.summary,
       category: data.category,
       source: data.source,
+      status: data.status,
+      publishAt: data.publishAt,
       image: data.image,
       imageAlt: data.imageAlt,
       html: renderMarkdown(content),
     }));
   }
-  return guidesCache;
+  return allGuidesCache.filter((guide) => isGuidePublic(guide, now));
 }
 
-export function getGuide(slug: string): Guide | undefined {
-  return getGuides().find((g) => g.slug === slug);
+export function getGuide(slug: string, now = new Date()): Guide | undefined {
+  return getGuides(now).find((g) => g.slug === slug);
 }
