@@ -3,6 +3,7 @@ title: "Translating documents for a Singapore PR application"
 summary: "What ICA says about official translations, and how to organise original-language records with their English versions."
 category: "Documents"
 source: "ICA, Application for Permanent Residence document checklist"
+createdAt: "2026-11-26T13:47:18+08:00"
 status: scheduled
 publishAt: "2026-11-28T09:00:00+08:00"
 ---

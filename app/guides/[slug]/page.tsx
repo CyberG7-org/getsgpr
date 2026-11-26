@@ -6,6 +6,7 @@ import { Section } from "@/components/ui/Section";
 import { GuideContactCard } from "@/components/guides/GuideContactCard";
 import { pageMetadata } from "@/lib/metadata";
 import { getGuides, getGuide } from "@/lib/markdown";
+import { formatGuideCreatedAt } from "@/lib/guide-dates";
 import type { Block } from "@/content/types";
 
 // The static app/guides/singapore-pr-faq/ route takes precedence over this dynamic
@@ -49,12 +50,22 @@ export default async function GuidePage({ params }: { params: Promise<{ slug: st
     })),
   };
 
+  const articleJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    headline: guide.title,
+    description: guide.summary,
+    dateCreated: guide.createdAt,
+    datePublished: guide.publishAt ?? guide.createdAt,
+    mainEntityOfPage: `https://getsgpr.com/guides/${guide.slug}`,
+  };
+
   const topBlocks: Block[] = [
     {
       kind: "hero", variant: "plain",
       eyebrow: `Guide · ${guide.category}`,
       title: guide.title,
-      small: "Last reviewed [[date]]",
+      small: `Created ${formatGuideCreatedAt(guide.createdAt)}`,
       crumbs,
     },
   ];
@@ -66,6 +77,7 @@ export default async function GuidePage({ params }: { params: Promise<{ slug: st
   return (
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(articleJsonLd) }} />
       <Shapes preset="plain" />
       <main>
         <Blocks blocks={topBlocks} />

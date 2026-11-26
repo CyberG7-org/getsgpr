@@ -3,6 +3,7 @@ title: "How ICA assesses PR applications"
 summary: "The published factors ICA considers, how holistic assessment works, and what ICA does not disclose."
 category: "Start here"
 source: 'ICA, "Becoming a Permanent Resident"'
+createdAt: "2026-09-03T13:39:20+08:00"
 image: "/guides/ica-assessment.webp"
 imageAlt: "Marina Bay and the Singapore skyline viewed from above"
 ---

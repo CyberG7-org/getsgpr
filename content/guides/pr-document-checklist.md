@@ -3,6 +3,7 @@ title: "Singapore PR document checklist"
 summary: "How to use ICA's current checklist, prepare translations, and check records before submitting."
 category: "Documents"
 source: "ICA, Application for Permanent Residence document checklist"
+createdAt: "2026-09-03T13:39:20+08:00"
 image: "/guides/document-checklist.webp"
 imageAlt: "A person carefully reviewing and signing a document"
 ---

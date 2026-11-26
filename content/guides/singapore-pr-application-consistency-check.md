@@ -3,6 +3,7 @@ title: "How to check a Singapore PR application for inconsistencies"
 summary: "A practical review of names, dates, employment details and family records before a PR application is submitted."
 category: "Documents"
 source: "ICA, Application for Permanent Residence document checklist"
+createdAt: "2026-11-26T13:47:18+08:00"
 status: scheduled
 publishAt: "2026-11-29T09:00:00+08:00"
 ---

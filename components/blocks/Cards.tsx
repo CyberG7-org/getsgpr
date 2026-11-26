@@ -21,6 +21,7 @@ function CardView({ c, i }: { c: Card; i: number }) {
       {c.badge && !c.outcome && <Badge tone={c.tone}>{c.badge}</Badge>}
       {c.outcome && <><Badge tone="green"><RichText value={c.badge ?? "[[Verified outcome]]"} /></Badge><ImagePh ratio="16-9" label={c.outcome.imageLabel} /></>}
       <h3 className="text-[22px] max-[980px]:text-[18px]"><RichText value={c.title} /></h3>
+      {c.meta && !c.outcome && <RichText as="p" className="text-[12.5px] text-slate-400" value={c.meta} />}
       {c.outcome && <RichText as="p" className="text-[13.5px] text-slate-400" value={c.outcome.meta} />}
       {c.text && <RichText as="p" className="text-slate-500 text-[15.5px] leading-[1.62]" value={c.text} />}
       {c.bullets && <ul className="pl-[18px] text-slate-500 text-[15px] grid gap-1.5 list-disc">{c.bullets.map((b) => <li key={b}><RichText value={b} /></li>)}</ul>}
