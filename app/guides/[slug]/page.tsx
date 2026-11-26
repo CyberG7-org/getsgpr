@@ -7,6 +7,7 @@ import { GuideContactCard } from "@/components/guides/GuideContactCard";
 import { pageMetadata } from "@/lib/metadata";
 import { getGuides, getGuide } from "@/lib/markdown";
 import { formatGuideCreatedAt } from "@/lib/guide-dates";
+import { serializeJsonLd } from "@/lib/json-ld";
 import type { Block } from "@/content/types";
 
 // The static app/guides/singapore-pr-faq/ route takes precedence over this dynamic
@@ -76,8 +77,8 @@ export default async function GuidePage({ params }: { params: Promise<{ slug: st
 
   return (
     <>
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }} />
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(articleJsonLd) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: serializeJsonLd(breadcrumbJsonLd) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: serializeJsonLd(articleJsonLd) }} />
       <Shapes preset="plain" />
       <main>
         <Blocks blocks={topBlocks} />
