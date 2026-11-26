@@ -3,6 +3,7 @@ import Image from "next/image";
 import { Blocks } from "@/components/blocks/Blocks";
 import { Shapes } from "@/components/ui/Shapes";
 import { Section } from "@/components/ui/Section";
+import { GuideContactCard } from "@/components/guides/GuideContactCard";
 import { pageMetadata } from "@/lib/metadata";
 import { getGuides, getGuide } from "@/lib/markdown";
 import type { Block } from "@/content/types";
@@ -60,12 +61,6 @@ export default async function GuidePage({ params }: { params: Promise<{ slug: st
 
   const bottomBlocks: Block[] = [
     { kind: "source", primary: guide.source },
-    {
-      kind: "cta",
-      title: "Is your situation similar?",
-      sub: "Start the free Readiness Review.",
-      buttons: [{ label: "Get My Free PR Readiness Report", href: "/pr-readiness-review", style: "light" }],
-    },
   ];
 
   return (
@@ -88,6 +83,7 @@ export default async function GuidePage({ params }: { params: Promise<{ slug: st
             </figure>
           )}
           <article className="prose-x mx-auto max-w-[820px]" dangerouslySetInnerHTML={{ __html: guide.html }} />
+          <GuideContactCard />
         </Section>
         <Blocks blocks={bottomBlocks} />
       </main>

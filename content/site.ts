@@ -12,6 +12,11 @@ export const SITE = {
   appointmentNote: "By appointment only",
   url: "https://getsgpr.com",
   tagline: "Know where you stand. Strengthen what matters. Submit with confidence.",
+  guideContact: {
+    eyebrow: "Need personal guidance?",
+    title: "Talk through your next PR step.",
+    text: "Speak with GetSGPR about your situation, documents and timing.",
+  },
   disclaimer: "GetSGPR is an independent consultancy and is not affiliated with, licensed by or endorsed by the Immigration & Checkpoints Authority (ICA) or any government agency. ICA assesses every application on its own merits and makes all final decisions. Nothing on this website is a promise or prediction of approval.",
   independenceLine: "Independent Singapore immigration consultancy. ICA makes all approval decisions. We never guarantee approval.",
   ghl: {
