@@ -102,5 +102,4 @@ Generated from project sources at 2026-11-26T06:01:03.386Z.
 
 ## Decisions
 
-- None recorded
-
+- **Guide article contact CTA:** Place a compact navy contact card after each long-form guide article, with email, WhatsApp and booking links in a responsive action strip. This adapts the supplied contact-card reference to the article width and GetSGPR tokens without changing the global footer.
