@@ -4,7 +4,7 @@ summary: "How to prepare the employer letter, payslips and related employment re
 category: "Documents"
 source: "ICA, Application for Permanent Residence document checklist"
 createdAt: "2026-11-26T13:47:18+08:00"
-status: scheduled
+status: published
 publishAt: "2026-11-27T09:00:00+08:00"
 ---
 
